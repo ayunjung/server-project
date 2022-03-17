@@ -1,10 +1,10 @@
 import React from 'react'
-import Searchbar from './components/Searchbar';
+import UserInfo from './components/UserInfo';
 
 
 function App() {
     return (
-        <Searchbar />
+        <UserInfo />
     );
 }
 
