@@ -1,10 +1,10 @@
 import React from 'react'
-import UserInfo from './components/UserInfo';
+import Classbar from './components/Classbar';
 
 
 function App() {
     return (
-        <UserInfo />
+        <Classbar />
     );
 }
 
