@@ -25,12 +25,12 @@
 // export default App;
 
 import React from 'react'
-import Login from './components/Login';
+import LoginModal from './components/LoginModal';
 
 
 function App() {
     return (
-        <Login />
+        <LoginModal />
     );
 }
 

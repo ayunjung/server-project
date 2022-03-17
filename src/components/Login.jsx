@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Login = () => {
 
     const Loginform = styled.div `
-      width: 300px;
+      width: 500px;
       font-size: 15px;
     `
 
@@ -30,6 +30,7 @@ const Login = () => {
       border: 3px solid #29b2ef;
       border-radius: 5px;
       color: #fff;
+      line-height: 50px;
       text-align: center;
     `
 
@@ -42,6 +43,7 @@ const Login = () => {
       border: 3px solid #e6e6e6;
       border-radius: 5px;
       color: #000;
+      line-height: 50px;
       text-align: center;
     `
 
