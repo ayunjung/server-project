@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsPersonFill } from "react-icons/bs";
+import { GiQueenCrown } from "react-icons/gi";
 
 const UserInfo = () => {
 
@@ -10,7 +11,7 @@ const UserInfo = () => {
     `
 
     const User = styled.div`
-        width: 300px;
+        width: 200px;
         height: 600px;
         border: 1px solid #999;
         border-right: 0;
@@ -22,31 +23,53 @@ const UserInfo = () => {
     `
 
     const Info = styled.div`
-        width: 700px;
+        width: 800px;
         height: 600px;
         border: 1px solid #999;
         border-left: 0;
         box-sizing: border-box;
-        padding: 30px;
+        padding: 25px 50px;
         font-size: 20px;
     `
-
+    const Contents = styled.div`
+        display: flex;
+        width: 100%;
+        height: 70px;
+        line-height: 70px;
+    `
+    const License = styled.div`
+        width: 600px;
+        height: 180px;
+        border: 1px solid #999;
+    `
+    const Licensetop = styled.div`
+        display: flex;
+        overflow: auto;
+        width: 100%;
+        height: 30px;
+        border-bottom: 1px solid #999;
+    `
+    const LicenseNum = styled.div`
+        width: 20%;
+        text-align: center;
+    `
+    const LicenseElement = styled.div`
+        width: 40%;
+        text-align: center;
+    `
+    const ContentElement = styled.div`
+        width: 50%;
+    `
     const Btndiv = styled.div`
         display: flex;
-        width: 700px;
-        height: 600px;
-        box-sizing: border-box;
         padding: 30px;
         font-size: 20px;
     `
-
     const Infobtn = styled.div`
         width: 150px;
         height: 40px;
-        border: 1px solid #29b2ef;
         border-radius: 5px;
-        box-sizing: border-box;
-        margin-right: 30px;
+        margin: 0 50px;
         background-color: #29b2ef;
         color: #fff;
         line-height: 40px;
@@ -58,8 +81,24 @@ const UserInfo = () => {
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <div>이름 : 정아윤</div>
-                    <div>나이 : 23</div>
+                    <Contents>이름 : 정아윤</Contents>
+                    <Contents>나이 : 23</Contents>
+                    <Contents>직업 : 대학생</Contents>
+                    <License>
+                        <Licensetop>
+                            <LicenseNum>No.</LicenseNum>
+                            <LicenseElement>자격증</LicenseElement>
+                            <LicenseElement>수강한 강의</LicenseElement>
+                        </Licensetop>
+                    </License>
+                    <Contents>
+                        <ContentElement>회원등급</ContentElement>
+                        <ContentElement>간단한 소개</ContentElement>
+                    </Contents>
+                    <Contents>
+                        <ContentElement><a src="">작성한 글 보기</a></ContentElement>
+                        <ContentElement><a src="">수강한 강좌 보기</a></ContentElement>
+                    </Contents>
                 </Info>
             </Maindiv>
             <Btndiv>
