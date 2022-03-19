@@ -12,7 +12,7 @@ const Classbar = () => {
         width: 100px;
         height: 40px;
         border-radius: 20px;
-        background-color: #e6e6e6;
+        background-color: #e8e8e8;
         box-sizing: border-box;
         line-height: 40px;
         text-align: center;

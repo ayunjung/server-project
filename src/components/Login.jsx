@@ -39,8 +39,8 @@ const Login = () => {
       height: 50px;
       margin-top: 10px;
       font-size: 20px;
-      background-color: #e6e6e6;
-      border: 3px solid #e6e6e6;
+      background-color: #e8e8e8;
+      border: 3px solid #e8e8e8;
       border-radius: 5px;
       color: #000;
       line-height: 50px;

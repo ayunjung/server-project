@@ -6,7 +6,8 @@ const LoginModal = () => {
     const Modal = styled.div `
         width: 400px;
         height: 200px;
-        border: 1px solid #000;
+        background-color: #e8e8e8;
+        border-radius: 5px;
         font-size: 20px;
         line-height: 100px;
         text-align: center;

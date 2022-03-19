@@ -1,10 +1,10 @@
 import React from 'react'
-import Classbar from './components/Classbar';
+import Login from './components/Login';
 
 
 function App() {
     return (
-        <Classbar />
+        <Login />
     );
 }
 
