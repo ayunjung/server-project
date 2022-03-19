@@ -1,10 +1,10 @@
 import React from 'react'
-import UserInfo from './components/UserInfo';
+import Community from './components/Community';
 
 
 function App() {
     return (
-        <UserInfo />
+        <Community />
     );
 }
 
