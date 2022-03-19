@@ -11,22 +11,25 @@ const Classbar = () => {
     const OtherClass = styled.div`
         width: 100px;
         height: 40px;
-        border: 1px solid #29b2ef;
         border-radius: 20px;
+        background-color: #e6e6e6;
         box-sizing: border-box;
         line-height: 40px;
         text-align: center;
+        font-weight: 600;
     `
 
     const CurrentClass = styled.div`
         width: 100px;
         height: 20px;
         margin: 10px;
-        border: 1px solid #29b2ef;
         border-radius: 20px;
+        background-color: #3ED6A7;
         box-sizing: border-box;
         line-height: 20px;
         text-align: center;
+        color: #fff;
+        font-weight: 600;
     `
 
     return (
