@@ -1,5 +1,7 @@
+//https://react-icons.github.io/react-icons/#/
 import React from 'react'
 import styled from 'styled-components'
+import { BsPersonFill } from "react-icons/bs";
 
 const UserInfo = () => {
 
@@ -54,9 +56,9 @@ const UserInfo = () => {
     return (
         <div>
             <Maindiv>
-                <User>🧝🏻‍♂️</User>
+                <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <div>이름 : 정아윤</div><br />
+                    <div>이름 : 정아윤</div>
                     <div>나이 : 23</div>
                 </Info>
             </Maindiv>
