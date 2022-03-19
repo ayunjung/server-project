@@ -18,8 +18,11 @@ const Community = () => {
         width : 55%;
     `
     const CommunityMain = styled.ul`
+        width: 1000px;
+        height: 600px;
         margin: 0;
         padding: 0;
+        overflow: auto;
     `
     const CommunityList = styled.li`
         display: flex;
@@ -42,6 +45,36 @@ const Community = () => {
             <CommunityMain>
                 <CommunityList>
                     <CommunityElement>1</CommunityElement>
+                    <CommunityElement>미해결</CommunityElement>
+                    <CommunityContent>자바스크립트 질문</CommunityContent>
+                    <CommunityElement>정아윤</CommunityElement>
+                </CommunityList>
+                <CommunityList>
+                    <CommunityElement>2</CommunityElement>
+                    <CommunityElement>미해결</CommunityElement>
+                    <CommunityContent>자바스크립트 질문</CommunityContent>
+                    <CommunityElement>정아윤</CommunityElement>
+                </CommunityList>
+                <CommunityList>
+                    <CommunityElement>2</CommunityElement>
+                    <CommunityElement>미해결</CommunityElement>
+                    <CommunityContent>자바스크립트 질문</CommunityContent>
+                    <CommunityElement>정아윤</CommunityElement>
+                </CommunityList>
+                <CommunityList>
+                    <CommunityElement>2</CommunityElement>
+                    <CommunityElement>미해결</CommunityElement>
+                    <CommunityContent>자바스크립트 질문</CommunityContent>
+                    <CommunityElement>정아윤</CommunityElement>
+                </CommunityList>
+                <CommunityList>
+                    <CommunityElement>2</CommunityElement>
+                    <CommunityElement>미해결</CommunityElement>
+                    <CommunityContent>자바스크립트 질문</CommunityContent>
+                    <CommunityElement>정아윤</CommunityElement>
+                </CommunityList>
+                <CommunityList>
+                    <CommunityElement>2</CommunityElement>
                     <CommunityElement>미해결</CommunityElement>
                     <CommunityContent>자바스크립트 질문</CommunityContent>
                     <CommunityElement>정아윤</CommunityElement>

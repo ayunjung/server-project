@@ -8,6 +8,7 @@ const UserInfo = () => {
 
     const Maindiv = styled.div`
         display: flex;
+        white-space: nowrap;
     `
 
     const User = styled.div`
@@ -47,7 +48,7 @@ const UserInfo = () => {
         overflow: auto;
         width: 100%;
         height: 30px;
-        border-bottom: 1px solid #999;
+        border-bottom: 2px solid #999;
     `
     const LicenseNum = styled.div`
         width: 20%;
@@ -55,6 +56,20 @@ const UserInfo = () => {
     `
     const LicenseElement = styled.div`
         width: 40%;
+        text-align: center;
+    `
+    const LicenseMain = styled.ul`
+        width: 600px;
+        height: 150px; 
+        padding: 0;
+        margin: 0;
+        overflow: auto;
+    `
+    const LicenseList = styled.li`
+        display: flex;
+        height : 40px;
+        border-bottom : 1px solid #999;
+        line-height: 40px;
         text-align: center;
     `
     const ContentElement = styled.div`
@@ -90,6 +105,33 @@ const UserInfo = () => {
                             <LicenseElement>자격증</LicenseElement>
                             <LicenseElement>수강한 강의</LicenseElement>
                         </Licensetop>
+                        <LicenseMain>
+                            <LicenseList>
+                                <LicenseNum>1</LicenseNum>
+                                <LicenseElement>자격증</LicenseElement>
+                                <LicenseElement>수강한 강의</LicenseElement>                               
+                            </LicenseList>
+                            <LicenseList>
+                                <LicenseNum>2</LicenseNum>
+                                <LicenseElement>자격증</LicenseElement>
+                                <LicenseElement>수강한 강의</LicenseElement>                               
+                            </LicenseList>
+                            <LicenseList>
+                                <LicenseNum>3</LicenseNum>
+                                <LicenseElement>자격증</LicenseElement>
+                                <LicenseElement>수강한 강의</LicenseElement>                               
+                            </LicenseList>
+                            <LicenseList>
+                                <LicenseNum>4</LicenseNum>
+                                <LicenseElement>자격증</LicenseElement>
+                                <LicenseElement>수강한 강의</LicenseElement>                               
+                            </LicenseList>
+                            <LicenseList>
+                                <LicenseNum>5</LicenseNum>
+                                <LicenseElement>자격증</LicenseElement>
+                                <LicenseElement>수강한 강의</LicenseElement>                               
+                            </LicenseList>
+                        </LicenseMain>
                     </License>
                     <Contents>
                         <ContentElement>회원등급</ContentElement>
