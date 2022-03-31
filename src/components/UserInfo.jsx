@@ -150,7 +150,7 @@ const UserInfo = () => {
                         </LicenseMain>
                     </License>
                     <Addinfo>
-                        <ContentElement><div>회원등급</div><BsPersonFill size="30" color="pink" /></ContentElement>
+                        <ContentElement><div>회원등급</div><BsPersonFill size="35" style= {{ color: 'pink', marginLeft: '25px'}} /></ContentElement>
                         <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>나는 정아윤입니다.</div></ContentElement>
                     </Addinfo>
                     <Addinfo>
