@@ -1,34 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
-import Topbar from '../components/Topbar';
-import UserInfo from '../components/UserInfo';
-import Usericon from '../components/Usericon';
-
-
+import Topbar from '../components/Topbar'
+import LecInfoHead from '../components/LecInfoHead';
+import LecInfoTime from '../components/LecInfoTime';
+import SmallLecList from '../components/SmallLecList';
 
 function LectureView() {
 
+    const LecView = styled.div`
+        width: 800px;
+        margin: 30px auto;
+    `
+
     const LecViewdiv = styled.div`
-        width: 1200px;
-        margin: 20px auto;
-    `
-    const LecViewMain = styled.div`
-        display: flex;
-    `
-    const LecViewleft = styled.div`
-        width: 65%;
-    `
-    const LecViewight = styled.div`
-        width: 35%;
+        width: 100%;
+        padding: 20px 0;
     `
 
     return (
-        <LecViewdiv>
+        <LecView>
             <Topbar />
-            <LecViewMain>
-                
-            </LecViewMain>
-        </LecViewdiv>
+            <LecViewdiv><LecInfoHead /></LecViewdiv>
+            <LecViewdiv><LecInfoTime /></LecViewdiv>
+            <LecViewdiv><SmallLecList /></LecViewdiv>
+        </LecView>
     );
 }
 

@@ -6,6 +6,7 @@ const Classbar = () => {
     const Classbar = styled.div`
         width: 400px;
         display: flex;
+        margin: 0 auto;
     `
 
     const OtherClass = styled.div`

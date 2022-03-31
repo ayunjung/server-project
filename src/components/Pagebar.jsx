@@ -5,6 +5,7 @@ const Pagebar = () => {
 
     const SPagebar = styled.div`
         display : flex;
+        margin: 0 auto;
     `
 
     const SNumberkey= styled.div`

@@ -28,7 +28,7 @@ const Topmenu = () => {
             <div>커뮤니티</div>
         </Innermenudiv>
         <Innermenudiv>
-            <div>Q＆A</div>
+            <div>Q{'&'}A</div>
         </Innermenudiv>
       </Topmenudiv>
   )

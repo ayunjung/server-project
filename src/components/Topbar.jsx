@@ -7,7 +7,7 @@ import Usericon from './Usericon';
 const Topbar = () => {
 
     const Topbar = styled.div`
-        width: 1200px;
+        width: 1000px;
         display: flex;
     `
     const Userbtn = styled.div`

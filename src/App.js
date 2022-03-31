@@ -1,10 +1,10 @@
 import React from 'react'
-import LectureView from './file/LectureView';
+import UserInfo from './file/UserInfo';
 
 
 function App() {
     return (
-        <LectureView />
+        <UserInfo />
     );
 }
 
