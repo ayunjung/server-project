@@ -1,10 +1,11 @@
 import React from 'react'
-import Community from './components/Community';
+import Topbar from './components/Topbar';
+import Mypage from './file/Mypage';
 
 
 function App() {
     return (
-        <Community />
+        <Mypage />
     );
 }
 

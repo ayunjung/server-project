@@ -9,11 +9,13 @@ const UserInfo = () => {
     const Maindiv = styled.div`
         display: flex;
         white-space: nowrap;
+        width: 1000px;
+        height: 550px;
     `
 
     const User = styled.div`
-        width: 200px;
-        height: 600px;
+        width: 20%;
+        height: 100%;
         border: 1px solid #999;
         border-right: 0;
         box-sizing: border-box;
@@ -24,8 +26,8 @@ const UserInfo = () => {
     `
 
     const Info = styled.div`
-        width: 800px;
-        height: 600px;
+        width: 80%;
+        height: 100%;
         border: 1px solid #999;
         border-left: 0;
         box-sizing: border-box;
@@ -35,7 +37,7 @@ const UserInfo = () => {
     const Contents = styled.div`
         display: flex;
         width: 100%;
-        height: 70px;
+        height: 13%;
         line-height: 70px;
     `
     const License = styled.div`
@@ -77,7 +79,7 @@ const UserInfo = () => {
     `
     const Btndiv = styled.div`
         display: flex;
-        padding: 30px;
+        padding: 20px;
         font-size: 20px;
     `
     const Infobtn = styled.div`
