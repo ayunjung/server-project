@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Pagebar = () => {
 
     const SPagebar = styled.div`
+        width: 400px;
         display : flex;
         margin: 0 auto;
     `

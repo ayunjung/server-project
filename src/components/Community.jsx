@@ -19,7 +19,7 @@ const Community = () => {
     `
     const CommunityMain = styled.ul`
         width: 1000px;
-        height: 600px;
+        height: 370px;
         margin: 0;
         padding: 0;
         overflow: auto;
