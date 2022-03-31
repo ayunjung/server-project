@@ -11,7 +11,7 @@ const Usericon = () => {
         border: 1px solid black;
         border-radius: 50%;
         background-color: gray;
-        margin: 0 20px;
+        margin: 0 auto;
     `
 
   return (

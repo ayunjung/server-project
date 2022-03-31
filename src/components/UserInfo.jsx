@@ -31,19 +31,27 @@ const UserInfo = () => {
         border: 1px solid #999;
         border-left: 0;
         box-sizing: border-box;
-        padding: 25px 50px;
+        padding: 10px 50px;
         font-size: 20px;
     `
-    const Contents = styled.div`
+    const Basicinfo = styled.div`
         display: flex;
         width: 100%;
-        height: 13%;
+        height: 10%;
+        line-height: 70px;
+        margin: 5px 0;
+    `
+    const Addinfo = styled.div`
+        display: flex;
+        width: 100%;
+        height: 15%;
         line-height: 70px;
     `
     const License = styled.div`
         width: 600px;
         height: 180px;
         border: 1px solid #999;
+        margin: 20px 0 10px;
     `
     const Licensetop = styled.div`
         display: flex;
@@ -75,7 +83,10 @@ const UserInfo = () => {
         text-align: center;
     `
     const ContentElement = styled.div`
-        width: 50%;
+        width: 40%;
+        height: 30px;
+        line-height: 30px;
+        margin: 10px 0;
     `
     const Btndiv = styled.div`
         display: flex;
@@ -92,15 +103,18 @@ const UserInfo = () => {
         line-height: 40px;
         text-align: center;
     `
+    const Link = styled.a`
+        color: blue;
+    `
 
     return (
         <div>
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <Contents>이름 : 정아윤</Contents>
-                    <Contents>나이 : 23</Contents>
-                    <Contents>직업 : 대학생</Contents>
+                    <Basicinfo>이름 : 정아윤</Basicinfo>
+                    <Basicinfo>나이 : 23</Basicinfo>
+                    <Basicinfo>직업 : 대학생</Basicinfo>
                     <License>
                         <Licensetop>
                             <LicenseNum>No.</LicenseNum>
@@ -135,14 +149,14 @@ const UserInfo = () => {
                             </LicenseList>
                         </LicenseMain>
                     </License>
-                    <Contents>
-                        <ContentElement>회원등급</ContentElement>
-                        <ContentElement>간단한 소개</ContentElement>
-                    </Contents>
-                    <Contents>
-                        <ContentElement><a src="">작성한 글 보기</a></ContentElement>
-                        <ContentElement><a src="">수강한 강좌 보기</a></ContentElement>
-                    </Contents>
+                    <Addinfo>
+                        <ContentElement><div>회원등급</div><BsPersonFill size="30" color="pink" /></ContentElement>
+                        <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>나는 정아윤입니다.</div></ContentElement>
+                    </Addinfo>
+                    <Addinfo>
+                        <ContentElement><Link href="">작성한 글 보기</Link></ContentElement>
+                        <ContentElement><Link href="">수강한 강좌 보기</Link></ContentElement>
+                    </Addinfo>
                 </Info>
             </Maindiv>
             <Btndiv>

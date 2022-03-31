@@ -9,14 +9,14 @@ import Usericon from '../components/Usericon';
 function Mypage() {
 
     const Mypagediv = styled.div`
+        width: 1200px;
         display: flex;
         padding: 10px;
-        margin: 20px 100px;
+        margin: 20px auto;
     `
 
     const Mypageleft = styled.div`
-        width: 90%;
-        margin-left: 100px;
+        width: 85%;
         text-align: center;
     `
     const Mypageright = styled.div`
