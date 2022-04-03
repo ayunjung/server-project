@@ -1,10 +1,10 @@
 import React from 'react'
-import CommunityPage from './file/CommunityPage';
+import LoginPage from './file/LoginPage';
 
 
 function App() {
     return (
-        <CommunityPage />
+        <LoginPage />
     );
 }
 

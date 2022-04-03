@@ -9,7 +9,7 @@ const Subjecticon = () => {
         border-radius: 5px;
         background-color: #29b2ef;
         color: #fff;
-        padding: 3px;
+        padding: 3px 10px;
         margin: 10px 0;
     `
 
