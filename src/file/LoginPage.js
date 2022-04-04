@@ -5,7 +5,7 @@ import Login from '../components/Login'
 
 function LoginPage() {
 
-    const LoginMain = styled.div`
+    const LoginMain = styled.form`
         width: 1000px;
         margin: 30px auto;
     `

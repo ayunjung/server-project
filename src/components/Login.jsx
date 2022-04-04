@@ -21,7 +21,7 @@ const Login = () => {
       margin: 2px;
     `
 
-    const Loginbtn = styled.div `
+    const Loginbtn = styled.button `
       width: 100%;
       height: 50px;
       margin-top: 10px;
@@ -52,7 +52,7 @@ const Login = () => {
         <Userinput placeholder='Username' />
         <Userinput placeholder='Password' />
         <Checkbox type="checkbox" id="checkbox"/><label for="checkbox">로그인 유지</label>
-        <Loginbtn>로그인</Loginbtn>
+        <Loginbtn type="submit">로그인</Loginbtn>
         <Joinbtn>회원가입</Joinbtn>
       </Loginform>
     )
