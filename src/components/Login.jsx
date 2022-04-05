@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -42,7 +43,6 @@ const Login = () => {
       background-color: #e8e8e8;
       border: 3px solid #e8e8e8;
       border-radius: 5px;
-      color: #000;
       line-height: 50px;
       text-align: center;
     `
@@ -53,7 +53,7 @@ const Login = () => {
         <Userinput placeholder='Password' />
         <Checkbox type="checkbox" id="checkbox"/><label for="checkbox">로그인 유지</label>
         <Loginbtn type="submit">로그인</Loginbtn>
-        <Joinbtn>회원가입</Joinbtn>
+        <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black' }}>회원가입</Link></Joinbtn>
       </Loginform>
     )
 }

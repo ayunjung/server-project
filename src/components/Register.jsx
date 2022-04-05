@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
 
@@ -42,7 +43,6 @@ const Register = () => {
       font-size: 20px;
       background-color: #e8e8e8;
       border-radius: 5px;
-      color: #000;
       line-height: 50px;
       text-align: center;
     `
@@ -55,7 +55,7 @@ const Register = () => {
         <label>이름</label><Joininput />
         <Btnbox>
             <Joinbtn type="submit">회원가입</Joinbtn>
-            <Cancelbtn>취소</Cancelbtn>
+            <Cancelbtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black' }}>취소</Link></Cancelbtn>
         </Btnbox>
       </Joinform>
     )
