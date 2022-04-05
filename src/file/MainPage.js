@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Topbar from '../components/Topbar';
 import Searchbar from '../components/Searchbar';
+import BestUser from '../components/BestUser';
+import BestLecturer from '../components/BestLecturer';
+import MainLecField from '../components/MainLecField';
 
 function MainPage() {
 
@@ -22,17 +25,27 @@ function MainPage() {
     const LecMainright = styled.div`
         width: 35%;
     `
+    const VidioDiv = styled.div`
+        width: 100%;
+        height: 300px;
+    `
 
     return (
         <div>
             <Top><Topbar /></Top>
             <LecMaindiv>
+                <Searchbar />
                 <LecMain>
                     <LecMainleft>
-                        <Searchbar />
+                        <MainLecField />
+                        <MainLecField />
+                        <MainLecField />
+                        <MainLecField />
+                        <MainLecField />
                     </LecMainleft>
                     <LecMainright>
-
+                        <BestUser />
+                        <BestLecturer />
                     </LecMainright>
                 </LecMain>
             </LecMaindiv>

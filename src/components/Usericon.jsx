@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { BsPersonFill } from "react-icons/bs";
+import { Link } from 'react-router-dom'
 
 const Usericon = () => {
 
@@ -14,12 +15,12 @@ const Usericon = () => {
     `
 
   return (
-    <div>
+    <Link to="/MyPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
       <UserIcondiv>
         <BsPersonFill size="60" color="white" />
       </UserIcondiv>
       <div style= {{ fontSize: '15px', fontWeight: '800', marginTop: '5px'}}>마이페이지</div>
-    </div>
+    </Link>
   )
 }
 
