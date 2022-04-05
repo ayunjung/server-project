@@ -5,6 +5,7 @@ const BicLecture = () => {
 
     const SBicLecture = styled.div`
         width : 220px;
+        margin: 5px 20px;
     `
 
     const SImgWrap = styled.div`
