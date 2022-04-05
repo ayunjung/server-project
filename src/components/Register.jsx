@@ -55,7 +55,7 @@ const Register = () => {
         <label>이름</label><Joininput />
         <Btnbox>
             <Joinbtn type="submit">회원가입</Joinbtn>
-            <Cancelbtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black' }}>취소</Link></Cancelbtn>
+            <Cancelbtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
         </Btnbox>
       </Joinform>
     )

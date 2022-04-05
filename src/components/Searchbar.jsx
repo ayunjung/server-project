@@ -23,7 +23,7 @@ const Searchbar = () => {
     `
 
     const Input = styled.input`
-        width : 320px;
+        width : 350px;
         font-size : 20px;
         padding : 7px;
         border: 0;

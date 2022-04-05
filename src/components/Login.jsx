@@ -53,7 +53,7 @@ const Login = () => {
         <Userinput placeholder='Password' />
         <Checkbox type="checkbox" id="checkbox"/><label for="checkbox">로그인 유지</label>
         <Loginbtn type="submit">로그인</Loginbtn>
-        <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black' }}>회원가입</Link></Joinbtn>
+        <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
       </Loginform>
     )
 }

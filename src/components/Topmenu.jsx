@@ -1,5 +1,6 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Topmenu = () => {
 
@@ -22,13 +23,13 @@ const Topmenu = () => {
   return (
       <Topmenudiv>
         <Innermenudiv>
-            <div>강의</div>
+            <Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>강의</Link>
         </Innermenudiv>
         <Innermenudiv>
-            <div>커뮤니티</div>
+            <Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>커뮤니티</Link>
         </Innermenudiv>
         <Innermenudiv>
-            <div>Q{'&'}A</div>
+            <Link to="/Question" style={{ textDecoration: 'none', color: 'black', display:'block' }}>Q{'&'}A</Link>
         </Innermenudiv>
       </Topmenudiv>
   )

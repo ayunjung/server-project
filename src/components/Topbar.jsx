@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Topmenu from './Topmenu';
 import Subjecticon from './Subjecticon';
 import Usericon from './Usericon';
+import { Link } from 'react-router-dom'
 
 const Topbar = () => {
 
@@ -20,7 +21,7 @@ const Topbar = () => {
     <Topbar>
         <Subjecticon />
         <Topmenu />
-        <Userbtn><Usericon /></Userbtn>
+        <Userbtn><Link to="/Mypage" style={{ textDecoration: 'none', color: 'black', display:'block' }}><Usericon /></Link></Userbtn>
     </Topbar>
   )
 }
