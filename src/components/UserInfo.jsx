@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsPersonFill } from "react-icons/bs";
 import { GiQueenCrown } from "react-icons/gi";
+import { Link } from 'react-router-dom'
 
 const UserInfo = () => {
 

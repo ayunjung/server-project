@@ -47,16 +47,22 @@ import UserInfo from '../components/UserInfo';
 
 function Mypage() {
 
+    const Top = styled.div`
+        width: 1200px;
+        margin: 30px auto;
+    `
     const Mypagediv = styled.div`
         width: 1000px;
-        margin: 20px auto;
+        margin: 0 auto;
     `
 
     return (
-        <Mypagediv>
-            <Topbar />
-            <UserInfo />
-        </Mypagediv>
+        <div>
+            <Top><Topbar /></Top>
+            <Mypagediv>
+                <UserInfo />
+            </Mypagediv>
+        </div>
     );
 }
 

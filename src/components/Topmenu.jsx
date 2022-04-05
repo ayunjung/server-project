@@ -23,7 +23,7 @@ const Topmenu = () => {
   return (
       <Topmenudiv>
         <Innermenudiv>
-            <Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>강의</Link>
+            <Link to="/MainPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>강의</Link>
         </Innermenudiv>
         <Innermenudiv>
             <Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>커뮤니티</Link>

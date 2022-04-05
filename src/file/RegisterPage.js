@@ -5,9 +5,13 @@ import Register from '../components/Register';
 
 function RegisterPage() {
 
+    const Top = styled.div`
+        width: 1200px;
+        margin: 30px auto;
+    `
     const RegisterMain = styled.div`
         width: 1000px;
-        margin: 30px auto;
+        margin: 0 auto;
     `
     const RegisterForm = styled.div`
         width: 400px;
@@ -18,10 +22,12 @@ function RegisterPage() {
     `
 
     return (
-        <RegisterMain>
-            <Topbar />
-            <RegisterForm><Register /></RegisterForm>
-        </RegisterMain>
+        <div>
+            <Top><Topbar /></Top>
+            <RegisterMain>
+                <RegisterForm><Register /></RegisterForm>
+            </RegisterMain>
+        </div>
     );
 }
 

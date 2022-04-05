@@ -5,18 +5,20 @@ import RegisterPage from './file/RegisterPage';
 import Mypage from './file/Mypage';
 import LectureView from './file/LectureView';
 import LectureVidio from './file/LectureVidio';
-import LectureMain from './file/LectureMain';
+import MainPage from './file/MainPage';
 import Question from './file/Question';
 import CommunityPage from './file/CommunityPage';
+import LectureList from './file/LectureList';
 
 
 function App() {
     return (
         <Router>
             <Switch>
+                <Route exact path="/LectureList"><LectureList/></Route>
                 <Route exact path="/CommunityPage"><CommunityPage/></Route>
                 <Route exact path="/Question"><Question/></Route>
-                <Route exact path="/LectureMain"><LectureMain/></Route>
+                <Route exact path="/MainPage"><MainPage/></Route>
                 <Route exact path="/LectureVidio"><LectureVidio/></Route>
                 <Route exact path="/LectureView"><LectureView/></Route>
                 <Route exact path="/LoginPage"><LoginPage/></Route>

@@ -7,22 +7,28 @@ import Pagebar from '../components/Pagebar'
 
 function Question() {
 
+    const Top = styled.div`
+        width: 1200px;
+        margin: 30px auto;
+    `
     const CommunityMain = styled.div`
         width: 1000px;
-        margin: 30px auto;
+        margin: 0 auto;
     `
     const CommunityList = styled.div`
         margin: 20px 0;
     `
 
     return (
-        <CommunityMain>
-            <Topbar />
-            <h1>Q{'&'}A</h1>
-            <Searchbar />
-            <CommunityList><Community /></CommunityList>
-            <Pagebar />
-        </CommunityMain>
+        <div>
+            <Top><Topbar /></Top>
+            <CommunityMain>
+                <h1>Q{'&'}A</h1>
+                <Searchbar />
+                <CommunityList><Community /></CommunityList>
+                <Pagebar />
+            </CommunityMain>
+        </div>
     );
 }
 
