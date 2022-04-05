@@ -5,9 +5,13 @@ import Login from '../components/Login'
 
 function LoginPage() {
 
-    const LoginMain = styled.div`
-        width: 1000px;
+    const Top = styled.div`
+        width: 1200px;
         margin: 30px auto;
+    `
+    const LoginMain = styled.form`
+        width: 1000px;
+        margin: 0 auto;
     `
     const LoginForm = styled.div`
         width: 500px;
@@ -15,10 +19,12 @@ function LoginPage() {
     `
 
     return (
-        <LoginMain>
-            <Topbar />
-            <LoginForm><Login /></LoginForm>
-        </LoginMain>
+        <div>
+            <Top><Topbar /></Top>
+            <LoginMain>
+                <LoginForm><Login /></LoginForm>
+            </LoginMain>
+        </div>
     );
 }
 
