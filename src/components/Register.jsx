@@ -49,12 +49,29 @@ const Register = () => {
 
     return (
       <Joinform>
-        <label>이메일</label><Joininput />
-        <label>이메일확인</label><Joininput />
+        <label>이메일</label><Joininput type="email"/>
+        <label>이메일확인</label><Joininput type="email"/>
         <label>비밀번호</label><Joininput type='password'/>
         <label>이름</label><Joininput />
         <Btnbox>
-            <Joinbtn type="submit">회원가입</Joinbtn>
+            <Joinbtn type="submit" onClick={(e)=>{
+            e.preventDefault();
+            fetch('http://localhost:3001/join', {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: "Test@naver.com",
+                birth: "Test-te-st",
+                job: "Testman",
+                comment: "Testing...",
+                profilepic: "Testpic",
+              }),
+            }).then((res)=>
+                res.json()
+            ).then(data=>{console.log(data)})
+        }}>회원가입</Joinbtn>
             <Cancelbtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
         </Btnbox>
       </Joinform>

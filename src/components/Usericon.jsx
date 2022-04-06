@@ -15,7 +15,7 @@ const Usericon = () => {
     `
 
   return (
-    <Link to="/MyPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
+    <Link to="/MyPage" style={{ textDecoration: 'none', color: 'black' }}>
       <UserIcondiv>
         <BsPersonFill size="60" color="white" />
       </UserIcondiv>
