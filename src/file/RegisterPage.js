@@ -15,10 +15,10 @@ function RegisterPage() {
     `
     const RegisterForm = styled.div`
         width: 400px;
-        margin: 60px auto;
+        margin: 50px auto;
         border: 1px solid gray;
         border-radius: 5px;
-        padding: 30px;
+        padding: 20px;
     `
 
     return (

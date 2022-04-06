@@ -1,6 +1,7 @@
 //https://react-icons.github.io/react-icons/#/
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { BsPersonFill } from "react-icons/bs";
 import { GiQueenCrown } from "react-icons/gi";
 
@@ -103,9 +104,6 @@ const UserInfo = () => {
         line-height: 40px;
         text-align: center;
     `
-    const Link = styled.a`
-        color: blue;
-    `
 
     return (
         <div>
@@ -154,14 +152,14 @@ const UserInfo = () => {
                         <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>나는 정아윤입니다.</div></ContentElement>
                     </Addinfo>
                     <Addinfo>
-                        <ContentElement><Link href="">작성한 글 보기</Link></ContentElement>
-                        <ContentElement><Link href="">수강한 강좌 보기</Link></ContentElement>
+                        <ContentElement>작성한 글 보기</ContentElement>
+                        <ContentElement><Link to="/LectureView">수강한 강좌 보기</Link></ContentElement>
                     </Addinfo>
                 </Info>
             </Maindiv>
             <Btndiv>
                 <Infobtn>회원정보수정</Infobtn>
-                <Infobtn>로그아웃</Infobtn>
+                <Infobtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>로그아웃</Link></Infobtn>
             </Btndiv>
         </div>
     )

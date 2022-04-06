@@ -12,7 +12,7 @@ function LectureView() {
         margin: 30px auto;
     `
     const LecView = styled.div`
-        width: 800px;
+        width: 700px;
         margin: 0 auto;
     `
     const LecViewdiv = styled.div`

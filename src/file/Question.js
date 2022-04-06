@@ -14,6 +14,21 @@ function Question() {
     const CommunityMain = styled.div`
         width: 1000px;
         margin: 0 auto;
+    `    
+    const CommunityHead = styled.div`
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+    `
+    const WriteBtn = styled.div`
+        width: 100px;
+        height: 40px;
+        background-color: #888;
+        font-weight: 800;
+        border-radius: 5px;
+        line-height: 40px;
+        text-align: center;
     `
     const CommunityList = styled.div`
         margin: 20px 0;
@@ -23,7 +38,10 @@ function Question() {
         <div>
             <Top><Topbar /></Top>
             <CommunityMain>
-                <h1>Q{'&'}A</h1>
+                <CommunityHead>
+                    <h1>Q{'&'}A</h1>
+                    <WriteBtn>글쓰기</WriteBtn>
+                </CommunityHead>
                 <Searchbar />
                 <CommunityList><Community /></CommunityList>
                 <Pagebar />

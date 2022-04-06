@@ -6,13 +6,13 @@ const Register = () => {
 
     const Joinform = styled.form `
       width: 400px;
-      font-size: 20px;
+      font-size: 18px;
     `
 
     const Joininput = styled.input `
       margin: 5px 0 15px;
       width: 100%;
-      height: 50px;
+      height: 30px;
       border: 1px solid #999;
       border-radius: 5px;
       font-size: 20px;
@@ -25,34 +25,36 @@ const Register = () => {
 
     const Joinbtn = styled.button `
       width: 200px;
-      height: 50px;
+      height: 40px;
       margin: 10px 5px 0;
       font-size: 20px;
       background-color: #29b2ef;
       border: 3px solid #29b2ef;
       border-radius: 5px;
       color: #fff;
-      line-height: 50px;
+      line-height: 40px;
       text-align: center;
     `
 
     const Cancelbtn = styled.div `
       width: 200px;
-      height: 50px;
+      height: 40px;
       margin: 10px 5px 0;
       font-size: 20px;
       background-color: #e8e8e8;
       border-radius: 5px;
-      line-height: 50px;
+      line-height: 40px;
       text-align: center;
     `
 
     return (
       <Joinform>
         <label>이메일</label><Joininput type="email"/>
-        <label>이메일확인</label><Joininput type="email"/>
-        <label>비밀번호</label><Joininput type='password'/>
-        <label>이름</label><Joininput />
+        <label>비밀번호</label><Joininput type="password"/>
+        <label>비밀번호 확인</label><Joininput type='password'/>
+        <label>생년월일</label><Joininput  type='date'/>
+        <label>직업</label><Joininput  type='text'/>
+        <label>한줄소개</label><Joininput  type='text'/>
         <Btnbox>
             <Joinbtn type="submit" onClick={(e)=>{
             e.preventDefault();
@@ -63,6 +65,7 @@ const Register = () => {
               },
               body: JSON.stringify({
                 email: "Test@naver.com",
+                password: "Test1234",
                 birth: "Test-te-st",
                 job: "Testman",
                 comment: "Testing...",
