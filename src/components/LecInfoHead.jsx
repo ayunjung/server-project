@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const LecInfoHead = () => {
 
@@ -61,7 +62,6 @@ const LecInfoHead = () => {
         height : 100%;
     `
 
-
   return (
     <SLecInfoHead>
         <LeftDiv><SImg src="" alt="강의사진" /></LeftDiv>
@@ -69,7 +69,7 @@ const LecInfoHead = () => {
             <LecTitle>강의명 : 초보자를 위한 HTML{'&'}CSS 동작과 원리</LecTitle>
             <LecMaker>강사명 : 윤지수</LecMaker>
             <LecListener>수강생 : 10706</LecListener>
-            <LecMore><ListenerReview>수강생 후기</ListenerReview><SubButton>수강하기</SubButton></LecMore>
+            <LecMore><ListenerReview>수강생 후기</ListenerReview><Link to="/LectureVidio" style={{ textDecoration: 'none', color: 'black', display:'block' }}><SubButton>수강하기</SubButton></Link></LecMore>
         </RightDiv>
     </SLecInfoHead>
   )

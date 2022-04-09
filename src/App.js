@@ -25,8 +25,8 @@ function App() {
                 <Route exact path="/LectureView"><LectureView/></Route>
                 <Route exact path="/LoginPage"><LoginPage/></Route>
                 <Route exact path="/Mypage"><Mypage/></Route>
-                <Route path="/RegisterPage" component={RegisterPage}><RegisterPage/></Route>
-                <Route exact path="/"><LoginPage/></Route>
+                <Route exact path="/RegisterPage"><RegisterPage/></Route>
+                <Route path="/"><LoginPage/></Route>
             </Switch>
         </Router>
     );
