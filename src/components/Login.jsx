@@ -14,6 +14,7 @@ height: 70px;
 border: 1px solid #999;
 border-radius: 5px;
 font-size: 25px;
+box-sizing: border-box;
 `
 
 const Checkbox = styled.input `
@@ -23,10 +24,10 @@ margin: 2px;
 const Loginbtn = styled.button `
 width: 100%;
 height: 50px;
-margin-top: 10px;
+margin: 10px auto 0;
 font-size: 20px;
 background-color: #29b2ef;
-border: 3px solid #29b2ef;
+border: 0;
 border-radius: 5px;
 color: #fff;
 line-height: 50px;
@@ -36,10 +37,9 @@ text-align: center;
 const Joinbtn = styled.div `
 width: 100%;
 height: 50px;
-margin-top: 10px;
+margin: 10px auto 0;
 font-size: 20px;
 background-color: #e8e8e8;
-border: 3px solid #e8e8e8;
 border-radius: 5px;
 color: #000;
 line-height: 50px;

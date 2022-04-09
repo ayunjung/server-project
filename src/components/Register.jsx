@@ -29,7 +29,7 @@ const Register = () => {
       margin: 10px 5px 0;
       font-size: 20px;
       background-color: #29b2ef;
-      border: 3px solid #29b2ef;
+      border: 0;
       border-radius: 5px;
       color: #fff;
       line-height: 40px;

@@ -1,20 +1,22 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import LoginPage from './file/LoginPage';
-import RegisterPage from './file/RegisterPage';
-import Mypage from './file/Mypage';
-import LectureView from './file/LectureView';
-import LectureVidio from './file/LectureVidio';
-import MainPage from './file/MainPage';
-import Question from './file/Question';
-import CommunityPage from './file/CommunityPage';
-import LectureList from './file/LectureList';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import Mypage from './pages/Mypage';
+import LectureView from './pages/LectureView';
+import LectureVidio from './pages/LectureVidio';
+import MainPage from './pages/MainPage';
+import Question from './pages/Question';
+import CommunityPage from './pages/CommunityPage';
+import LectureList from './pages/LectureList';
+import WritePage from './pages/WritePage';
 
 
 function App() {
     return (
         <Router>
             <Switch>
+                <Route exact path="/WritePage"><WritePage/></Route>
                 <Route exact path="/LectureList"><LectureList/></Route>
                 <Route exact path="/CommunityPage"><CommunityPage/></Route>
                 <Route exact path="/Question"><Question/></Route>
@@ -23,7 +25,7 @@ function App() {
                 <Route exact path="/LectureView"><LectureView/></Route>
                 <Route exact path="/LoginPage"><LoginPage/></Route>
                 <Route exact path="/Mypage"><Mypage/></Route>
-                <Route exact path="/RegisterPage"><RegisterPage/></Route>
+                <Route path="/RegisterPage" component={RegisterPage}><RegisterPage/></Route>
                 <Route exact path="/"><LoginPage/></Route>
             </Switch>
         </Router>

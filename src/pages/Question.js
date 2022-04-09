@@ -4,6 +4,7 @@ import Topbar from '../components/Topbar'
 import Searchbar from '../components/Searchbar'
 import Community from '../components/Community'
 import Pagebar from '../components/Pagebar'
+import { Link } from 'react-router-dom'
 
 function Question() {
 
@@ -40,7 +41,7 @@ function Question() {
             <CommunityMain>
                 <CommunityHead>
                     <h1>Q{'&'}A</h1>
-                    <WriteBtn>글쓰기</WriteBtn>
+                    <WriteBtn><Link to="/WritePage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
                 </CommunityHead>
                 <Searchbar />
                 <CommunityList><Community /></CommunityList>
