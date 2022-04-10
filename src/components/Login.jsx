@@ -72,20 +72,19 @@ const Login = () => {
         <Userinput type="email" value={Email} onChange={onEmailHandler} placeholder='UserEmail' />
         <Userinput type="password" value={Password} onChange={onPasswordHandler} placeholder='Password' />
         <Checkbox type="checkbox" id="checkbox"/><label for="checkbox">로그인 유지</label>
-        <Loginbtn type="submit" onClick={()=>{
-          const fetchf = () =>{
-            fetch('http://localhost:3001/join', {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                quesnum : 1,
-              }),
-            }).then((res)=>
-                res.json()
-            ).then(data=>{console.log(data)})
-          }
+        <Loginbtn type="submit" onClick={(e)=>{
+          e.preventDefault();
+          fetch('http://localhost:3001/join', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              quesnum : 1,
+            }),
+          }).then((res)=>
+              res.json()
+          ).then(data=>{console.log(data)})
         }}>로그인</Loginbtn>
         <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
       </Loginform>
