@@ -37,11 +37,12 @@ function MainPage() {
                 <Searchbar />
                 <LecMain>
                     <LecMainleft>
-                        <MainLecField />
-                        <MainLecField />
-                        <MainLecField />
-                        <MainLecField />
-                        <MainLecField />
+                        <MainLecField name="웹개발" />
+                        <MainLecField name="프론트앤드" />
+                        <MainLecField name="백앤드" />
+                        <MainLecField name="프로그래밍 언어" />
+                        <MainLecField name="게임 만들기" />
+                        <MainLecField name="프로젝트 관리" />
                     </LecMainleft>
                     <LecMainright>
                         <BestUser />
