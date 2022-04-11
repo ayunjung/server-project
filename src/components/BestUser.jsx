@@ -45,10 +45,10 @@ const BestUser = () => {
         <BestPeople>
             <PeopleTitle>활동 우수 회원</PeopleTitle>
             <PeopleMain>
-                <Peoplediv><PImg src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg.flaticon.com%2Ficons%2Fpng%2F512%2F2858%2F2858123.png%3Fsize%3D1200x630f%26pad%3D10%2C10%2C10%2C10%26ext%3Dpng%26bg%3DFFFFFFFF&type=sc960_832' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
-                <Peoplediv><PImg src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg.flaticon.com%2Ficons%2Fpng%2F512%2F2858%2F2858123.png%3Fsize%3D1200x630f%26pad%3D10%2C10%2C10%2C10%26ext%3Dpng%26bg%3DFFFFFFFF&type=sc960_832' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
-                <Peoplediv><PImg src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg.flaticon.com%2Ficons%2Fpng%2F512%2F2858%2F2858123.png%3Fsize%3D1200x630f%26pad%3D10%2C10%2C10%2C10%26ext%3Dpng%26bg%3DFFFFFFFF&type=sc960_832' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
-                <Peoplediv><PImg src='https://search.pstatic.net/sunny/?src=https%3A%2F%2Fimg.flaticon.com%2Ficons%2Fpng%2F512%2F2858%2F2858123.png%3Fsize%3D1200x630f%26pad%3D10%2C10%2C10%2C10%26ext%3Dpng%26bg%3DFFFFFFFF&type=sc960_832' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
+                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
+                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
+                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
+                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
             </PeopleMain>
         </BestPeople>
     )

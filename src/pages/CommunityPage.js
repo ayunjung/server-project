@@ -32,7 +32,7 @@ function Question() {
         text-align: center;
     `
     const CommunityList = styled.div`
-        margin: 20px 0;
+        margin: 20px 0 0;
     `
 
     return (
