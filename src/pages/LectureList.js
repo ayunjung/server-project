@@ -28,8 +28,8 @@ function LectureList() {
     const LecSmallMain = styled.div`
         display: flex;
         flex-wrap: wrap;
-        width: 80%;
-        margin: 20px auto 0;
+        width: 70%;
+        margin: 20px 0;
     `
 
     return (

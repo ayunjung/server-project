@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { AiOutlineMenu } from "react-icons/ai";
+import { Link } from 'react-router-dom'
 
 const MainLecField = (props) => {
 
@@ -66,9 +67,9 @@ const MainLecField = (props) => {
                 <Textdiv>{props.name}</Textdiv>
             </LecFieldTitle>
             <LecFieldContents>
-                <LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub1}</Lecimage><LName>{props.sub1}</LName></LecDiv>
-                <LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub2}</Lecimage><LName>{props.sub2}</LName></LecDiv>
-                <LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub3}</Lecimage><LName>{props.sub3}</LName></LecDiv>
+                <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub1}</Lecimage><LName>{props.sub1}</LName></LecDiv></Link>
+                <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub2}</Lecimage><LName>{props.sub2}</LName></LecDiv></Link>
+                <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub3}</Lecimage><LName>{props.sub3}</LName></LecDiv></Link>
             </LecFieldContents>
         </LecFieldMain>
     )

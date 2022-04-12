@@ -10,7 +10,7 @@ const Searchbar = styled.div `
   display : flex;
 `
 
-const Icondiv = styled.div `
+const Icondiv = styled.button `
   background : #cacaca;
   height : 100%;
   width : 50px;
@@ -41,7 +41,7 @@ const LecSearchbar = () => {
     return (
         <SLecSearchbarMain>
             <Searchbar>
-                <Icondiv>
+                <Icondiv type='submit'>
                     <BsSearch size="30"/>
                 </Icondiv>
                 <Input></Input>
