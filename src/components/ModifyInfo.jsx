@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { BsPersonFill } from "react-icons/bs";
 import { GiQueenCrown } from "react-icons/gi";
+import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
 
 const ModifyInfo = () => {
 
@@ -13,7 +14,6 @@ const ModifyInfo = () => {
         width: 1000px;
         height: 550px;
     `
-
     const User = styled.div`
         width: 20%;
         height: 100%;
@@ -25,7 +25,6 @@ const ModifyInfo = () => {
         line-height: 600px;
         text-align: center;
     `
-
     const Info = styled.div`
         width: 80%;
         height: 100%;
@@ -38,9 +37,15 @@ const ModifyInfo = () => {
     const Basicinfo = styled.div`
         display: flex;
         width: 100%;
-        height: 10%;
+        height: 70px;
         line-height: 70px;
-        margin: 5px 0;
+    `
+    const InputDiv = styled.input`
+        width: 100%;
+        height: 55px;
+        line-height: 55px;
+        margin: 5px;
+        font-size: 20px;
     `
     const Addinfo = styled.div`
         display: flex;
@@ -110,9 +115,9 @@ const ModifyInfo = () => {
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <Basicinfo>이름 : 정아윤</Basicinfo>
-                    <Basicinfo>나이 : 23</Basicinfo>
-                    <Basicinfo>직업 : 대학생</Basicinfo>
+                    <Basicinfo>이름 : <InputDiv placeholder='정아윤'/></Basicinfo>
+                    <Basicinfo>나이 : <InputDiv placeholder='23'/></Basicinfo>
+                    <Basicinfo>직업 : <InputDiv placeholder='대학생'/></Basicinfo>
                     <License>
                         <Licensetop>
                             <LicenseNum>No.</LicenseNum>
@@ -149,12 +154,12 @@ const ModifyInfo = () => {
                     </License>
                     <Addinfo>
                         <ContentElement><div>회원등급</div><GiQueenCrown size="35" style= {{ color: 'pink', marginLeft: '25px'}} /></ContentElement>
-                        <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>나는 정아윤입니다.</div></ContentElement>
+                        <ContentElement><div>간단한 소개</div><InputDiv placeholder='나는 정아윤입니다.'/></ContentElement>
                     </Addinfo>
                 </Info>
             </Maindiv>
             <Btndiv>
-                <Infobtn>완료</Infobtn>
+                <Infobtn><Link to="/MyPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>완료</Link></Infobtn>
                 <Infobtn><Link to="/MyPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>취소</Link></Infobtn>
             </Btndiv>
         </div>

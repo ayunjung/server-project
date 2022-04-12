@@ -10,13 +10,14 @@ import Question from './pages/Question';
 import CommunityPage from './pages/CommunityPage';
 import LectureList from './pages/LectureList';
 import WritePage from './pages/WritePage';
-
+import ModifyInfoPage from './pages/ModifyInfoPage';
 
 function App() {
     return (
         <Router>
             <Switch>
                 <Route exact path="/WritePage"><WritePage/></Route>
+                <Route exact path="/ModifyInfoPage"><ModifyInfoPage/></Route>
                 <Route exact path="/LectureList"><LectureList/></Route>
                 <Route exact path="/CommunityPage"><CommunityPage/></Route>
                 <Route exact path="/Question"><Question/></Route>

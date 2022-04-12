@@ -158,7 +158,7 @@ const UserInfo = () => {
                 </Info>
             </Maindiv>
             <Btndiv>
-                <Infobtn><Link to="/ModifyInfo" style={{ textDecoration: 'none', color: 'white', display:'block' }}>회원정보수정</Link></Infobtn>
+                <Infobtn><Link to="/ModifyInfoPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>회원정보수정</Link></Infobtn>
                 <Infobtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>로그아웃</Link></Infobtn>
             </Btndiv>
         </div>
