@@ -46,9 +46,9 @@ const BestUser = () => {
             <PeopleTitle>활동 우수 회원</PeopleTitle>
             <PeopleMain>
                 <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
-                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
-                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
-                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>이승은</PName></Peoplediv>
+                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>정아윤</PName></Peoplediv>
+                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>홍송미</PName></Peoplediv>
+                <Peoplediv><PImg src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' alt='사람이미지'/><PName>성익현</PName></Peoplediv>
             </PeopleMain>
         </BestPeople>
     )

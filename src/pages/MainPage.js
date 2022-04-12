@@ -54,12 +54,12 @@ function MainPage() {
                 <Searchbar />
                 <LecMain>
                     <LecMainleft>
-                        <MainLecField name="웹개발" sub1={Lec[0].title} image1={Lec[0].image} sub2={Lec[1].title} image2={Lec[1].image} sub3={Lec[2].title} image3={Lec[2].image} />
-                        <MainLecField name="프론트앤드" sub1={Lec[3].title} image1={Lec[3].image} sub2={Lec[4].title} image2={Lec[4].image} sub3={Lec[5].title} image3={Lec[5].image}/>
-                        <MainLecField name="백앤드" sub1={Lec[6].title} image1={Lec[6].image} sub2={Lec[7].title} image2={Lec[7].image}/>
-                        <MainLecField name="프로그래밍 언어" sub1={Lec[8].title} image1={Lec[8].image} sub2={Lec[9].title} image2={Lec[9].image} sub3={Lec[10].title} image3={Lec[10].image}/>
-                        <MainLecField name="게임 만들기" sub1={Lec[11].title} image1={Lec[11].image}/>
-                        <MainLecField name="프로젝트 관리" sub1={Lec[12].title} image1={Lec[12].image} sub2={Lec[13].title} image2={Lec[13].image} sub3={Lec[14].title} image3={Lec[14].image}/>
+                        <MainLecField name="웹개발" sub1="HTML/CSS" sub2="Javascript" sub3="Vue" color= "#FFC000" />
+                        <MainLecField name="프론트앤드" sub1="프론트1" sub2="프론트2" sub3="프론트3" color= "#A9D18E" />
+                        <MainLecField name="백앤드" sub1="백1" sub2="백2" color= "#F4B183" />
+                        <MainLecField name="프로그래밍 언어" sub1="Python" sub2="Java" sub3="PHP"color= "#8FAADC"  />
+                        <MainLecField name="게임 만들기" sub1="게임1" color= "#BB7EEE" />
+                        <MainLecField name="프로젝트 관리" sub1="github" sub2="gitlab" sub3="redmine" color= "#BFBFBF" />
                     </LecMainleft>
                     <LecMainright>
                         <BestUser />

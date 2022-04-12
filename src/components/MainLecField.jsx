@@ -41,9 +41,14 @@ const MainLecField = (props) => {
         height: 120px;
         margin: 10px auto;
     `
-    const LImg = styled.img `
+    const Lecimage = styled.div `
         width: 100px;
         height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 800;
+        color: white;
     `
     const LName = styled.div `
         width: 100px;
@@ -61,9 +66,9 @@ const MainLecField = (props) => {
                 <Textdiv>{props.name}</Textdiv>
             </LecFieldTitle>
             <LecFieldContents>
-                <LecDiv><LImg src={props.image1} /><LName>{props.sub1}</LName></LecDiv>
-                <LecDiv><LImg src={props.image2} /><LName>{props.sub2}</LName></LecDiv>
-                <LecDiv><LImg src={props.image3} /><LName>{props.sub3}</LName></LecDiv>
+                <LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub1}</Lecimage><LName>{props.sub1}</LName></LecDiv>
+                <LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub2}</Lecimage><LName>{props.sub2}</LName></LecDiv>
+                <LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub3}</Lecimage><LName>{props.sub3}</LName></LecDiv>
             </LecFieldContents>
         </LecFieldMain>
     )
