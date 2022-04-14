@@ -56,7 +56,7 @@ const Register = () => {
         <label>직업</label><Joininput  type='text'/>
         <label>한줄소개</label><Joininput  type='text'/>
         <Btnbox>
-            <Joinbtn type="submit" onClick={(e)=>{
+          <Joinbtn type="submit" onClick={(e)=>{
             e.preventDefault();
             fetch('http://localhost:3001/join', {
               method: "POST",
@@ -74,8 +74,8 @@ const Register = () => {
             }).then((res)=>
                 res.json()
             ).then(data=>{console.log(data)})
-        }}>회원가입</Joinbtn>
-            <Cancelbtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
+          }}>회원가입</Joinbtn>
+          <Cancelbtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
         </Btnbox>
       </Joinform>
     )

@@ -6,7 +6,7 @@ import Community from '../components/Community'
 import Pagebar from '../components/Pagebar'
 import { Link } from 'react-router-dom'
 
-function Question() {
+function CommunityPage() {
 
     const Top = styled.div`
         width: 1200px;
@@ -51,4 +51,4 @@ function Question() {
     );
 }
 
-export default Question
+export default CommunityPage

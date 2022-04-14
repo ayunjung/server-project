@@ -111,7 +111,7 @@ const Searchbar = () => {
         }}>
             <BsSearch size="30" />
             </Icondiv>
-            <Input></Input>
+            <Input type="Search" />
         </Searchbar>
     )
 }

@@ -2,9 +2,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { BsPersonFill } from "react-icons/bs";
-import { GiQueenCrown } from "react-icons/gi";
-import { loadGetInitialProps } from 'next/dist/shared/lib/utils';
+import { BsPersonFill } from "react-icons/bs"
+import { GiQueenCrown } from "react-icons/gi"
 
 const ModifyInfo = () => {
 
@@ -115,7 +114,7 @@ const ModifyInfo = () => {
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <Basicinfo>이름 : <InputDiv placeholder='정아윤'/></Basicinfo>
+                    <Basicinfo>이름 : <InputDiv placeholder='정아윤' /></Basicinfo>
                     <Basicinfo>나이 : <InputDiv placeholder='23'/></Basicinfo>
                     <Basicinfo>직업 : <InputDiv placeholder='대학생'/></Basicinfo>
                     <License>

@@ -11,11 +11,13 @@ import CommunityPage from './pages/CommunityPage';
 import LectureList from './pages/LectureList';
 import WritePage from './pages/WritePage';
 import ModifyInfoPage from './pages/ModifyInfoPage';
+import PostPage from './pages/PostPage';
 
 function App() {
     return (
         <Router>
             <Switch>
+                <Route exact path="/PostPage"><PostPage/></Route>
                 <Route exact path="/WritePage"><WritePage/></Route>
                 <Route exact path="/ModifyInfoPage"><ModifyInfoPage/></Route>
                 <Route exact path="/LectureList"><LectureList/></Route>

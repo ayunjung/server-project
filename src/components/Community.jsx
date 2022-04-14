@@ -1,7 +1,93 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Community = () => {
+
+    const [community, setCommunity] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/readcommulist', {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                data: [
+                    {
+                        docnum: 1,
+                        sort: "글",
+                        title: "제목",
+                        date: "2022-03-30T11:55:12.000Z",
+                        writer: "Test@naver.com",
+                        views: 0,
+                        content: "내용"
+                    },
+                    {
+                        docnum: 2,
+                        sort: "글",
+                        title: "제목2",
+                        date: "2022-03-30T11:55:20.000Z",
+                        writer: "Test@naver.com",
+                        views: 0,
+                        content: "내용"
+                    },
+                    {
+                        docnum: 3,
+                        sort: "글",
+                        title: "제목3",
+                        date: "2022-03-30T11:55:22.000Z",
+                        writer: "Test@naver.com",
+                        views: 0,
+                        content: "내용"
+                    },
+                    {
+                        docnum: 4,
+                        sort: "글",
+                        title: "제목4",
+                        date: "2022-03-30T11:55:23.000Z",
+                        writer: "Test@naver.com",
+                        views: 0,
+                        content: "내용"
+                    },
+                    {
+                        docnum: 5,
+                        sort: "글",
+                        title: "제목5",
+                        date: "2022-03-30T11:55:24.000Z",
+                        writer: "Test@naver.com",
+                        views: 0,
+                        content: "내용"
+                    },
+                    {
+                        docnum: 6,
+                        sort: "글",
+                        title: "제목6",
+                        date: "2022-03-30T11:55:24.000Z",
+                        writer: "Test@naver.com",
+                        views: 0,
+                        content: "내용"
+                    },
+                    {
+                        docnum: 7,
+                        sort: "글",
+                        title: "제목7",
+                        date: "2022-03-30T11:55:25.000Z",
+                        writer: "Test@naver.com",
+                        views: 0,
+                        content: "내용"
+                    }
+                ]
+              }),
+            }).then((res)=> {
+                res.json()
+            }
+            ).then(data=>{console.log(data)})
+    }, []);
+
+    useEffect(() => {
+        console.log(community)
+    }, [community]);
 
     const Communitytop = styled.div`
         display: flex;
@@ -33,7 +119,6 @@ const Community = () => {
         text-align: center;
     `
 
-
     return (
         <div>
             <Communitytop>
@@ -43,12 +128,14 @@ const Community = () => {
                 <CommunityElement>작성자</CommunityElement>
             </Communitytop>
             <CommunityMain>
-                <CommunityList>
-                    <CommunityElement>1</CommunityElement>
-                    <CommunityElement>미해결</CommunityElement>
-                    <CommunityContent>자바스크립트 질문</CommunityContent>
-                    <CommunityElement>정아윤</CommunityElement>
-                </CommunityList>
+                <Link to="/PostPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
+                    <CommunityList>
+                        <CommunityElement>1</CommunityElement>
+                        <CommunityElement>미해결</CommunityElement>
+                        <CommunityContent>자바스크립트 질문</CommunityContent>
+                        <CommunityElement>정아윤</CommunityElement>
+                    </CommunityList>
+                </Link>
                 <CommunityList>
                     <CommunityElement>2</CommunityElement>
                     <CommunityElement>미해결</CommunityElement>

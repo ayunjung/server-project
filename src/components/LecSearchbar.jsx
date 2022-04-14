@@ -44,7 +44,7 @@ const LecSearchbar = () => {
                 <Icondiv type='submit'>
                     <BsSearch size="30"/>
                 </Icondiv>
-                <Input></Input>
+                <Input type="Search" />
             </Searchbar>
             <Select name="array" id="">
                 <option value="">조회순</option>

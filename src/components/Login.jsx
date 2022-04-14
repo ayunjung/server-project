@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -52,6 +52,25 @@ const Login = () => {
   const [Email, setEmail] = useState("")
   const [Password, setPassword] = useState("")
 
+  useEffect(()=>{
+    fetch('http://localhost:3001/join', {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: "Test@naver.com",
+                password: "Test1234",
+                birth: "Test-te-st",
+                job: "Testman",
+                comment: "Testing...",
+                profilepic: "Testpic",
+              }),
+            }).then((res)=>
+                res.json()
+            ).then(data=>{console.log(data)})
+  }, [])
+
   const onEmailHandler = (event) => {
     setEmail(event.currentTarget.value)
   }
@@ -61,33 +80,15 @@ const Login = () => {
   }
 
   const onSubmitHandler = (event) => {
-    event.preventDefault()
-
-    console.log('Email', Email)
-    console.log('Password', Password)
+    event.preventDefault();
   }
-
-
 
   return (
     <Loginform onSubmit={onSubmitHandler}>
       <Userinput type="email" value={Email} onChange={onEmailHandler} placeholder='UserEmail' />
       <Userinput type="password" value={Password} onChange={onPasswordHandler} placeholder='Password' />
       <Checkbox type="checkbox" id="checkbox"/><label for="checkbox">로그인 유지</label>
-      <Loginbtn type="submit" onClick={(e)=>{
-        e.preventDefault();
-        fetch('http://localhost:3001/join', {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            quesnum : 1,
-          }),
-        }).then((res)=>
-            res.json()
-        ).then(data=>{console.log(data)})
-      }}>로그인</Loginbtn>
+      <Loginbtn type="submit" onChange={onSubmitHandler}>로그인</Loginbtn>
       <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
     </Loginform>
   )
