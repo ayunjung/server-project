@@ -1,0 +1,91 @@
+create table user(
+    email varchar(60),
+    birth varchar(20),
+    job varchar(20),
+    comment varchar(800),
+    profilepic long,
+    primary key(email)
+)
+
+create table doc(
+	docnum int(4) auto_increment,
+    sort varchar(60),
+    title varchar(80),
+    date TIMESTAMP DEFAULT NOW(),
+    writer varchar(60),
+    views int(4),
+	content long,
+    primary key(docnum)
+)
+
+create table reply(
+	docnum int(4),
+    repnum int(4),
+    content varchar(800),
+    date varchar(20),
+    writer varchar(60),
+    primary key(docnum, repnum)
+)
+
+create table question(
+	quesnum int(4) auto_increment,
+    sort varchar(20),
+    title varchar(80),
+    content varchar(800),
+    date TIMESTAMP DEFAULT NOW(),
+    writer varchar(60),
+    views int(4),
+    primary key(quesnum)
+)
+
+create table answer(
+	quesnum int(4),
+    ansnum int(4),
+    content varchar(800),
+    date TIMESTAMP DEFAULT NOW(),
+    writer varchar(60),
+    vieews int(4),
+    primary key(quesnum, ansnum)
+)
+
+create table ulecture(
+	ulecnum int(4) auto_increment,
+    sort varchar(40),
+    teacher varchar(30),
+    lecpic long,
+title varchar(40),
+    primary key(ulecnum)
+)
+
+create table slecture(
+	ulecnum int(4),
+    slecnum int(4), 
+    title varchar(80),
+    content long,
+    views int(4),
+    date TIMESTAMP DEFAULT NOW(),
+    primary key(ulecnum, slecnum)
+)
+
+create table review(
+	ulecnum int(4),
+    revnum int(4), 
+    title varchar(80),
+    content long,
+    date TIMESTAMP DEFAULT NOW(),
+    writer varchar(60),
+    primary key(ulecnum, revnum)
+)
+
+create table userCertificate(
+	email varchar(60),
+    certificate varchar(20),
+    primary key(email)
+)
+
+create table listen(
+ email varchar(60),
+ ulecNum int(4),
+ date TIMESTAMP DEFAULT NOW(),
+ primary key(email, ulecNum)
+)
