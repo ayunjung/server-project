@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const PostView = () => {
 
@@ -28,6 +29,16 @@ const PostView = () => {
         padding: 15px;
         border-bottom: 2px solid #000;
         line-height: 160%;
+    `
+    const Cancelbtn = styled.div `
+        width: 200px;
+        height: 40px;
+        margin: 10px 5px 0;
+        font-size: 20px;
+        background-color: #e8e8e8;
+        border-radius: 5px;
+        line-height: 40px;
+        text-align: center;
     `
 
     return (
@@ -61,6 +72,7 @@ const PostView = () => {
                     글내용이 들어가요
                 </PostContent>
             </Post>
+            <Cancelbtn><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
         </Maindiv>
     )
 }

@@ -33,6 +33,7 @@ function Question() {
     `
     const CommunityList = styled.div`
         margin: 20px 0 0;
+        height: 400px;
     `
 
     return (

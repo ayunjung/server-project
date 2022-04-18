@@ -49,38 +49,34 @@ const Joinbtn = styled.div `
 
 const Login = () => {
 
-  const [Email, setEmail] = useState("")
-  const [Password, setPassword] = useState("")
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
 
   useEffect(()=>{
-    fetch('http://localhost:3001/join', {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: "Test@naver.com",
-                password: "Test1234",
-                birth: "Test-te-st",
-                job: "Testman",
-                comment: "Testing...",
-                profilepic: "Testpic",
-              }),
-            }).then((res)=>
-                res.json()
-            ).then(data=>{console.log(data)})
-  }, [])
+    fetch('http://localhost:3001', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: "Test@naver.com",
+          password: "Test1234",
+        }),
+      }).then((res)=>
+          res.json()
+      ).then(data=>{console.log(data)})
+  }, []);
 
-  const onEmailHandler = (event) => {
-    setEmail(event.currentTarget.value)
+  const onEmailHandler = (e) => {
+    setEmail(e.target.value)
   }
 
-  const onPasswordHandler = (event) => {
-    setPassword(event.currentTarget.value)
+  const onPasswordHandler = (e) => {
+    setPassword(e.target.value)
   }
 
-  const onSubmitHandler = (event) => {
-    event.preventDefault();
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
   }
 
   return (
@@ -88,7 +84,7 @@ const Login = () => {
       <Userinput type="email" value={Email} onChange={onEmailHandler} placeholder='UserEmail' />
       <Userinput type="password" value={Password} onChange={onPasswordHandler} placeholder='Password' />
       <Checkbox type="checkbox" id="checkbox"/><label for="checkbox">로그인 유지</label>
-      <Loginbtn type="submit" onChange={onSubmitHandler}>로그인</Loginbtn>
+      <Loginbtn type="submit">로그인</Loginbtn>
       <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
     </Loginform>
   )

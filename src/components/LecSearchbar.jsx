@@ -3,11 +3,12 @@ import React from 'react'
 import { BsSearch } from "react-icons/bs";
 
 const Searchbar = styled.div `
-  width : 400px;
+  width : 500px;
   height : 50px;
   border : 1px solid #999;
   border-radius : 5px;
   display : flex;
+  margin-left: 25px;
 `
 
 const Icondiv = styled.button `
@@ -20,22 +21,22 @@ const Icondiv = styled.button `
 `
 
 const Input = styled.input `
-  width : 350px;
+  width : 450px;
   font-size : 20px;
   padding : 7px;
   border: 0;
 `
 const Select = styled.select `
-    width : 100px;
-    height : 50px;
-    background : #cacaca;
-    border-radius : 5px;
-    margin-left : 5px;
-  `
+  width : 100px;
+  height : 50px;
+  background : #cacaca;
+  border-radius : 5px;
+  margin-left : 5px;
+`
 
 const SLecSearchbarMain = styled.div `
-    display : flex;
-  `
+  display : flex;
+`
 
 const LecSearchbar = () => {
     return (

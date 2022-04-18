@@ -136,42 +136,6 @@ const Community = () => {
                         <CommunityElement>정아윤</CommunityElement>
                     </CommunityList>
                 </Link>
-                <CommunityList>
-                    <CommunityElement>2</CommunityElement>
-                    <CommunityElement>미해결</CommunityElement>
-                    <CommunityContent>자바스크립트 질문</CommunityContent>
-                    <CommunityElement>정아윤</CommunityElement>
-                </CommunityList>
-                <CommunityList>
-                    <CommunityElement>2</CommunityElement>
-                    <CommunityElement>미해결</CommunityElement>
-                    <CommunityContent>자바스크립트 질문</CommunityContent>
-                    <CommunityElement>정아윤</CommunityElement>
-                </CommunityList>
-                <CommunityList>
-                    <CommunityElement>2</CommunityElement>
-                    <CommunityElement>미해결</CommunityElement>
-                    <CommunityContent>자바스크립트 질문</CommunityContent>
-                    <CommunityElement>정아윤</CommunityElement>
-                </CommunityList>
-                <CommunityList>
-                    <CommunityElement>2</CommunityElement>
-                    <CommunityElement>미해결</CommunityElement>
-                    <CommunityContent>자바스크립트 질문</CommunityContent>
-                    <CommunityElement>정아윤</CommunityElement>
-                </CommunityList>
-                <CommunityList>
-                    <CommunityElement>2</CommunityElement>
-                    <CommunityElement>미해결</CommunityElement>
-                    <CommunityContent>자바스크립트 질문</CommunityContent>
-                    <CommunityElement>정아윤</CommunityElement>
-                </CommunityList>
-                <CommunityList>
-                    <CommunityElement>2</CommunityElement>
-                    <CommunityElement>미해결</CommunityElement>
-                    <CommunityContent>자바스크립트 질문</CommunityContent>
-                    <CommunityElement>정아윤</CommunityElement>
-                </CommunityList>
             </CommunityMain>
         </div>
     )
