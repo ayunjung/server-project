@@ -17,13 +17,16 @@ const PostView = () => {
         font-size: 20px;
     `
     const PostInfo = styled.div`
-        padding: 15px;
         border-bottom: 1px solid #999;
     `
     const PostInfoCon = styled.dl`
         display: inline-block;
         padding: 0 30px;
         position: relative;
+    `
+    const PostInfodd = styled.dd`
+        margin: 0;
+        text-align: center;
     `
     const PostContent = styled.div`
         padding: 15px;
@@ -48,11 +51,11 @@ const PostView = () => {
                 <PostInfo>
                     <PostInfoCon>
                         <dt>번호</dt>
-                        <dd>1</dd>
+                        <PostInfodd>1</PostInfodd>
                     </PostInfoCon>
-                    <PostInfoCon style={{paddingLeft: '0'}}>
+                    <PostInfoCon>
                         <dt>작성일</dt>
-                        <dd>2021.11.14</dd>
+                        <PostInfodd>2021.11.14</PostInfodd>
                     </PostInfoCon>
                 </PostInfo>
                 <PostContent>

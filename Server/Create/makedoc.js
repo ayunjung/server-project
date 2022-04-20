@@ -18,7 +18,7 @@ exports.makedoc = (obj, res) => {
 
 /*
     'http://localhost:3001/makedoc'
-    email: "Test@naver.com",
+        email: "Test@naver.com",
         title: "1",
         sort : "gd",
         content : "gd",
