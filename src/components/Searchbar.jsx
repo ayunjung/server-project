@@ -53,111 +53,32 @@ const DataResult = styled.div`
 
 const Searchbar = ({ data }) => {
 
-    const [searchData, setSearchData] = useState([]);
+    const [filterData, setFilterData] = useState([]);
 
     const [wordEntered, setWordEntered] = useState("");
 
-    const handleSearch = (e) => {
+    const handleFilter = (e) => {
         const searchWord = e.target.value;
         setWordEntered(searchWord)
-        const newSearch = data.filter((value)=>{
+        const newFilter = data.filter((value)=>{
             return value.title.toLowerCase().includes(searchWord.toLowerCase());
         })
 
         if(searchWord === "") {
-            setSearchData([]);
+            setFilterData([]);
         }else{
-            setSearchData(newSearch);
+            setFilterData(newFilter);
         }
     }
 
     return (
         <Search>
-            <Icondiv type='submit' onClick={(e)=>{
-            e.preventDefault();
-            fetch('http://localhost:3001/readcommulist', {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                "data": [
-                    {
-                        "docnum": 1,
-                        "sort": "글",
-                        "title": "제목",
-                        "date": "2022-03-30T11:55:12.000Z",
-                        "writer": "Test@naver.com",
-                        "views": 0,
-                        "content": "내용"
-                    },
-                    {
-                        "docnum": 2,
-                        "sort": "글",
-                        "title": "제목2",
-                        "date": "2022-03-30T11:55:20.000Z",
-                        "writer": "Test@naver.com",
-                        "views": 0,
-                        "content": "내용"
-                    },
-                    {
-                        "docnum": 3,
-                        "sort": "글",
-                        "title": "제목3",
-                        "date": "2022-03-30T11:55:22.000Z",
-                        "writer": "Test@naver.com",
-                        "views": 0,
-                        "content": "내용"
-                    },
-                    {
-                        "docnum": 4,
-                        "sort": "글",
-                        "title": "제목4",
-                        "date": "2022-03-30T11:55:23.000Z",
-                        "writer": "Test@naver.com",
-                        "views": 0,
-                        "content": "내용"
-                    },
-                    {
-                        "docnum": 5,
-                        "sort": "글",
-                        "title": "제목5",
-                        "date": "2022-03-30T11:55:24.000Z",
-                        "writer": "Test@naver.com",
-                        "views": 0,
-                        "content": "내용"
-                    },
-                    {
-                        "docnum": 6,
-                        "sort": "글",
-                        "title": "제목6",
-                        "date": "2022-03-30T11:55:24.000Z",
-                        "writer": "Test@naver.com",
-                        "views": 0,
-                        "content": "내용"
-                    },
-                    {
-                        "docnum": 7,
-                        "sort": "글",
-                        "title": "제목7",
-                        "date": "2022-03-30T11:55:25.000Z",
-                        "writer": "Test@naver.com",
-                        "views": 0,
-                        "content": "내용"
-                    }
-                ]
-              }),
-            }).then((res)=>
-                res.json()
-            ).then(data=>{console.log(data)})
-        }}>
-            <BsSearch size="30" />
-            </Icondiv>
-            <Input type="Search" onChange={handleSearch} value={wordEntered} />
+            <Icondiv type='submit'><BsSearch size="30" /></Icondiv>
+            <Input type="Search" onChange={handleFilter} value={wordEntered} />
             {
-                searchData.length !== 0 && (
+                filterData.length !== 0 && (
                     <DataResult>
-                        {searchData.slice(0, 15).map((product, key)=>{
+                        {filterData.slice(0, 15).map((product, key)=>{
                             return(
                                 <a key={key} className='dataItem' href={product.image} target="_blank">
                                   <p>{product.title}</p>  

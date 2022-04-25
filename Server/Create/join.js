@@ -11,7 +11,7 @@ exports.joinuser = (obj, res) => {
             res.send({success : data})
         };
       })
-    con.query('insert into user values(?, ?, ?, ?, ?, ?)', [obj.email, ojb.password, obj.birth, obj.job, obj.comment, obj.profilepic], (error, rows, fields) => {
+    con.query('insert into user values(?, ?, ?, ?, ?, ?)', [obj.email, obj.password, obj.birth, obj.job, obj.comment, obj.profilepic], (error, rows, fields) => {
         if(data!=1){res.send({success : data})};
       })
 }

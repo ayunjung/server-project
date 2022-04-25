@@ -53,7 +53,7 @@ const Login = () => {
   const [Password, setPassword] = useState("");
 
   useEffect(()=>{
-    fetch('http://localhost:3001', {
+    fetch('http://localhost:3001/', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const Write = styled.div`
+const Write = styled.form`
     width: 1000px;
 `
 const WriteMain = styled.div`
@@ -64,7 +64,7 @@ const Writing = () => {
 
     const [Email, setEmail] = useState("");
     const [Title, setTitle] = useState("");
-    const [Sort, setSort] = useState("");
+    const [Sort, setSort] = useState("미해결");
     const [Content, setContent] = useState("");
   
     useEffect(()=>{
@@ -92,12 +92,12 @@ const Writing = () => {
         setContent(e.target.value)
     }
   
-    const onClickHandler = (e) => {
+    const onSubmitHandler = (e) => {
       e.preventDefault();
     }
 
   return (
-    <Write>
+    <Write onSubmit={onSubmitHandler}>
         <WriteMain>
             <WriteTitle>
                 <dl style={{display: 'flex'}}>
@@ -110,7 +110,7 @@ const Writing = () => {
             </WriteContent>
         </WriteMain>
         <WriteBtnBox>
-            <WriteBtn onClick={onClickHandler}><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>등록</Link></WriteBtn>
+            <WriteBtn><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>등록</Link></WriteBtn>
             <WriteBtn style={{backgroundColor: '#e8e8e8'}}><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></WriteBtn>
         </WriteBtnBox>
     </Write>
