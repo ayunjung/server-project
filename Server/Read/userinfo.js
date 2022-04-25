@@ -27,7 +27,6 @@ output
         "success": 0,
         "info": {
             "email": "Test@naver.com",
-            "password": "Test1234",
             "birth": "Test-te-st",
             "job": "Testman",
             "comment": "Testing...",

@@ -9,7 +9,7 @@ exports.readanslist = (obj, res) => {
         data = 1;
         res.send({success : data, data : []});
     }
-    
+
     con.query('select * from answer where quesnum = ?', [obj.quesnum], (error, rows, fields) => {
         if (error)  throw error;
         if(data!=1){
@@ -18,7 +18,6 @@ exports.readanslist = (obj, res) => {
     })
     return 0;
 }
-
 
 /*
     'http://localhost:3001/readanslist'
