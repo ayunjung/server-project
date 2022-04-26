@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Topbar from '../components/Topbar'
-import PostView from '../components/PostView'
+import CommuView from '../components/CommuView'
 
 
 
-function PostPage() {
+function CommunityView() {
 
     const Top = styled.div`
         width: 1200px;
@@ -20,10 +20,10 @@ function PostPage() {
         <div>
             <Top><Topbar /></Top>
             <PostViewdiv>
-                <PostView />
+                <CommuView />
             </PostViewdiv>
         </div>
     );
 }
 
-export default PostPage;
+export default CommunityView;

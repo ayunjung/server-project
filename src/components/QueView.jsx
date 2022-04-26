@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const PostView = () => {
+const QuestionView = () => {
 
     const Maindiv = styled.div`
         width: 1000px;
@@ -68,6 +68,10 @@ const PostView = () => {
                         <dt>작성일</dt>
                         <PostInfodd>2021.11.14</PostInfodd>
                     </PostInfoCon>
+                    <PostInfoCon>
+                        <dt>분류</dt>
+                        <PostInfodd>해결</PostInfodd>
+                    </PostInfoCon>
                 </PostInfo>
                 <PostContent>
                     글내용이 들어가요<br />
@@ -94,4 +98,4 @@ const PostView = () => {
     )
 }
 
-export default PostView
+export default QuestionView

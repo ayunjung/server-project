@@ -71,10 +71,10 @@ const Community = () => {
                 <CommunityElement>작성자</CommunityElement>
             </Communitytop>
             <CommunityMain>
-                <Link to="/PostPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
+                <Link to="/CommunityView" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
                     <CommunityList>
                         <CommunityElement>1</CommunityElement>
-                        <CommunityElement>미해결</CommunityElement>
+                        <CommunityElement>웹개발</CommunityElement>
                         <CommunityContent>자바스크립트 질문</CommunityContent>
                         <CommunityElement>정아윤</CommunityElement>
                     </CommunityList>

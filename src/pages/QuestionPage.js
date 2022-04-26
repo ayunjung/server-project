@@ -2,21 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import Topbar from '../components/Topbar'
 import Searchbar from '../components/Searchbar'
-import Community from '../components/Community'
+import Question from '../components/Question'
 import Pagebar from '../components/Pagebar'
 import { Link } from 'react-router-dom'
 
-function Question() {
+function QuestionPage() {
 
     const Top = styled.div`
         width: 1200px;
         margin: 30px auto;
     `
-    const CommunityMain = styled.div`
+    const QuestionMain = styled.div`
         width: 1000px;
         margin: 0 auto;
     `    
-    const CommunityHead = styled.div`
+    const QuestionHead = styled.div`
         display: flex;
         justify-content: space-between;
         flex-direction: row;
@@ -31,7 +31,7 @@ function Question() {
         line-height: 40px;
         text-align: center;
     `
-    const CommunityList = styled.div`
+    const QuestionList = styled.div`
         margin: 20px 0 0;
         height: 400px;
     `
@@ -39,17 +39,17 @@ function Question() {
     return (
         <div>
             <Top><Topbar /></Top>
-            <CommunityMain>
-                <CommunityHead>
+            <QuestionMain>
+                <QuestionHead>
                     <h1>Q{'&'}A</h1>
                     <WriteBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
-                </CommunityHead>
+                </QuestionHead>
                 <Searchbar />
-                <CommunityList><Community /></CommunityList>
+                <QuestionList><Question /></QuestionList>
                 <Pagebar />
-            </CommunityMain>
+            </QuestionMain>
         </div>
     );
 }
 
-export default Question
+export default QuestionPage
