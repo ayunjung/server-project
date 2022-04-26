@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React, { useEffect, useState }  from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -52,7 +52,16 @@ const Register = () => {
     const [Birth, setBirth] = useState("");
     const [Job, setJob] = useState("");
     const [Comment, setComment] = useState("");
-    const [Profilepic, setProfilepic] = useState("");
+
+    useEffect (()=>{
+      console.log({
+        Email,
+        Password,
+        Birth,
+        Job,
+        Comment
+      });
+    },[]);
 
     const onEmailHandler = (e) => {
       setEmail(e.target.value)
@@ -69,9 +78,6 @@ const Register = () => {
     const onCommentHandler = (e) => {
       setComment(e.target.value)
     }
-    const onProfilepicHandler = (e) => {
-      setProfilepic(e.target.value)
-    }
   
 
     return (
@@ -82,7 +88,6 @@ const Register = () => {
         <label>생년월일</label><Joininput  type='date' value={Birth} onChange={onBirthHandler}/>
         <label>직업</label><Joininput  type='text' value={Job} onChange={onJobHandler}/>
         <label>한줄소개</label><Joininput  type='text' value={Comment} onChange={onCommentHandler}/>
-        <label>프로필</label><Joininput  type='text' value={Profilepic} onChange={onProfilepicHandler}/>
         <Btnbox>
           <Joinbtn type="submit" onClick={(e)=>{
             e.preventDefault();
@@ -97,7 +102,6 @@ const Register = () => {
                 birth: Birth,
                 job: Job,
                 comment: Comment,
-                profilepic: Profilepic,
               }),
             }).then((res)=>
                 res.json()

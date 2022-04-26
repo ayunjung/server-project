@@ -42,7 +42,7 @@ function Question() {
             <CommunityMain>
                 <CommunityHead>
                     <h1>Q{'&'}A</h1>
-                    <WriteBtn><Link to="/WritePage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
+                    <WriteBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
                 </CommunityHead>
                 <Searchbar />
                 <CommunityList><Community /></CommunityList>

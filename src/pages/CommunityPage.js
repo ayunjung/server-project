@@ -42,7 +42,7 @@ function CommunityPage() {
             <CommunityMain>
                 <CommunityHead>
                     <h1>커뮤니티</h1>
-                    <WriteBtn><Link to="/WritePage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
+                    <WriteBtn><Link to="/CommuWrite" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
                 </CommunityHead>
                 <Searchbar />
                 <CommunityList><Community /></CommunityList>

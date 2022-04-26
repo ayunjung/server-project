@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Topbar from '../components/Topbar';
-import Writing from '../components/Writing';
+import QueWriting from '../components/QueWriting';
 
 
 
@@ -20,7 +20,7 @@ function Writepage() {
         <div>
             <Top><Topbar /></Top>
             <Writeform>
-                <Writing />
+                <QueWriting />
             </Writeform>
         </div>
     );

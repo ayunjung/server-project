@@ -14,6 +14,7 @@ const WriteTitle = styled.div`
 `
 const WriteTitleInput = styled.input`
     width: 90%;
+    height : 50px;
     padding: 10px;
     box-sizing: border-box;
 `
@@ -22,12 +23,19 @@ const Writedt = styled.dt`
     vertical-align: middle;
     width: 100px;
     text-align: center;
-    line-height: 40px;
+    line-height: 50px;
+    font-size: 25px;
 `
 const Writedd = styled.dd`
     display: inline-block;
     vertical-align: middle;
     width: calc(100% - 100px);
+`
+const Select = styled.select `
+  width : 120px;
+  height : 50px;
+  border-radius : 5px;
+  margin-left : 5px;
 `
 const WriteContent = styled.div`
     border-bottom: 2px solid #000;
@@ -49,60 +57,69 @@ const WriteBtnBox = styled.div`
     text-align: center;
     margin: 0 auto;
 `
-const WriteBtn = styled.div`
+const WriteBtn = styled.button`
     width: 150px;
     height: 40px;
+    border: 0;
     border-radius: 5px;
     margin: 0 20px;
     background-color: #29b2ef;
     color: #fff;
     line-height: 40px;
     text-align: center;
+    font-size: 20px;
+`
+const CancelBtn = styled.div`
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 20px;
+    background-color: #e8e8e8;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
 `
 
-const Writing = () => {
+const QueWriting = () => {
 
     const [Email, setEmail] = useState("");
     const [Title, setTitle] = useState("");
-    const [Sort, setSort] = useState("미해결");
+    const [Sort, setSort] = useState("");
     const [Content, setContent] = useState("");
-  
-    useEffect(()=>{
-      fetch('http://localhost:3001/makedoc', {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: "Test@naver.com",
-            title: "1",
-            sort : "gd",
-            content : "gd",
-          }),
-        }).then((res)=>
-            res.json()
-        ).then(data=>{console.log(data)})
-    }, []);
-  
+
+    useEffect (()=>{
+        console.log({
+            Email,
+            Title,
+            Sort,
+            Content
+        });
+    },[]);
+
+    const onEmailHandler = (e) => {
+        setEmail(e.target.value)
+    }
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
     }
-  
+    const onSortHandler = (e) => {
+        setSort(e.target.value)
+    }
     const onContentHandler = (e) => {
         setContent(e.target.value)
     }
-  
-    const onSubmitHandler = (e) => {
-      e.preventDefault();
-    }
 
   return (
-    <Write onSubmit={onSubmitHandler}>
+    <Write>
         <WriteMain>
             <WriteTitle>
                 <dl style={{display: 'flex'}}>
                     <Writedt>제목</Writedt>
                     <Writedd><WriteTitleInput type="text" value={Title} onChange={onTitleHandler} placeholder="제목" /></Writedd>
+                    <Select name="array" value={Sort} onChange={onSortHandler}>
+                        <option value="">미해결</option>
+                        <option value="">해결</option>
+                    </Select>
                 </dl>
             </WriteTitle>
             <WriteContent>
@@ -110,11 +127,27 @@ const Writing = () => {
             </WriteContent>
         </WriteMain>
         <WriteBtnBox>
-            <WriteBtn><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>등록</Link></WriteBtn>
-            <WriteBtn style={{backgroundColor: '#e8e8e8'}}><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></WriteBtn>
+            <WriteBtn type="submit" onClick={(e)=>{
+                e.preventDefault();
+                fetch('http://localhost:3001/makedoc', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: Email,
+                    title: Title,
+                    sort : Sort,
+                    content : Content,
+                }),
+                }).then((res)=>
+                    res.json()
+                ).then(data=>{console.log(data)})
+            }}><Link to="/QuestionPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>등록</Link></WriteBtn>
+            <CancelBtn><Link to="/QuestionPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></CancelBtn>
         </WriteBtnBox>
     </Write>
   )
 }
 
-export default Writing
+export default QueWriting

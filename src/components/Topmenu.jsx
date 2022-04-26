@@ -29,7 +29,7 @@ const Topmenu = () => {
             <Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>커뮤니티</Link>
         </Innermenudiv>
         <Innermenudiv>
-            <Link to="/Question" style={{ textDecoration: 'none', color: 'black', display:'block' }}>Q{'&'}A</Link>
+            <Link to="/QuestionPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>Q{'&'}A</Link>
         </Innermenudiv>
       </Topmenudiv>
   )

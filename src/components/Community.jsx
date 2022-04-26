@@ -1,36 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { createStore } from 'redux'
 
-function reducer(currentState, action){
-    if(currentState === undefined){
-        return {
-            contents: [
-                {   docnum: 1,
-                    sort: "글",
-                    title: "제목",
-                    date: "2022-03-30T11:55:12.000Z",
-                    writer: "Test@naver.com",
-                    views: 0,
-                    content: "내용"
-                },
-                {
-                    docnum: 2,
-                    sort: "글",
-                    title: "제목2",
-                    date: "2022-03-30T11:55:20.000Z",
-                    writer: "Test@naver.com",
-                    views: 0,
-                    content: "내용"
-                }
-            ]
-        };
-    }
-    var newState = {...currentState};
-    return newState;
-}
-var store = createStore(reducer);
+// const [Docnum, setDocnum] = useState("");
+// const [Sort, setSort] = useState("");
+// const [Title, setTitle] = useState("");
+// const [Date, setDate] = useState("");
+// const [Writer, setWriter] = useState("");
+// const [Views, setViews] = useState("");
+// const [Content, setContent] = useState("");
+
+// useEffect(()=>{
+//     fetch('http://localhost:3001/readcommulist', {
+//         method: "POST",
+//         headers: {
+//         "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//             docnum: Docnum,
+//             sort: Sort,
+//             title: Title,
+//             date: Date,
+//             writer: Writer,
+//             views: Views,
+//             content: Content
+//         }),
+//     }).then((res)=>
+//         res.json()
+//     ).then(data=>{console.log(data)})
+// }, []);
 
 const Community = () => {
 
