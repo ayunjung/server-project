@@ -4,11 +4,7 @@ import Topbar from '../components/Topbar'
 import Login from '../components/Login'
 
 function LoginPage() {
-
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
+    
     const LoginMain = styled.form`
         width: 1000px;
         margin: 0 auto;
@@ -21,7 +17,7 @@ function LoginPage() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <LoginMain>
                 <LoginForm><Login /></LoginForm>
             </LoginMain>

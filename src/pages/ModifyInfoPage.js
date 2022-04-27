@@ -7,10 +7,6 @@ import ModifyInfo from '../components/ModifyInfo';
 
 function ModifyInfoPage() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const Mypagediv = styled.div`
         width: 1000px;
         margin: 0 auto;
@@ -18,7 +14,7 @@ function ModifyInfoPage() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <Mypagediv>
                 <ModifyInfo />
             </Mypagediv>

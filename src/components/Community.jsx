@@ -2,33 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-// const [Docnum, setDocnum] = useState("");
-// const [Sort, setSort] = useState("");
-// const [Title, setTitle] = useState("");
-// const [Date, setDate] = useState("");
-// const [Writer, setWriter] = useState("");
-// const [Views, setViews] = useState("");
-// const [Content, setContent] = useState("");
-
-// useEffect(()=>{
-//     fetch('http://localhost:3001/readcommulist', {
-//         method: "POST",
-//         headers: {
-//         "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//             docnum: Docnum,
-//             sort: Sort,
-//             title: Title,
-//             date: Date,
-//             writer: Writer,
-//             views: Views,
-//             content: Content
-//         }),
-//     }).then((res)=>
-//         res.json()
-//     ).then(data=>{console.log(data)})
-// }, []);
 
 const Community = () => {
 
@@ -44,7 +17,7 @@ const Community = () => {
         width : 15%;
     `
     const CommunityContent = styled.div`
-        width : 55%;
+        width : 35%;
     `
     const CommunityMain = styled.ul`
         width: 1000px;
@@ -61,6 +34,16 @@ const Community = () => {
         line-height: 50px;
         text-align: center;
     `
+    
+    const [CommuList, setCommuList] = useState([]);
+    
+    useEffect(()=>{
+        fetch('http://localhost:3001/readcommulist'
+        ).then((res)=>
+            res.json()
+        ).then(res=>CommuList(res.data)
+        ).then(data=>{console.log(data)})
+    }, []);
 
     return (
         <div>
@@ -68,16 +51,22 @@ const Community = () => {
                 <CommunityElement>No</CommunityElement>
                 <CommunityElement>분류</CommunityElement>
                 <CommunityContent>제목</CommunityContent>
+                <CommunityElement>날짜</CommunityElement>
                 <CommunityElement>작성자</CommunityElement>
+                <CommunityElement>조회수</CommunityElement>
             </Communitytop>
             <CommunityMain>
                 <Link to="/CommunityView" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
-                    <CommunityList>
-                        <CommunityElement>1</CommunityElement>
-                        <CommunityElement>웹개발</CommunityElement>
-                        <CommunityContent>자바스크립트 질문</CommunityContent>
-                        <CommunityElement>정아윤</CommunityElement>
-                    </CommunityList>
+                    {CommuList.map((commu) => {
+                        <CommunityList>
+                            <CommunityElement>{commu.docnum}</CommunityElement>
+                            <CommunityElement>{commu.sort}</CommunityElement>
+                            <CommunityContent>{commu.title}</CommunityContent>
+                            <CommunityElement>{commu.date}</CommunityElement>
+                            <CommunityContent>{commu.writer}</CommunityContent>
+                            <CommunityElement>{commu.views}</CommunityElement>
+                        </CommunityList>
+                    })}
                 </Link>
             </CommunityMain>
         </div>

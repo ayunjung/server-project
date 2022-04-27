@@ -7,10 +7,6 @@ import CommuView from '../components/CommuView'
 
 function CommunityView() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const PostViewdiv = styled.div`
         width: 1000px;
         margin: 0 auto;
@@ -18,7 +14,7 @@ function CommunityView() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <PostViewdiv>
                 <CommuView />
             </PostViewdiv>

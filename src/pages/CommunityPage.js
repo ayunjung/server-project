@@ -7,11 +7,7 @@ import Pagebar from '../components/Pagebar'
 import { Link } from 'react-router-dom'
 
 function CommunityPage() {
-
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
+    
     const CommunityMain = styled.div`
         width: 1000px;
         margin: 0 auto;
@@ -38,7 +34,7 @@ function CommunityPage() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <CommunityMain>
                 <CommunityHead>
                     <h1>커뮤니티</h1>

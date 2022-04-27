@@ -7,10 +7,6 @@ import QueView from '../components/QueView'
 
 function QuestionView() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const PostViewdiv = styled.div`
         width: 1000px;
         margin: 0 auto;
@@ -18,7 +14,7 @@ function QuestionView() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <PostViewdiv>
                 <QueView />
             </PostViewdiv>

@@ -8,10 +8,6 @@ import { Link } from 'react-router-dom'
 
 function QuestionPage() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const QuestionMain = styled.div`
         width: 1000px;
         margin: 0 auto;
@@ -38,7 +34,7 @@ function QuestionPage() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <QuestionMain>
                 <QuestionHead>
                     <h1>Q{'&'}A</h1>

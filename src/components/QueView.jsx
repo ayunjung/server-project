@@ -91,8 +91,8 @@ const QuestionView = () => {
                 </PostContent>
             </Post>
             <div style={{display: 'flex'}}>
-                <RePostBtn><Link to="/CommuWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                <Cancelbtn><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
+                <RePostBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
+                <Cancelbtn><Link to="/QuestionPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
             </div>
         </Maindiv>
     )

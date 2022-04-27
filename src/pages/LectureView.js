@@ -7,10 +7,6 @@ import SmallLecList from '../components/SmallLecList';
 
 function LectureView() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const LecView = styled.div`
         width: 700px;
         margin: 0 auto;
@@ -22,7 +18,7 @@ function LectureView() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <LecView>
                 <LecViewdiv><LecInfoHead /></LecViewdiv>
                 <LecViewdiv><LecInfoTime /></LecViewdiv>

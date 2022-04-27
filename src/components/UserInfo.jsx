@@ -7,11 +7,15 @@ import { GiQueenCrown } from "react-icons/gi";
 
 const UserInfo = () => {
 
+    const Userdiv = styled.div`
+        width: 1000px;
+        margin: 0 auto;
+    `
     const Maindiv = styled.div`
+        width: 100%;
+        height: 540px;
         display: flex;
         white-space: nowrap;
-        width: 1000px;
-        height: 550px;
     `
 
     const User = styled.div`
@@ -91,7 +95,7 @@ const UserInfo = () => {
     `
     const Btndiv = styled.div`
         display: flex;
-        padding: 20px;
+        padding: 15px;
         font-size: 20px;
     `
     const Infobtn = styled.div`
@@ -106,7 +110,7 @@ const UserInfo = () => {
     `
 
     return (
-        <div>
+        <Userdiv>
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
@@ -161,7 +165,7 @@ const UserInfo = () => {
                 <Infobtn><Link to="/ModifyInfoPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>회원정보수정</Link></Infobtn>
                 <Infobtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>로그아웃</Link></Infobtn>
             </Btndiv>
-        </div>
+        </Userdiv>
     )
 }
 

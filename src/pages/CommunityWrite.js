@@ -7,10 +7,6 @@ import CommuWriting from '../components/CommuWriting';
 
 function Writepage() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const Writeform = styled.div`
         width: 1000px;
         margin: 0 auto;
@@ -18,7 +14,7 @@ function Writepage() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <Writeform>
                 <CommuWriting />
             </Writeform>

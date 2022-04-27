@@ -16,7 +16,7 @@ const Question = () => {
         width : 15%;
     `
     const QuestionContent = styled.div`
-        width : 55%;
+        width : 35%;
     `
     const QuestionMain = styled.ul`
         width: 1000px;
@@ -40,7 +40,9 @@ const Question = () => {
                 <QuestionElement>No</QuestionElement>
                 <QuestionElement>분류</QuestionElement>
                 <QuestionContent>제목</QuestionContent>
+                <QuestionElement>날짜</QuestionElement>
                 <QuestionElement>작성자</QuestionElement>
+                <QuestionElement>조회수</QuestionElement>
             </Questiontop>
             <QuestionMain>
                 <Link to="/QuestionView" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
@@ -48,7 +50,9 @@ const Question = () => {
                         <QuestionElement>1</QuestionElement>
                         <QuestionElement>해결</QuestionElement>
                         <QuestionContent>자바스크립트 질문</QuestionContent>
+                        <QuestionElement>2021.11.14</QuestionElement>
                         <QuestionElement>정아윤</QuestionElement>
+                        <QuestionElement>0</QuestionElement>
                     </QuestionList>
                 </Link>
             </QuestionMain>

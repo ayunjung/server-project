@@ -6,10 +6,6 @@ import Classbar from '../components/Classbar'
 
 function LectureVidio() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const LecVidio = styled.div`
         width: 800px;
         margin: 0 auto;
@@ -20,7 +16,7 @@ function LectureVidio() {
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <LecVidio>
                 <Vidio><LecVidioPlayer /></Vidio>
                 <Classbar />

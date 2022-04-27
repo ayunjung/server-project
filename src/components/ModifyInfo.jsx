@@ -11,7 +11,7 @@ const ModifyInfo = () => {
         display: flex;
         white-space: nowrap;
         width: 1000px;
-        height: 550px;
+        height: 540px;
     `
     const User = styled.div`
         width: 20%;
@@ -41,8 +41,8 @@ const ModifyInfo = () => {
     `
     const InputDiv = styled.input`
         width: 100%;
-        height: 55px;
-        line-height: 55px;
+        height: 50px;
+        line-height: 50px;
         margin: 5px;
         font-size: 20px;
     `
@@ -95,7 +95,7 @@ const ModifyInfo = () => {
     `
     const Btndiv = styled.div`
         display: flex;
-        padding: 20px;
+        padding: 15px;
         font-size: 20px;
     `
     const Infobtn = styled.div`

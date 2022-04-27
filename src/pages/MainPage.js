@@ -8,10 +8,6 @@ import MainLecField from '../components/MainLecField';
 
 function MainPage() {
 
-    const Top = styled.div`
-        width: 1200px;
-        margin: 30px auto;
-    `
     const LecMaindiv = styled.div`
         width: 1200px;
         margin: 0 auto;
@@ -25,14 +21,10 @@ function MainPage() {
     const LecMainright = styled.div`
         width: 35%;
     `
-    const VidioDiv = styled.div`
-        width: 100%;
-        height: 300px;
-    `
 
     return (
         <div>
-            <Top><Topbar /></Top>
+            <Topbar />
             <LecMaindiv>
                 <Searchbar />
                 <LecMain>

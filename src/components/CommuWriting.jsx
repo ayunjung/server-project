@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -52,7 +52,7 @@ const WriteTextarea = styled.textarea`
 const WriteBtnBox = styled.div`
     width: 400px;
     display: flex;
-    padding: 20px;
+    padding: 15px;
     font-size: 20px;
     text-align: center;
     margin: 0 auto;
@@ -87,15 +87,6 @@ const CommuWriting = () => {
     const [Sort, setSort] = useState("");
     const [Content, setContent] = useState("");
 
-    useEffect (()=>{
-        console.log({
-            Email,
-            Title,
-            Sort,
-            Content
-        });
-    },[]);
-
     const onEmailHandler = (e) => {
         setEmail(e.target.value)
     }
@@ -117,12 +108,12 @@ const CommuWriting = () => {
                     <Writedt>제목</Writedt>
                     <Writedd><WriteTitleInput type="text" value={Title} onChange={onTitleHandler} placeholder="제목" /></Writedd>
                     <Select name="array" value={Sort} onChange={onSortHandler}>
-                        <option value="">웹개발</option>
-                        <option value="">프론트엔드</option>
-                        <option value="">백엔드</option>
-                        <option value="">프로그래밍언어</option>
-                        <option value="">게임만들기</option>
-                        <option value="">프로젝트관리</option>
+                        <option value="웹개발">웹개발</option>
+                        <option value="프론트엔드">프론트엔드</option>
+                        <option value="백엔드">백엔드</option>
+                        <option value="프로그래밍언어">프로그래밍언어</option>
+                        <option value="게임만들기">게임만들기</option>
+                        <option value="프로젝트관리">프로젝트관리</option>
                     </Select>
                 </dl>
             </WriteTitle>
