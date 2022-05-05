@@ -120,7 +120,7 @@ const QueWriting = () => {
         <WriteBtnBox>
             <WriteBtn type="submit" onClick={(e)=>{
                 e.preventDefault();
-                fetch('http://localhost:3001/makedoc', {
+                fetch('http://localhost:3001/makereq', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

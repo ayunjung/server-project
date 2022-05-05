@@ -149,3 +149,10 @@ app.post('/deldoc', (req, res) => {
 app.post('/delrep', (req, res) => {
   delrep.delrep(req.body,res);
 })
+
+// const corsOptions = {
+//   origin: 'http://localhost:3000',
+//   credentials: true, 
+// };
+
+// app.use(cors(corsOptions));

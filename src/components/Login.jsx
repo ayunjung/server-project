@@ -83,7 +83,7 @@ const Login = () => {
     <Loginform onSubmit={onSubmitHandler}>
       <Userinput type="email" value={Email} onChange={onEmailHandler} placeholder='UserEmail' />
       <Userinput type="password" value={Password} onChange={onPasswordHandler} placeholder='Password' />
-      <Checkbox type="checkbox" id="checkbox"/><label for="checkbox">로그인 유지</label>
+      <Checkbox type="checkbox" id="checkbox"/><label htmlFor="checkbox">로그인 유지</label>
       <Loginbtn type="submit">로그인</Loginbtn>
       <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
     </Loginform>

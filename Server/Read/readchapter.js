@@ -1,6 +1,6 @@
 const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
-const con = mysql.createConnection(MysqlInfo.MysqlInfolo);
+const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
 exports.readchapter = (obj, res) => {
     

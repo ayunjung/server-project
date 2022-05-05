@@ -1,6 +1,6 @@
 const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
-const con = mysql.createConnection(MysqlInfo.MysqlInfolo);
+const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
 exports.readcommulist = (obj, res) => {
     
@@ -12,12 +12,11 @@ exports.readcommulist = (obj, res) => {
     }*/
     
         con.query('select * from doc',/* [obj.ulecnum, obj.slecnum], */ (error, rows, fields) => {
-            if (error)  throw error;
+            if (error) throw error;
             if(data!=1){
                 res.send({success : data, data : rows});
             }  
-        })   
-    return 0;
+        })
 }
 
 
