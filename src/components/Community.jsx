@@ -76,7 +76,9 @@ const Community = () => {
             </Communitytop>
             <CommunityMain>
                 {Array.from(CommuList).map(commu => {
+                    return (
                         <Commu commu={commu} key={commu.docnum}/>
+                    )
                 })}
             </CommunityMain>
         </div>

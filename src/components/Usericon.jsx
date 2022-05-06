@@ -5,14 +5,18 @@ import { Link } from 'react-router-dom'
 
 const Usericon = () => {
 
-    const UserIcondiv = styled.div`
-        width: 60px;
-        height: 60px;
-        padding: 5px;
-        border: 1px solid black;
-        border-radius: 50%;
-        background-color: gray;
-    `
+  if (window.location.pathname === '/') return null;
+  if (window.location.pathname === '/LoginPage') return null;
+  if (window.location.pathname === '/JoinPage') return null;
+
+  const UserIcondiv = styled.div`
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: gray;
+  `
 
   return (
     <Link to="/MyPage" style={{ textDecoration: 'none', color: 'black' }}>

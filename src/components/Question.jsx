@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -33,6 +33,19 @@ const Question = () => {
         line-height: 50px;
         text-align: center;
     `
+    const [QueList, setQueList] = useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:3001/readreqlist', {
+            method: "post",
+            headers: {
+            "Content-Type": "application/json",
+            },
+        }).then((res)=>
+            res.json(),
+        ).then(data=>{setQueList(data)})
+    },[])
+    console.log(QueList)
 
     return (
         <div>
