@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import Topbar from '../components/Topbar'
 import QueView from '../components/QueView'
 
-
+const PostViewdiv = styled.div`
+    width: 1000px;
+    margin: 0 auto;
+`
 
 function QuestionView() {
-
-    const PostViewdiv = styled.div`
-        width: 1000px;
-        margin: 0 auto;
-    `
 
     return (
         <div>

@@ -11,21 +11,22 @@ import LecProgram from '../components/LecProgram'
 import LecGame from '../components/LecGame'
 import LecProject from '../components/LecProject'
 
+const LectureMain = styled.div`
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+`
+const LecPageleft = styled.div`
+    width: 20%;
+    margin: 0 10px;
+`
+const LecPageright = styled.div`
+    width: 80%;
+    margin: 0 10px;
+`
+
 function LectureList() {
 
-    const LectureMain = styled.div`
-        width: 1200px;
-        margin: 0 auto;
-        display: flex;
-    `
-    const LecPageleft = styled.div`
-        width: 20%;
-        margin: 0 10px;
-    `
-    const LecPageright = styled.div`
-        width: 80%;
-        margin: 0 10px;
-    `
     const [Lecsort, setLecsort] = useState("");
 
     const onLecsortHandler = (e) => {

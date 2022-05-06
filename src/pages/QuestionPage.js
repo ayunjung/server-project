@@ -6,31 +6,31 @@ import Question from '../components/Question'
 import Pagebar from '../components/Pagebar'
 import { Link } from 'react-router-dom'
 
-function QuestionPage() {
+const QuestionMain = styled.div`
+    width: 1000px;
+    margin: 0 auto;
+`    
+const QuestionHead = styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+`
+const WriteBtn = styled.div`
+    width: 100px;
+    height: 40px;
+    background-color: #888;
+    font-weight: 800;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+`
+const QuestionList = styled.div`
+    margin: 20px 0 0;
+    height: 400px;
+`
 
-    const QuestionMain = styled.div`
-        width: 1000px;
-        margin: 0 auto;
-    `    
-    const QuestionHead = styled.div`
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        align-items: center;
-    `
-    const WriteBtn = styled.div`
-        width: 100px;
-        height: 40px;
-        background-color: #888;
-        font-weight: 800;
-        border-radius: 5px;
-        line-height: 40px;
-        text-align: center;
-    `
-    const QuestionList = styled.div`
-        margin: 20px 0 0;
-        height: 400px;
-    `
+function QuestionPage() {
 
     return (
         <div>

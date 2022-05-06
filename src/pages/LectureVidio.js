@@ -4,15 +4,15 @@ import Topbar from '../components/Topbar'
 import LecVidioPlayer from '../components/LecVidioPlayer'
 import Classbar from '../components/Classbar'
 
-function LectureVidio() {
+const LecVidio = styled.div`
+    width: 800px;
+    margin: 0 auto;
+`
+const Vidio = styled.div`
+    margin: 20px 0;
+`
 
-    const LecVidio = styled.div`
-        width: 800px;
-        margin: 0 auto;
-    `
-    const Vidio = styled.div`
-        margin: 20px 0;
-    `
+function LectureVidio() {
 
     return (
         <div>

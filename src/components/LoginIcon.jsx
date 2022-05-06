@@ -3,16 +3,16 @@ import styled from 'styled-components';
 import { BsPersonFill } from "react-icons/bs";
 import { Link } from 'react-router-dom'
 
-const Loginicon = () => {
+const UserIcondiv = styled.div`
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: gray;
+`
 
-    const UserIcondiv = styled.div`
-        width: 60px;
-        height: 60px;
-        padding: 5px;
-        border: 1px solid black;
-        border-radius: 50%;
-        background-color: gray;
-    `
+const Loginicon = () => {
 
   return (
     <Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>

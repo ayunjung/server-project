@@ -2,33 +2,33 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+const SBicLecture = styled.div`
+    width : 220px;
+    margin : 0 auto;
+`
+
+const SImgWrap = styled.div`
+    width : 100%;
+    height : 160px;
+`
+
+const SImg = styled.img`
+    width : 100%;
+    height : 160px;
+`
+
+const STitleP = styled.p`
+    text-align : center;
+    margin : 5px 0;
+    font-weight : bold;
+`
+
+const SMakerP = styled.p`
+    text-align : right;
+    padding : 0 7px;
+`
+
 const BicLecture = () => {
-
-    const SBicLecture = styled.div`
-        width : 220px;
-        margin : 0 auto;
-    `
-
-    const SImgWrap = styled.div`
-        width : 100%;
-        height : 160px;
-    `
-
-    const SImg = styled.img`
-        width : 100%;
-        height : 160px;
-    `
-
-    const STitleP = styled.p`
-        text-align : center;
-        margin : 5px 0;
-        font-weight : bold;
-    `
-
-    const SMakerP = styled.p`
-        text-align : right;
-        padding : 0 7px;
-    `
 
   return (
     <SBicLecture>

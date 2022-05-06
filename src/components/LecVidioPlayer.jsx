@@ -1,21 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const SLecVidio = styled.div`
+  width : 750px;
+`
+const SVidioWrap = styled.div`
+  width : 100%;
+  height : 500px;
+  background : gray;
+`
+const SPTitle = styled.p`
+  font-size : 20px;
+  font-weight : bold;
+  text-align : center;
+  margin-top : 5px;
+`
+
 const LecVidio = () => {
-        const SLecVidio = styled.div`
-        width : 750px;
-        `
-        const SVidioWrap = styled.div`
-            width : 100%;
-            height : 500px;
-            background : gray;
-        `
-        const SPTitle = styled.p`
-            font-size : 20px;
-            font-weight : bold;
-            text-align : center;
-            margin-top : 5px;
-        `
 
   return (
     <SLecVidio>

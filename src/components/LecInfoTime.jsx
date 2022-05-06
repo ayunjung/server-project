@@ -1,36 +1,36 @@
 import React from 'react'
 import styled from 'styled-components'
 
+const SLecInfoTime = styled.div`
+    width : 614px;
+    padding : 0 20px;
+`
+
+const LecNum = styled.div`
+    font-size : 27px;
+    font-weight : bold;
+`
+
+const LecTime = styled.div`
+    font-size : 27px;
+    font-weight : bold;
+`
+
+const LecRunPerDiv = styled.div`
+    margin : 10px 0;
+    font-size : 20px;
+    font-weight : bold;
+    display : flex;
+`
+
+const Persqr = styled.div`
+    width : 350px;
+    background : lightgray;
+    margin : 0 20px;
+    border-radius : 10px;
+`
+
 const LecInfoTime = () => {
-
-    const SLecInfoTime = styled.div`
-        width : 614px;
-        padding : 0 20px;
-    `
-
-    const LecNum = styled.div`
-        font-size : 27px;
-        font-weight : bold;
-    `
-
-    const LecTime = styled.div`
-        font-size : 27px;
-        font-weight : bold;
-    `
-
-    const LecRunPerDiv = styled.div`
-        margin : 10px 0;
-        font-size : 20px;
-        font-weight : bold;
-        display : flex;
-    `
-
-    const Persqr = styled.div`
-        width : 350px;
-        background : lightgray;
-        margin : 0 20px;
-        border-radius : 10px;
-    `
 
   return (
     <SLecInfoTime>

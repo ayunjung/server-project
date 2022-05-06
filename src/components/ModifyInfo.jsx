@@ -5,109 +5,109 @@ import { Link } from 'react-router-dom'
 import { BsPersonFill } from "react-icons/bs"
 import { GiQueenCrown } from "react-icons/gi"
 
-const ModifyInfo = () => {
+const Maindiv = styled.div`
+    display: flex;
+    white-space: nowrap;
+    width: 1000px;
+    height: 540px;
+`
+const User = styled.div`
+    width: 20%;
+    height: 100%;
+    border: 1px solid #999;
+    border-right: 0;
+    box-sizing: border-box;
+    background-color: #29b2ef;
+    font-size: 100px;
+    line-height: 600px;
+    text-align: center;
+`
+const Info = styled.div`
+    width: 80%;
+    height: 100%;
+    border: 1px solid #999;
+    border-left: 0;
+    box-sizing: border-box;
+    padding: 10px 50px;
+    font-size: 20px;
+`
+const Basicinfo = styled.div`
+    display: flex;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+`
+const InputDiv = styled.input`
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin: 5px;
+    font-size: 20px;
+`
+const Addinfo = styled.div`
+    display: flex;
+    width: 100%;
+    height: 15%;
+    line-height: 70px;
+`
+const License = styled.div`
+    width: 600px;
+    height: 180px;
+    border: 1px solid #999;
+    margin: 20px 0 10px;
+`
+const Licensetop = styled.div`
+    display: flex;
+    overflow: auto;
+    width: 100%;
+    height: 30px;
+    border-bottom: 2px solid #999;
+`
+const LicenseNum = styled.div`
+    width: 20%;
+    text-align: center;
+`
+const LicenseElement = styled.div`
+    width: 40%;
+    text-align: center;
+`
+const LicenseMain = styled.ul`
+    width: 600px;
+    height: 150px; 
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+`
+const LicenseList = styled.li`
+    display: flex;
+    height : 40px;
+    border-bottom : 1px solid #999;
+    line-height: 40px;
+    text-align: center;
+`
+const ContentElement = styled.div`
+    width: 40%;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+`
+const Btndiv = styled.div`
+    display: flex;
+    padding: 15px;
+    font-size: 20px;
+`
+const Infobtn = styled.div`
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 0 50px;
+    background-color: #29b2ef;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+`
 
-    const Maindiv = styled.div`
-        display: flex;
-        white-space: nowrap;
-        width: 1000px;
-        height: 540px;
-    `
-    const User = styled.div`
-        width: 20%;
-        height: 100%;
-        border: 1px solid #999;
-        border-right: 0;
-        box-sizing: border-box;
-        background-color: #29b2ef;
-        font-size: 100px;
-        line-height: 600px;
-        text-align: center;
-    `
-    const Info = styled.div`
-        width: 80%;
-        height: 100%;
-        border: 1px solid #999;
-        border-left: 0;
-        box-sizing: border-box;
-        padding: 10px 50px;
-        font-size: 20px;
-    `
-    const Basicinfo = styled.div`
-        display: flex;
-        width: 100%;
-        height: 70px;
-        line-height: 70px;
-    `
-    const InputDiv = styled.input`
-        width: 100%;
-        height: 50px;
-        line-height: 50px;
-        margin: 5px;
-        font-size: 20px;
-    `
-    const Addinfo = styled.div`
-        display: flex;
-        width: 100%;
-        height: 15%;
-        line-height: 70px;
-    `
-    const License = styled.div`
-        width: 600px;
-        height: 180px;
-        border: 1px solid #999;
-        margin: 20px 0 10px;
-    `
-    const Licensetop = styled.div`
-        display: flex;
-        overflow: auto;
-        width: 100%;
-        height: 30px;
-        border-bottom: 2px solid #999;
-    `
-    const LicenseNum = styled.div`
-        width: 20%;
-        text-align: center;
-    `
-    const LicenseElement = styled.div`
-        width: 40%;
-        text-align: center;
-    `
-    const LicenseMain = styled.ul`
-        width: 600px;
-        height: 150px; 
-        padding: 0;
-        margin: 0;
-        overflow: auto;
-    `
-    const LicenseList = styled.li`
-        display: flex;
-        height : 40px;
-        border-bottom : 1px solid #999;
-        line-height: 40px;
-        text-align: center;
-    `
-    const ContentElement = styled.div`
-        width: 40%;
-        height: 30px;
-        line-height: 30px;
-        margin: 10px 0;
-    `
-    const Btndiv = styled.div`
-        display: flex;
-        padding: 15px;
-        font-size: 20px;
-    `
-    const Infobtn = styled.div`
-        width: 150px;
-        height: 40px;
-        border-radius: 5px;
-        margin: 0 50px;
-        background-color: #29b2ef;
-        color: #fff;
-        line-height: 40px;
-        text-align: center;
-    `
+const ModifyInfo = () => {
 
     return (
         <div>

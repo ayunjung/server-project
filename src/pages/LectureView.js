@@ -5,16 +5,16 @@ import LecInfoHead from '../components/LecInfoHead';
 import LecInfoTime from '../components/LecInfoTime';
 import SmallLecList from '../components/SmallLecList';
 
-function LectureView() {
+const LecView = styled.div`
+    width: 700px;
+    margin: 0 auto;
+`
+const LecViewdiv = styled.div`
+    width: 100%;
+    padding: 20px 0;
+`
 
-    const LecView = styled.div`
-        width: 700px;
-        margin: 0 auto;
-    `
-    const LecViewdiv = styled.div`
-        width: 100%;
-        padding: 20px 0;
-    `
+function LectureView() {
 
     return (
         <div>

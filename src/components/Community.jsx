@@ -11,10 +11,13 @@ const Communitytop = styled.div`
     text-align: center;
 `
 const CommunityElement = styled.div`
-    width : 15%;
+    width : 13%;
 `
 const CommunityContent = styled.div`
-    width : 35%;
+    width : 30%;
+`
+const CommunityTitle = styled.div`
+    width : 40%;
 `
 const CommunityMain = styled.ul`
     width: 1000px;
@@ -38,8 +41,8 @@ const Commu = ({ commu }) => {
             <CommunityList>
                 <CommunityElement>{commu.docnum}</CommunityElement>
                 <CommunityElement>{commu.sort}</CommunityElement>
-                <CommunityContent>{commu.title}</CommunityContent>
-                <CommunityElement>{commu.date}</CommunityElement>
+                <CommunityTitle>{commu.title.substr(0,10)}</CommunityTitle>
+                <CommunityContent>{commu.date.substr(0,10)}</CommunityContent>
                 <CommunityContent>{commu.writer}</CommunityContent>
                 <CommunityElement>{commu.views}</CommunityElement>
             </CommunityList>
@@ -53,6 +56,7 @@ const Community = () => {
     const [CommuList, setCommuList] = useState([]);
 
     useEffect(()=>{
+        let isMounted = true;//eslint-disable-line no-unused-vars
         fetch('http://localhost:3001/readcommulist', {
             method: "post",
             headers: {
@@ -60,18 +64,20 @@ const Community = () => {
             },
         }).then((res)=>
             res.json(),
-        ).then(data=>{setCommuList(data)})
+        ).then(data=>{setCommuList(data.data)})
+        return () => {
+            isMounted = false;
+        }
     },[])
-    console.log(CommuList)
 
     return (
         <div>
             <Communitytop>
                 <CommunityElement>No</CommunityElement>
                 <CommunityElement>분류</CommunityElement>
-                <CommunityContent>제목</CommunityContent>
-                <CommunityElement>날짜</CommunityElement>
-                <CommunityElement>작성자</CommunityElement>
+                <CommunityTitle>제목</CommunityTitle>
+                <CommunityContent>날짜</CommunityContent>
+                <CommunityContent>작성자</CommunityContent>
                 <CommunityElement>조회수</CommunityElement>
             </Communitytop>
             <CommunityMain>

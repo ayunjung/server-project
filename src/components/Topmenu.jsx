@@ -2,24 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+const Topmenudiv = styled.div`
+    display: flex;
+    width: 300px;
+    height: 30px;
+    margin: 10px 0;
+`
+const Innermenudiv = styled.div`
+    width: 100px;
+    height: 30px;
+    padding: 3px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+`
+
 const Topmenu = () => {
-
-    const Topmenudiv = styled.div`
-        display: flex;
-        width: 300px;
-        height: 30px;
-        margin: 10px 0;
-    `
-    const Innermenudiv = styled.div`
-        width: 100px;
-        height: 30px;
-        padding: 3px;
-        text-align: center;
-        font-size: 20px;
-        font-weight: 900;
-    `
     
-
   return (
       <Topmenudiv>
         <Innermenudiv>

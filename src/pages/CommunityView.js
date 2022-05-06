@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import Topbar from '../components/Topbar'
 import CommuView from '../components/CommuView'
 
-
+const PostViewdiv = styled.div`
+    width: 1000px;
+    margin: 0 auto;
+`
 
 function CommunityView() {
-
-    const PostViewdiv = styled.div`
-        width: 1000px;
-        margin: 0 auto;
-    `
 
     return (
         <div>
