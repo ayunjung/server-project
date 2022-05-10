@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -27,9 +28,11 @@ const PostInfodd = styled.dd`
     text-align: center;
 `
 const PostContent = styled.div`
+    height: 380px;
     padding: 15px;
     border-bottom: 2px solid #000;
     line-height: 160%;
+    overflow: auto;
 `
 const RePostBtn = styled.div`
     width: 200px;
@@ -53,41 +56,42 @@ const Cancelbtn = styled.div `
     text-align: center;
 `
 
-const CommunityView = () => {
+const CommunityView = (props) => {
+    const num = props.match.params.commu.docnum;
+
+    const [CommuPost, setCommuPost] = useState({});
+
+    useEffect(()=>{
+        fetch('http://localhost:3001/readcommudocinfo' + num, {
+            method: "post",
+            headers: {
+            "Content-Type": "application/json",
+            },
+        }).then((res)=>
+            res.json(),
+        ).then(data=>{setCommuPost(data)})
+    },[])
 
     return (
         <Maindiv>
             <Post>
-                <PostTitle>글 제목이 들어갈 자리</PostTitle>
+                <PostTitle>{CommuPost.title}</PostTitle>
                 <PostInfo>
                     <PostInfoCon>
                         <dt>번호</dt>
-                        <PostInfodd>1</PostInfodd>
+                        <PostInfodd>{CommuPost.docnum}</PostInfodd>
                     </PostInfoCon>
                     <PostInfoCon>
                         <dt>작성일</dt>
-                        <PostInfodd>2021.11.14</PostInfodd>
+                        <PostInfodd>{CommuPost.date}</PostInfodd>
                     </PostInfoCon>
                     <PostInfoCon>
                         <dt>분류</dt>
-                        <PostInfodd>웹개발</PostInfodd>
+                        <PostInfodd>{CommuPost.sort}</PostInfodd>
                     </PostInfoCon>
                 </PostInfo>
                 <PostContent>
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요
+                    {CommuPost.content}
                 </PostContent>
             </Post>
             <div style={{display: 'flex'}}>

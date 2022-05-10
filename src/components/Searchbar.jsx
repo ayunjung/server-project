@@ -80,7 +80,7 @@ const Searchbar = ({ data }) => {
                     <DataResult>
                         {filterData.slice(0, 15).map((product, key)=>{
                             return(
-                                <a key={key} className='dataItem' href={product.image} target="_blank">
+                                <a key={key} className='dataItem' href={product.image} target="_blank" rel="noreferrer">
                                   <p>{product.title}</p>  
                                 </a>
                             )

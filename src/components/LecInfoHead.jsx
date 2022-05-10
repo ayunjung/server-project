@@ -39,7 +39,7 @@ const LecMore = styled.p`
     display : flex;
 `
 
-const ListenerReview = styled.div`
+const ListenerReview = styled.span`
     margin : 0 20px 0 30px;
     text-decoration : underline;
 `

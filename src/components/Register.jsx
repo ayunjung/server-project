@@ -1,7 +1,6 @@
-import React, { useEffect, useState }  from 'react'
+import React, { useState }  from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Formik } from 'formik'
 
 const Joinform = styled.form `
   width: 400px;
@@ -54,15 +53,15 @@ const Register = () => {
     const [Job, setJob] = useState("");
     const [Comment, setComment] = useState("");
 
-    useEffect (()=>{
-      console.log({
-        Email,
-        Password,
-        Birth,
-        Job,
-        Comment
-      });
-    },[]);
+    // useEffect (()=>{
+    //   console.log({
+    //     Email,
+    //     Password,
+    //     Birth,
+    //     Job,
+    //     Comment
+    //   });
+    // },[]);
 
     const onEmailHandler = (e) => {
       setEmail(e.target.value)

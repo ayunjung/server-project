@@ -3,20 +3,17 @@ const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
 exports.readcommudocinfo = (obj, res) => {
-    
     let data = 0;
-    
-    if(obj.docnum == null){
-        data = 1;
-        res.send({success : data, data : []});
-    }
-    
-        con.query('select * from doc where docnum = ?', [obj.docnum], (error, rows, fields) => {
-            if (error)  throw error;
-            if(data!=1){
-                res.send({success : data, data : rows[0]});
-            }  
-        })   
+    con.query('select * from doc where docnum = ?', [obj.docnum], (error, rows, fields) => {
+        if (error)  throw error;
+        if(data!=1){
+            let num = rows[0].views+1;
+            con.query('UPDATE doc SET views = ? WHERE docnum = ?', [num, obj.docnum], (error, rows, fields) => {
+                if (error)  throw error;
+            })
+            res.send({success : data, data : rows[0]});
+        }  
+    })
     return 0;
 }
 

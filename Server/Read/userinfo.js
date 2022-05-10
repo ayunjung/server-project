@@ -2,7 +2,7 @@ const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
-exports.readuserinfo = (obj, res) => {
+exports.readuserinfo = (req, obj, res) => {
     
     let data = 0;
     if(obj.email == null){
@@ -14,7 +14,6 @@ exports.readuserinfo = (obj, res) => {
         if(data!=1){res.send({success : data, info : rows[0]})};
       })
 }
-
 
 /*
     'http://localhost:3001/readuserinfo'

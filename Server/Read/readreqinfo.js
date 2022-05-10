@@ -14,6 +14,10 @@ exports.readreqinfo = (obj, res) => {
         con.query('select * from question where quesnum = ?', [obj.quesnum], (error, rows, fields) => {
             if (error)  throw error;
             if(data!=1){
+                let num = rows[0].views+1;
+                con.query('UPDATE question SET views = ? WHERE quesnum = ?', [num, obj.quesnum], (error, rows, fields) => {
+                    if (error)  throw error;
+                })
                 res.send({success : data, data : rows[0]});
             }  
         })   

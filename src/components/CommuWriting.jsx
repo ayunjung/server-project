@@ -138,7 +138,7 @@ const CommuWriting = () => {
                 }).then((res)=>
                     res.json()
                 ).then(data=>{console.log(data)})
-            }}><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>등록</Link></WriteBtn>
+            }}>등록</WriteBtn>
             <CancelBtn><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></CancelBtn>
         </WriteBtnBox>
     </Write>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -48,43 +48,37 @@ const Joinbtn = styled.div `
 
 
 const Login = () => {
-
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
-
-  useEffect(()=>{
-    fetch('http://localhost:3001/', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: "Test@naver.com",
-          password: "Test1234",
-        }),
-      }).then((res)=>
-          res.json()
-      ).then(data=>{console.log(data)})
-  }, []);
 
   const onEmailHandler = (e) => {
     setEmail(e.target.value)
   }
-
   const onPasswordHandler = (e) => {
     setPassword(e.target.value)
   }
 
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-  }
-
   return (
-    <Loginform onSubmit={onSubmitHandler}>
-      <Userinput type="email" value={Email} onChange={onEmailHandler} placeholder='UserEmail' />
-      <Userinput type="password" value={Password} onChange={onPasswordHandler} placeholder='Password' />
+    <Loginform>
+      <Userinput type="email" placeholder='UserEmail' value={Email} onChange={onEmailHandler} />
+      <Userinput type="password" placeholder='Password' value={Password} onChange={onPasswordHandler} />
       <Checkbox type="checkbox" id="checkbox"/><label htmlFor="checkbox">로그인 유지</label>
-      <Loginbtn type="submit">로그인</Loginbtn>
+      <Loginbtn type="submit" onClick={(e)=>{
+        e.preventDefault();
+        fetch('http://localhost:3001/login', {
+          method: "post",
+          credentials: 'include',
+          headers: {
+          "Content-Type": "application/json",
+          },
+          body : JSON.stringify({
+            email : Email,
+            password : Password,
+          })
+        }).then((res)=>
+          res.json(),
+        ).then(data=>console.log(data))
+      }}>로그인</Loginbtn>
       <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
     </Loginform>
   )

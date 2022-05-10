@@ -37,10 +37,10 @@ const CommunityList = styled.li`
 
 const Commu = ({ commu }) => {
     return (
-        <Link to="/CommunityView" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
+        <Link to={"/CommunityView/"+commu.docnum} style={{ textDecoration: 'none', color: 'black', display:'block' }}>
             <CommunityList>
                 <CommunityElement>{commu.docnum}</CommunityElement>
-                <CommunityElement>{commu.sort}</CommunityElement>
+                <CommunityElement>{commu.sort.substr(0,5)}</CommunityElement>
                 <CommunityTitle>{commu.title.substr(0,10)}</CommunityTitle>
                 <CommunityContent>{commu.date.substr(0,10)}</CommunityContent>
                 <CommunityContent>{commu.writer}</CommunityContent>
@@ -56,7 +56,6 @@ const Community = () => {
     const [CommuList, setCommuList] = useState([]);
 
     useEffect(()=>{
-        let isMounted = true;//eslint-disable-line no-unused-vars
         fetch('http://localhost:3001/readcommulist', {
             method: "post",
             headers: {
@@ -65,9 +64,6 @@ const Community = () => {
         }).then((res)=>
             res.json(),
         ).then(data=>{setCommuList(data.data)})
-        return () => {
-            isMounted = false;
-        }
     },[])
 
     return (

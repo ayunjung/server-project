@@ -39,7 +39,7 @@ const Question = () => {
 
     const Que = ({ que }) => {
         return (
-            <Link to="/QuestionView" style={{ textDecoration: 'none', color: 'black', display:'block' }}>
+            <Link to={"/QuestionView/" + que.quesnum} style={{ textDecoration: 'none', color: 'black', display:'block' }}>
                 <QuestionList>
                     <QuestionElement>{que.quesnum}</QuestionElement>
                     <QuestionElement>{que.sort}</QuestionElement>
@@ -55,7 +55,6 @@ const Question = () => {
     const [QueList, setQueList] = useState([]);
 
     useEffect(()=>{
-        let isMounted = true;//eslint-disable-line no-unused-vars
         fetch('http://localhost:3001/readreqlist', {
             method: "post",
             headers: {
@@ -64,9 +63,6 @@ const Question = () => {
         }).then((res)=>
             res.json(),
         ).then(data=>{setQueList(data.data)})
-        return () => {
-            isMounted = false;
-        }
     },[])
 
     return (

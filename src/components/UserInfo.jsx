@@ -106,6 +106,18 @@ const Infobtn = styled.div`
     line-height: 40px;
     text-align: center;
 `
+const LogoutBtn = styled.button`
+    width: 150px;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+    margin: 0 50px;
+    background-color: #29b2ef;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+`
 
 const UserInfo = () => {
 
@@ -163,7 +175,20 @@ const UserInfo = () => {
             </Maindiv>
             <Btndiv>
                 <Infobtn><Link to="/ModifyInfoPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>회원정보수정</Link></Infobtn>
-                <Infobtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>로그아웃</Link></Infobtn>
+                <LogoutBtn onClick={()=>{
+                    fetch('http://localhost:3001/logout', {
+                    method: "post",
+                    credentials: 'include',
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                    body : JSON.stringify({
+                    })
+                }).then((res)=>
+                    res.json(),
+                ).then(data=>{
+                    console.log(data);
+                })}}><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>로그아웃</Link></LogoutBtn>
             </Btndiv>
         </Userdiv>
     )
