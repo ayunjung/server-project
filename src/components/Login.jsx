@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const Loginform = styled.form `
   width: 500px;
@@ -48,6 +48,9 @@ const Joinbtn = styled.div `
 
 
 const Login = () => {
+
+  let history = useHistory();
+
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
@@ -77,7 +80,15 @@ const Login = () => {
           })
         }).then((res)=>
           res.json(),
-        ).then(data=>console.log(data))
+        ).then((res)=>{
+          if(res.success === 0){
+            history.push("/MainPage");
+          } if(res.success === 1){
+            alert("비밀번호가 일치하지 않습니다.")
+          } else{
+            alert("유효한 이메일이 아닙니다.")
+          }
+        }).then(data=>{console.log(data)})
       }}>로그인</Loginbtn>
       <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
     </Loginform>
