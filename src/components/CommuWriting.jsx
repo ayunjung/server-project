@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 const Write = styled.form`
     width: 1000px;
@@ -82,14 +83,13 @@ const CancelBtn = styled.div`
 
 const CommuWriting = () => {
 
+    let history = useHistory();
+
     const [Email, setEmail] = useState("");
     const [Title, setTitle] = useState("");
     const [Sort, setSort] = useState("");
     const [Content, setContent] = useState("");
 
-    const onEmailHandler = (e) => {
-        setEmail(e.target.value)
-    }
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
     }
@@ -99,6 +99,15 @@ const CommuWriting = () => {
     const onContentHandler = (e) => {
         setContent(e.target.value)
     }
+
+    axios.defaults.withCredentials = true
+
+    axios.post('http://localhost:3001/login', {
+        withCredentials: true
+      })
+      .then(response => {
+        setEmail(response.data.session.sid);
+    })
 
   return (
     <Write>
@@ -137,9 +146,9 @@ const CommuWriting = () => {
                 }),
                 }).then((res)=>
                     res.json()
-                ).then(data=>{console.log(data)})
+                ).then(()=>history.push("/CommunityPage"))
             }}>등록</WriteBtn>
-            <CancelBtn><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></CancelBtn>
+            <CancelBtn onClick={()=>{ history.goBack() }}>취소</CancelBtn>
         </WriteBtnBox>
     </Write>
   )
