@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -27,9 +27,11 @@ const PostInfodd = styled.dd`
     text-align: center;
 `
 const PostContent = styled.div`
+    height: 380px;
     padding: 15px;
     border-bottom: 2px solid #000;
     line-height: 160%;
+    overflow: auto;
 `
 const RePostBtn = styled.div`
     width: 200px;
@@ -55,46 +57,49 @@ const Cancelbtn = styled.div `
 
 const QuestionView = () => {
 
-    let history = useHistory();
+    let History = useHistory();
+
+    const { quesnum } = useParams();
+
+    const [QueData, setQueData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/readreqinfo', {
+            method: "post",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                quesnum: quesnum,
+            })
+        }).then((res)=>
+            res.json(),
+        ).then(data=>{setQueData(data.data)})
+    },[quesnum])
 
     return (
         <Maindiv>
             <Post>
-                <PostTitle>글 제목이 들어갈 자리</PostTitle>
+                <PostTitle>{QueData.title}</PostTitle>
                 <PostInfo>
                     <PostInfoCon>
                         <dt>번호</dt>
-                        <PostInfodd>1</PostInfodd>
+                        <PostInfodd>{QueData.quesnum}</PostInfodd>
                     </PostInfoCon>
                     <PostInfoCon>
                         <dt>작성일</dt>
-                        <PostInfodd>2021.11.14</PostInfodd>
+                        <PostInfodd>{QueData.date}</PostInfodd>
                     </PostInfoCon>
                     <PostInfoCon>
                         <dt>분류</dt>
-                        <PostInfodd>해결</PostInfodd>
+                        <PostInfodd>{QueData.sort}</PostInfodd>
                     </PostInfoCon>
                 </PostInfo>
-                <PostContent>
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요<br />
-                    글내용이 들어가요
-                </PostContent>
+                <PostContent>{QueData.content}</PostContent>
             </Post>
             <div style={{display: 'flex'}}>
                 <RePostBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                <Cancelbtn onClick={()=>{ history.goBack() }}>취소</Cancelbtn>
+                <Cancelbtn onClick={()=>{ History.goBack() }}>취소</Cancelbtn>
             </div>
         </Maindiv>
     )

@@ -61,29 +61,31 @@ const CommunityView = () => {
 
     const { communum } = useParams();
 
-    const [CommuList, setCommuList] = useState([]);
     const [CommuData, setCommuData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/readcommulist', {
+        fetch('http://localhost:3001/readcommudocinfo', {
             method: "post",
             headers: {
             "Content-Type": "application/json",
             },
+            body: JSON.stringify({
+                docnum: communum,
+            })
         }).then((res)=>
             res.json(),
-        ).then(data=>{setCommuList(data)})
-    },[])
+        ).then(data=>{setCommuData(data.data)})
+    },[communum])
 
-    const Data = (docnum) => {
-        setCommuData(CommuList.filter(x => x.docnum === docnum)[0])
-    }
+    // const Data = (docnum) => {
+    //     setCommuData(CommuList.filter(x => x.docnum === docnum)[0])
+    // }
 
-    useEffect(() => {
-        Data(communum)
-        console.log(CommuData)
-    // eslint-disable-next-line
-    },[])
+    // useEffect(() => {
+    //     Data(communum)
+    //     console.log(CommuData)
+    // // eslint-disable-next-line
+    // },[])
 
     return (
         <Maindiv>

@@ -35,22 +35,23 @@ const QuestionList = styled.li`
     text-align: center;
 `
 
-const Question = () => {
+const Que = ({ que }) => {
+    
+    return (
+        <Link to={`/QuestionView/${que.quesnum}`} style={{ textDecoration: 'none', color: 'black', display:'block' }}>
+            <QuestionList>
+                <QuestionElement>{que.quesnum}</QuestionElement>
+                <QuestionElement>{que.sort}</QuestionElement>
+                <QuestionTitle>{que.title.substr(0,10)}</QuestionTitle>
+                <QuestionContent>{que.date.substr(0,10)}</QuestionContent>
+                <QuestionContent>{que.writer}</QuestionContent>
+                <QuestionElement>{que.views}</QuestionElement>
+            </QuestionList>
+        </Link>
+    )
+}
 
-    const Que = ({ que }) => {
-        return (
-            <Link to={"/QuestionView/" + que.quesnum} style={{ textDecoration: 'none', color: 'black', display:'block' }}>
-                <QuestionList>
-                    <QuestionElement>{que.quesnum}</QuestionElement>
-                    <QuestionElement>{que.sort}</QuestionElement>
-                    <QuestionTitle>{que.title.substr(0,10)}</QuestionTitle>
-                    <QuestionContent>{que.date.substr(0,10)}</QuestionContent>
-                    <QuestionContent>{que.writer}</QuestionContent>
-                    <QuestionElement>{que.views}</QuestionElement>
-                </QuestionList>
-            </Link>
-        )
-    }
+const Question = () => {
 
     const [QueList, setQueList] = useState([]);
 

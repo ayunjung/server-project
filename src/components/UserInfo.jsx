@@ -1,9 +1,10 @@
 //https://react-icons.github.io/react-icons/#/
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { BsPersonFill } from "react-icons/bs";
 import { GiQueenCrown } from "react-icons/gi";
+import axios from 'axios';
 
 const Userdiv = styled.div`
     width: 1000px;
@@ -121,14 +122,28 @@ const LogoutBtn = styled.button`
 
 const UserInfo = () => {
 
+    const [Email, setEmail] = useState("");
+    const [Age, setAge] = useState("");
+    const [Job, setJob] = useState("");
+    const [Intro, setIntro] = useState("");
+
+    axios.defaults.withCredentials = true
+
+    axios.post('http://localhost:3001/login', {
+        withCredentials: true
+      })
+      .then(response => {
+        setEmail(response.data.session.sid);
+    })
+    
     return (
         <Userdiv>
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <Basicinfo>이름 : 정아윤</Basicinfo>
-                    <Basicinfo>나이 : 23</Basicinfo>
-                    <Basicinfo>직업 : 대학생</Basicinfo>
+                    <Basicinfo>이메일 : {Email}</Basicinfo>
+                    <Basicinfo>나이 : {Age}</Basicinfo>
+                    <Basicinfo>직업 : {Job}</Basicinfo>
                     <License>
                         <Licensetop>
                             <LicenseNum>No.</LicenseNum>
@@ -165,7 +180,7 @@ const UserInfo = () => {
                     </License>
                     <Addinfo>
                         <ContentElement><div>회원등급</div><GiQueenCrown size="35" style= {{ color: 'pink', marginLeft: '25px'}} /></ContentElement>
-                        <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>나는 정아윤입니다.</div></ContentElement>
+                        <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>{Intro}</div></ContentElement>
                     </Addinfo>
                     <Addinfo>
                         <ContentElement>작성한 글 보기</ContentElement>

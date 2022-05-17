@@ -33,7 +33,7 @@ function App() {
                 <Route exact path="/ModifyInfoPage"><ModifyInfoPage/></Route>
                 <Route exact path="/Mypage"><Mypage/></Route>
                 <Route exact path="/QuestionPage"><QuestionPage/></Route>
-                <Route exact path="/QuestionView:quenum"><QuestionView/></Route>
+                <Route exact path="/QuestionView/:quesnum"><QuestionView/></Route>
                 <Route exact path="/QuestionWrite"><QuestionWrite/></Route>
                 <Route exact path="/RegisterPage"><RegisterPage/></Route>
                 <Route path="/"><LoginPage/></Route>
