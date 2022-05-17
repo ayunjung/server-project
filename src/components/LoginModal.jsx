@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Modal = styled.div `
     width: 400px;
@@ -29,7 +30,7 @@ const LoginModal = () => {
     return (
         <Modal>
             <div>로그인이 필요합니다.</div>
-            <Loginbtn>로그인</Loginbtn>
+            <Loginbtn><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'white' }}>로그인</Link></Loginbtn>
         </Modal>
     )
 }
