@@ -76,7 +76,7 @@ const CancelBtn = styled.div`
     border-radius: 5px;
     margin: 0 20px;
     background-color: #e8e8e8;
-    color: #fff;
+    color: #000;
     line-height: 40px;
     text-align: center;
 `
