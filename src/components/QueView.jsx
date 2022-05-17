@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -55,6 +55,8 @@ const Cancelbtn = styled.div `
 
 const QuestionView = () => {
 
+    let history = useHistory();
+
     return (
         <Maindiv>
             <Post>
@@ -92,7 +94,7 @@ const QuestionView = () => {
             </Post>
             <div style={{display: 'flex'}}>
                 <RePostBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                <Cancelbtn><Link to="/QuestionPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
+                <Cancelbtn onClick={()=>{ history.goBack() }}>취소</Cancelbtn>
             </div>
         </Maindiv>
     )

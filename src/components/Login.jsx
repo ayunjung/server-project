@@ -83,12 +83,12 @@ const Login = () => {
         ).then((res)=>{
           if(res.success === 0){
             history.push("/MainPage");
-          } if(res.success === 1){
+          } else if(res.success === 1){
             alert("비밀번호가 일치하지 않습니다.")
           } else{
             alert("유효한 이메일이 아닙니다.")
           }
-        }).then(data=>{console.log(data)})
+        })
       }}>로그인</Loginbtn>
       <Joinbtn><Link to="/RegisterPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>회원가입</Link></Joinbtn>
     </Loginform>

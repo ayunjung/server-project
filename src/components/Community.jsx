@@ -36,8 +36,9 @@ const CommunityList = styled.li`
 `
 
 const Commu = ({ commu }) => {
+
     return (
-        <Link to={"/CommunityView/"+commu.docnum} style={{ textDecoration: 'none', color: 'black', display:'block' }}>
+        <Link to={`/CommunityView/${commu.docnum}`} style={{ textDecoration: 'none', color: 'black', display:'block' }}>
             <CommunityList>
                 <CommunityElement>{commu.docnum}</CommunityElement>
                 <CommunityElement>{commu.sort.substr(0,5)}</CommunityElement>
@@ -86,5 +87,6 @@ const Community = () => {
         </div>
     )
 }
+
 
 export default Community

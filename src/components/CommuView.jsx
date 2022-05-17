@@ -1,7 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -56,47 +55,59 @@ const Cancelbtn = styled.div `
     text-align: center;
 `
 
-const CommunityView = (props) => {
-    const num = props.match.params.commu.docnum;
+const CommunityView = () => {
 
-    const [CommuPost, setCommuPost] = useState({});
+    let History = useHistory();
 
-    useEffect(()=>{
-        fetch('http://localhost:3001/readcommudocinfo' + num, {
+    const { communum } = useParams();
+
+    const [CommuList, setCommuList] = useState([]);
+    const [CommuData, setCommuData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/readcommulist', {
             method: "post",
             headers: {
             "Content-Type": "application/json",
             },
         }).then((res)=>
             res.json(),
-        ).then(data=>{setCommuPost(data)})
+        ).then(data=>{setCommuList(data)})
+    },[])
+
+    const Data = (docnum) => {
+        setCommuData(CommuList.filter(x => x.docnum === docnum)[0])
+    }
+
+    useEffect(() => {
+        Data(communum)
+        console.log(CommuData)
+    // eslint-disable-next-line
     },[])
 
     return (
         <Maindiv>
             <Post>
-                <PostTitle>{CommuPost.title}</PostTitle>
+                <PostTitle>{CommuData.title}</PostTitle>
                 <PostInfo>
                     <PostInfoCon>
                         <dt>번호</dt>
-                        <PostInfodd>{CommuPost.docnum}</PostInfodd>
+                        <PostInfodd>{CommuData.docnum}</PostInfodd>
                     </PostInfoCon>
                     <PostInfoCon>
                         <dt>작성일</dt>
-                        <PostInfodd>{CommuPost.date}</PostInfodd>
+                        <PostInfodd>{CommuData.date}</PostInfodd>
                     </PostInfoCon>
                     <PostInfoCon>
                         <dt>분류</dt>
-                        <PostInfodd>{CommuPost.sort}</PostInfodd>
+                        <PostInfodd>{CommuData.sort}</PostInfodd>
                     </PostInfoCon>
                 </PostInfo>
-                <PostContent>
-                    {CommuPost.content}
-                </PostContent>
+                <PostContent>{CommuData.content}</PostContent>
             </Post>
             <div style={{display: 'flex'}}>
                 <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                <Cancelbtn><Link to="/CommunityPage" style={{ textDecoration: 'none', color: 'black', display:'block' }}>취소</Link></Cancelbtn>
+                <Cancelbtn onClick={()=>{ History.goBack() }}>취소</Cancelbtn>
             </div>
         </Maindiv>
     )
