@@ -77,16 +77,6 @@ const CommunityView = () => {
         ).then(data=>{setCommuData(data.data)})
     },[communum])
 
-    // const Data = (docnum) => {
-    //     setCommuData(CommuList.filter(x => x.docnum === docnum)[0])
-    // }
-
-    // useEffect(() => {
-    //     Data(communum)
-    //     console.log(CommuData)
-    // // eslint-disable-next-line
-    // },[])
-
     return (
         <Maindiv>
             <Post>
