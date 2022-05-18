@@ -1,7 +1,7 @@
 //https://react-icons.github.io/react-icons/#/
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { BsPersonFill } from "react-icons/bs";
 import { GiQueenCrown } from "react-icons/gi";
 import axios from 'axios';
@@ -122,10 +122,10 @@ const LogoutBtn = styled.button`
 
 const UserInfo = () => {
 
+    let history = useHistory();
+
     const [Email, setEmail] = useState("");
-    const [Age, setAge] = useState("");
-    const [Job, setJob] = useState("");
-    const [Intro, setIntro] = useState("");
+    const [Userinfo, setUserinfo] = useState({});
 
     axios.defaults.withCredentials = true
 
@@ -135,15 +135,23 @@ const UserInfo = () => {
       .then(response => {
         setEmail(response.data.session.sid);
     })
+
+    useEffect(() => {
+        axios.post('http://localhost:3001/readmyinfo', {
+            params: {
+                email: Email,
+            }
+        }).then(res=>{setUserinfo(res.data.info)})
+    },[Email])
     
     return (
         <Userdiv>
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <Basicinfo>이메일 : {Email}</Basicinfo>
-                    <Basicinfo>나이 : {Age}</Basicinfo>
-                    <Basicinfo>직업 : {Job}</Basicinfo>
+                    <Basicinfo>이메일 : {Userinfo.email}</Basicinfo>
+                    <Basicinfo>생년월일 : {Userinfo.birth}</Basicinfo>
+                    <Basicinfo>직업 : {Userinfo.job}</Basicinfo>
                     <License>
                         <Licensetop>
                             <LicenseNum>No.</LicenseNum>
@@ -180,7 +188,7 @@ const UserInfo = () => {
                     </License>
                     <Addinfo>
                         <ContentElement><div>회원등급</div><GiQueenCrown size="35" style= {{ color: 'pink', marginLeft: '25px'}} /></ContentElement>
-                        <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>{Intro}</div></ContentElement>
+                        <ContentElement><div>간단한 소개</div><div style= {{ color: 'gray', fontSize: '20px' }}>{Userinfo.comment}</div></ContentElement>
                     </Addinfo>
                     <Addinfo>
                         <ContentElement>작성한 글 보기</ContentElement>
@@ -201,9 +209,7 @@ const UserInfo = () => {
                     })
                 }).then((res)=>
                     res.json(),
-                ).then(data=>{
-                    console.log(data);
-                })}}><Link to="/LoginPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>로그아웃</Link></LogoutBtn>
+                ).then(()=>{history.push("/LoginPage")})}}>로그아웃</LogoutBtn>
             </Btndiv>
         </Userdiv>
     )

@@ -1,9 +1,10 @@
 //https://react-icons.github.io/react-icons/#/
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { BsPersonFill } from "react-icons/bs"
 import { GiQueenCrown } from "react-icons/gi"
+import axios from 'axios'
 
 const Maindiv = styled.div`
     display: flex;
@@ -109,14 +110,36 @@ const Infobtn = styled.div`
 
 const ModifyInfo = () => {
 
+    let history = useHistory();
+
+    const [Email, setEmail] = useState("");
+    const [Userinfo, setUserinfo] = useState({});
+
+    axios.defaults.withCredentials = true
+
+    axios.post('http://localhost:3001/login', {
+        withCredentials: true
+      })
+      .then(response => {
+        setEmail(response.data.session.sid);
+    })
+
+    useEffect(() => {
+        axios.post('http://localhost:3001/readmyinfo', {
+            params: {
+                email: Email,
+            }
+        }).then(res=>{setUserinfo(res.data.info)})
+    },[Email])
+
     return (
         <div>
             <Maindiv>
                 <User><BsPersonFill size="200" color="white" /></User>
                 <Info>
-                    <Basicinfo>이름 : <InputDiv placeholder='정아윤' /></Basicinfo>
-                    <Basicinfo>나이 : <InputDiv placeholder='23'/></Basicinfo>
-                    <Basicinfo>직업 : <InputDiv placeholder='대학생'/></Basicinfo>
+                    <Basicinfo>이메일 : {Userinfo.email}</Basicinfo>
+                    <Basicinfo>생년월일 : <InputDiv placeholder={Userinfo.birth}/></Basicinfo>
+                    <Basicinfo>직업 : <InputDiv placeholder={Userinfo.job}/></Basicinfo>
                     <License>
                         <Licensetop>
                             <LicenseNum>No.</LicenseNum>
@@ -153,13 +176,13 @@ const ModifyInfo = () => {
                     </License>
                     <Addinfo>
                         <ContentElement><div>회원등급</div><GiQueenCrown size="35" style= {{ color: 'pink', marginLeft: '25px'}} /></ContentElement>
-                        <ContentElement><div>간단한 소개</div><InputDiv placeholder='나는 정아윤입니다.'/></ContentElement>
+                        <ContentElement><div>간단한 소개</div><InputDiv placeholder={Userinfo.comment} /></ContentElement>
                     </Addinfo>
                 </Info>
             </Maindiv>
             <Btndiv>
-                <Infobtn><Link to="/MyPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>완료</Link></Infobtn>
-                <Infobtn><Link to="/MyPage" style={{ textDecoration: 'none', color: 'white', display:'block' }}>취소</Link></Infobtn>
+                <Infobtn onClick={()=>{ history.push("/MyPage") }}>완료</Infobtn>
+                <Infobtn onClick={()=>{ history.goBack() }}>취소</Infobtn>
             </Btndiv>
         </div>
     )
