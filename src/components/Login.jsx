@@ -85,8 +85,10 @@ const Login = () => {
             history.push("/MainPage");
           } else if(res.success === 1){
             alert("비밀번호가 일치하지 않습니다.")
-          } else{
+          } else if(res.success === 2){
             alert("유효한 이메일이 아닙니다.")
+          } else {
+            alert("이메일 및 비밀번호를 입력하세요.")
           }
         })
       }}>로그인</Loginbtn>

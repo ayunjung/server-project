@@ -46,10 +46,10 @@ const Usericon = () => {
   if (window.location.pathname === '/LoginPage') return null;
   if (window.location.pathname === '/JoinPage') return null;
 
-  axios.defaults.withCredentials = true
+  axios.defaults.withCredentials = true;
 
   axios.post('http://localhost:3001/login', {
-      withCredentials: true
+      // withCredentials: true
     })
     .then(response => {
     setLoginCookie(response.data.session.logined);

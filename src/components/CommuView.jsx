@@ -44,6 +44,16 @@ const RePostBtn = styled.div`
     line-height: 40px;
     text-align: center;
 `
+const DeleteBtn = styled.div`
+    width: 200px;
+    height: 40px;
+    margin: 10px 5px 0;
+    font-size: 20px;
+    background-color: #e8e8e8;
+    border-radius: 5px;
+    line-height: 40px;
+    text-align: center;
+`
 const Cancelbtn = styled.div `
     width: 200px;
     height: 40px;
@@ -99,6 +109,20 @@ const CommunityView = () => {
             </Post>
             <div style={{display: 'flex'}}>
                 <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
+                <DeleteBtn onClick={(e)=>{
+                    e.preventDefault();
+                    fetch('http://localhost:3001/deldoc', {
+                    method: "post",
+                    headers: {
+                    "Content-Type": "application/json",
+                    },
+                    body : JSON.stringify({
+                        docnum: communum,
+                    })
+                    }).then((res)=>
+                    res.json(),
+                    ).then(()=>{ History.push("/CommunityPage") }
+                )}}>삭제</DeleteBtn>
                 <Cancelbtn onClick={()=>{ History.goBack() }}>취소</Cancelbtn>
             </div>
         </Maindiv>

@@ -15,7 +15,6 @@ exports.readmyinfo = (req, res) => {
     } else {
         console.log('qd');
     }
-    
 }
 
 

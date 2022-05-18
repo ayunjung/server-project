@@ -4,7 +4,6 @@ const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
 exports.readcommudocinfo = (obj, res) => {
     let data = 0;
-    // console.log(obj.docnum)
     con.query('select * from doc where docnum = ?', [obj.docnum], (error, rows, fields) => {
         if (error)  throw error;
         if(data!=1){
