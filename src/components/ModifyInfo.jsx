@@ -124,12 +124,27 @@ const ModifyInfo = () => {
         setEmail(response.data.session.sid);
     })
 
+    // useEffect(() => {
+    //     axios.post('http://localhost:3001/readmyinfo', {
+    //         params: {
+    //             email: Email,
+    //         }
+    //     }).then(res=>{setUserinfo(res.data.info)})
+    // },[Email])
+
     useEffect(() => {
-        axios.post('http://localhost:3001/readmyinfo', {
-            params: {
+        fetch('http://localhost:3001/readmyinfo', {
+            method: "post",
+            credentials: 'include',
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
                 email: Email,
-            }
-        }).then(res=>{setUserinfo(res.data.info)})
+            })
+        }).then((res)=>
+            res.json(),
+        ).then(data=>{setUserinfo(data.info)})
     },[Email])
 
     return (
