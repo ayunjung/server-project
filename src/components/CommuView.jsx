@@ -123,7 +123,7 @@ const CommunityView = () => {
                     res.json(),
                     ).then(()=>{ History.push("/CommunityPage") }
                 )}}>삭제</DeleteBtn>
-                <Cancelbtn onClick={()=>{ History.goBack() }}>취소</Cancelbtn>
+                <Cancelbtn onClick={()=>{ History.goBack() }}>목록</Cancelbtn>
             </div>
         </Maindiv>
     )
