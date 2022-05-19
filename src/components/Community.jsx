@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -24,7 +24,7 @@ const CommunityMain = styled.ul`
     height: 370px;
     margin: 0;
     padding: 0;
-    overflow: auto;
+    // overflow: auto;
 `
 const CommunityList = styled.li`
     display: flex;
@@ -52,20 +52,9 @@ const Commu = ({ commu }) => {
 }
 
 
-const Community = () => {
+const Community = ({CommuList, page}) => {
 
-    const [CommuList, setCommuList] = useState([]);
-
-    useEffect(()=>{
-        fetch('http://localhost:3001/readcommulist', {
-            method: "post",
-            headers: {
-            "Content-Type": "application/json",
-            },
-        }).then((res)=>
-            res.json(),
-        ).then(data=>{setCommuList(data.data)})
-    },[])
+    const offset = (page - 1) * 7;
 
     return (
         <div>
@@ -78,7 +67,7 @@ const Community = () => {
                 <CommunityElement>조회수</CommunityElement>
             </Communitytop>
             <CommunityMain>
-                {Array.from(CommuList).map(commu => {
+                {Array.from(CommuList.slice(offset, offset + 7)).map(commu => {
                     return (
                         <Commu commu={commu} key={commu.docnum}/>
                     )

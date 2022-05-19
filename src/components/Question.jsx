@@ -51,20 +51,9 @@ const Que = ({ que }) => {
     )
 }
 
-const Question = () => {
+const Question = ({QueList, page}) => {
 
-    const [QueList, setQueList] = useState([]);
-
-    useEffect(()=>{
-        fetch('http://localhost:3001/readreqlist', {
-            method: "post",
-            headers: {
-            "Content-Type": "application/json",
-            },
-        }).then((res)=>
-            res.json(),
-        ).then(data=>{setQueList(data.data)})
-    },[])
+    const offset = (page - 1) * 7;
 
     return (
         <div>
@@ -77,7 +66,7 @@ const Question = () => {
                 <QuestionElement>조회수</QuestionElement>
             </Questiontop>
             <QuestionMain>
-                {Array.from(QueList).map(que => {
+                {Array.from(QueList.slice(offset, offset + 7)).map(que => {
                     return (
                         <Que que={que} key={que.quesnum}/>
                     )

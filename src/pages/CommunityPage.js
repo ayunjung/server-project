@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import styled from 'styled-components'
 import Topbar from '../components/Topbar'
 import Searchbar from '../components/Searchbar'
@@ -32,6 +32,21 @@ const CommunityList = styled.div`
 
 function CommunityPage() {
 
+    const [CommuList, setCommuList] = useState([]);
+    const [page, setPage] = useState(1);
+
+    useEffect(()=>{
+        fetch('http://localhost:3001/readcommulist', {
+            method: "post",
+            headers: {
+            "Content-Type": "application/json",
+            },
+        }).then((res)=>
+            res.json(),
+        ).then(data=>{setCommuList(data.data)})
+    },[])
+
+
     return (
         <div>
             <Topbar />
@@ -41,8 +56,8 @@ function CommunityPage() {
                     <WriteBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
                 </CommunityHead>
                 <Searchbar />
-                <CommunityList><Community /></CommunityList>
-                <Pagebar />
+                <CommunityList><Community CommuList={CommuList} page={page}/></CommunityList>
+                <Pagebar total={CommuList.length} page={page} setPage={setPage}/>
             </CommunityMain>
         </div>
     );

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import styled from 'styled-components'
 import Topbar from '../components/Topbar'
 import Searchbar from '../components/Searchbar'
@@ -32,6 +32,20 @@ const QuestionList = styled.div`
 
 function QuestionPage() {
 
+    const [QueList, setQueList] = useState([]);
+    const [page, setPage] = useState(1);
+
+    useEffect(()=>{
+        fetch('http://localhost:3001/readreqlist', {
+            method: "post",
+            headers: {
+            "Content-Type": "application/json",
+            },
+        }).then((res)=>
+            res.json(),
+        ).then(data=>{setQueList(data.data)})
+    },[])
+
     return (
         <div>
             <Topbar />
@@ -41,8 +55,8 @@ function QuestionPage() {
                     <WriteBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
                 </QuestionHead>
                 <Searchbar />
-                <QuestionList><Question /></QuestionList>
-                <Pagebar />
+                <QuestionList><Question QueList={QueList} page={page}/></QuestionList>
+                <Pagebar total={QueList.length} page={page} setPage={setPage}/>
             </QuestionMain>
         </div>
     );
