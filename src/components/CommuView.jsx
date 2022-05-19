@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -54,7 +55,7 @@ const DeleteBtn = styled.div`
     line-height: 40px;
     text-align: center;
 `
-const Cancelbtn = styled.div `
+const Gobackbtn = styled.div `
     width: 200px;
     height: 40px;
     margin: 10px 5px 0;
@@ -72,6 +73,14 @@ const CommunityView = () => {
     const { communum } = useParams();
 
     const [CommuData, setCommuData] = useState([]);
+    const [LoginCookie,setLoginCookie] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setLoginCookie(response.data.session.sid)
+    })
 
     useEffect(() => {
         fetch('http://localhost:3001/readcommudocinfo', {
@@ -86,6 +95,32 @@ const CommunityView = () => {
             res.json(),
         ).then(data=>{setCommuData(data.data)})
     },[communum])
+
+    const UserBtnBox = () => {
+        if (LoginCookie === CommuData.writer) {
+            return (
+                <>
+                    <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
+                    <DeleteBtn onClick={(e)=>{
+                        e.preventDefault();
+                        fetch('http://localhost:3001/deldoc', {
+                        method: "post",
+                        headers: {
+                        "Content-Type": "application/json",
+                        },
+                        body : JSON.stringify({
+                            docnum: communum,
+                        })
+                        }).then((res)=>
+                        res.json(),
+                        ).then(()=>{ History.push("/CommunityPage") }
+                    )}}>삭제</DeleteBtn>
+                </>
+            )
+        } else {
+                return (null)
+        }
+    }
 
     return (
         <Maindiv>
@@ -108,22 +143,8 @@ const CommunityView = () => {
                 <PostContent>{CommuData.content}</PostContent>
             </Post>
             <div style={{display: 'flex'}}>
-                <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                <DeleteBtn onClick={(e)=>{
-                    e.preventDefault();
-                    fetch('http://localhost:3001/deldoc', {
-                    method: "post",
-                    headers: {
-                    "Content-Type": "application/json",
-                    },
-                    body : JSON.stringify({
-                        docnum: communum,
-                    })
-                    }).then((res)=>
-                    res.json(),
-                    ).then(()=>{ History.push("/CommunityPage") }
-                )}}>삭제</DeleteBtn>
-                <Cancelbtn onClick={()=>{ History.goBack() }}>목록</Cancelbtn>
+                <UserBtnBox />
+                <Gobackbtn onClick={()=>{ History.goBack() }}>목록</Gobackbtn>
             </div>
         </Maindiv>
     )

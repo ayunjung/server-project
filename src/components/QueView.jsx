@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -54,7 +55,7 @@ const DeleteBtn = styled.div`
     line-height: 40px;
     text-align: center;
 `
-const Cancelbtn = styled.div `
+const Gobackbtn = styled.div `
     width: 200px;
     height: 40px;
     margin: 10px 5px 0;
@@ -72,6 +73,14 @@ const QuestionView = () => {
     const { quesnum } = useParams();
 
     const [QueData, setQueData] = useState([]);
+    const [LoginCookie,setLoginCookie] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setLoginCookie(response.data.session.sid)
+    })
 
     useEffect(() => {
         fetch('http://localhost:3001/readreqinfo', {
@@ -86,6 +95,32 @@ const QuestionView = () => {
             res.json(),
         ).then(data=>{setQueData(data.data)})
     },[quesnum])
+
+    const UserBtnBox = () => {
+        if (LoginCookie === QueData.writer) {
+            return (
+                <>
+                    <RePostBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
+                    <DeleteBtn onClick={(e)=>{
+                        e.preventDefault();
+                        fetch('http://localhost:3001/delreq', {
+                        method: "post",
+                        headers: {
+                        "Content-Type": "application/json",
+                        },
+                        body : JSON.stringify({
+                            quesnum: quesnum,
+                        })
+                        }).then((res)=>
+                        res.json(),
+                        ).then(()=>{ History.push("/QuestionPage") }
+                    )}}>삭제</DeleteBtn>
+                </>
+            )
+        } else {
+            return (null)
+        }
+    }
 
     return (
         <Maindiv>
@@ -108,22 +143,8 @@ const QuestionView = () => {
                 <PostContent>{QueData.content}</PostContent>
             </Post>
             <div style={{display: 'flex'}}>
-                <RePostBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                <DeleteBtn onClick={(e)=>{
-                    e.preventDefault();
-                    fetch('http://localhost:3001/delreq', {
-                    method: "post",
-                    headers: {
-                    "Content-Type": "application/json",
-                    },
-                    body : JSON.stringify({
-                        quesnum: quesnum,
-                    })
-                    }).then((res)=>
-                    res.json(),
-                    ).then(()=>{ History.push("/QuestionPage") }
-                )}}>삭제</DeleteBtn>
-                <Cancelbtn onClick={()=>{ History.goBack() }}>목록</Cancelbtn>
+                <UserBtnBox />
+                <Gobackbtn onClick={()=>{ History.goBack() }}>목록</Gobackbtn>
             </div>
         </Maindiv>
     )
