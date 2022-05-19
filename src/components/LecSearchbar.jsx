@@ -69,7 +69,7 @@ const LecSearchbar = () => {
         </Icondiv>
         <Input type="Search" />
       </Searchbar>
-      <Select name="array" id="">
+      <Select name="array">
         <option value="">조회순</option>
         <option value="">후기순</option>
         <option value="">수강생순</option>

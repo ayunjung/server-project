@@ -87,7 +87,7 @@ const QueWriting = () => {
 
     const [Email,setEmail] = useState("");
     const [Title, setTitle] = useState("");
-    const [Sort, setSort] = useState("");
+    const [Sort, setSort] = useState("미해결");
     const [Content, setContent] = useState("");
 
     axios.defaults.withCredentials = true;

@@ -87,7 +87,7 @@ const CommuWriting = () => {
 
     const [Email,setEmail] = useState("");
     const [Title, setTitle] = useState("");
-    const [Sort, setSort] = useState("");
+    const [Sort, setSort] = useState("웹개발");
     const [Content, setContent] = useState("");
 
     axios.defaults.withCredentials = true;
@@ -115,7 +115,7 @@ const CommuWriting = () => {
                     <Writedt>제목</Writedt>
                     <Writedd><WriteTitleInput type="text" value={Title} onChange={onTitleHandler} placeholder="제목" /></Writedd>
                     <Select name="array" value={Sort} onChange={onSortHandler}>
-                        <option value="웹개발">웹개발</option>
+                        <option selected="selected" value="웹개발">웹개발</option>
                         <option value="프론트엔드">프론트엔드</option>
                         <option value="백엔드">백엔드</option>
                         <option value="프로그래밍언어">프로그래밍언어</option>

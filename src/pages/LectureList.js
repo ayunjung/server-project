@@ -26,13 +26,12 @@ const LecPageright = styled.div`
 
 function LectureList() {
 
-    const [Lecsort, setLecsort] = useState("");
+    const [Lecsort, setLecsort] = useState("웹개발");
     const [page, setPage] = useState(1);
 
     const onLecsortHandler = (e) => {
         setLecsort(e.target.value)
     }
-
 
     return (
         <div>
