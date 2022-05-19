@@ -8,13 +8,13 @@ const PostViewdiv = styled.div`
     margin: 0 auto;
 `
 
-function CommunityView() {
+function CommunityView({LoginEmail}) {
 
     return (
         <div>
             <Topbar />
             <PostViewdiv>
-                <CommuView />
+                <CommuView LoginEmail={LoginEmail}/>
             </PostViewdiv>
         </div>
     );

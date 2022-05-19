@@ -1,7 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import axios from 'axios'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -66,21 +65,13 @@ const Gobackbtn = styled.div `
     text-align: center;
 `
 
-const CommunityView = () => {
+const CommunityView = ({LoginEmail}) => {
 
     let History = useHistory();
 
     const { communum } = useParams();
 
     const [CommuData, setCommuData] = useState([]);
-    const [LoginCookie,setLoginCookie] = useState("");
-
-    axios.defaults.withCredentials = true;
-
-    axios.post('http://localhost:3001/login', {
-        }).then(response => {
-            setLoginCookie(response.data.session.sid)
-    })
 
     useEffect(() => {
         fetch('http://localhost:3001/readcommudocinfo', {
@@ -97,7 +88,7 @@ const CommunityView = () => {
     },[communum])
 
     const UserBtnBox = () => {
-        if (LoginCookie === CommuData.writer) {
+        if (LoginEmail === CommuData.writer) {
             return (
                 <>
                     <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>

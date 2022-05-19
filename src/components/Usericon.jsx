@@ -14,30 +14,6 @@ const UserIcondiv = styled.div`
   background-color: gray;
 `
 
-const UserGreeting = () => {
-  return(
-    <Link to="/MyPage" style={{ textDecoration: 'none', color: 'black' }}>
-      <UserIcondiv>
-        <BsPersonFill size="60" color="white" />
-      </UserIcondiv>
-      <div style= {{ fontSize: '15px', fontWeight: '800', marginTop: '5px'}}>마이페이지</div>
-    </Link>
-  )
-}
-
-const GuestGreeting = () => {
-  return(
-    <Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black' }}>
-      <div style= {{ width: '100px' }}>
-        <UserIcondiv>
-          <BsPersonFill size="60" color="white" />
-        </UserIcondiv>
-      </div>
-      <div style= {{ fontSize: '15px', fontWeight: '800', marginTop: '5px', textAlign: 'center' }}>로그인/회원가입</div>
-    </Link>
-  )
-}
-
 const Usericon = () => {
 
   const [LoginCookie,setLoginCookie] = useState("");
@@ -49,17 +25,32 @@ const Usericon = () => {
   axios.defaults.withCredentials = true;
 
   axios.post('http://localhost:3001/login', {
-      // withCredentials: true
     })
     .then(response => {
-    setLoginCookie(response.data.session.logined);
+      setLoginCookie(response.data.session.logined);
   })
 
   const LoginState = () => {
     if (LoginCookie === true) {
-      return (<UserGreeting />)
+      return (
+        <Link to="/MyPage" style={{ textDecoration: 'none', color: 'black' }}>
+          <UserIcondiv>
+            <BsPersonFill size="60" color="white" />
+          </UserIcondiv>
+          <div style= {{ fontSize: '15px', fontWeight: '800', marginTop: '5px'}}>마이페이지</div>
+        </Link>
+      )
     } else {
-      return (<GuestGreeting />)
+      return (
+        <Link to="/LoginPage" style={{ textDecoration: 'none', color: 'black' }}>
+          <div style= {{ width: '100px' }}>
+            <UserIcondiv>
+              <BsPersonFill size="60" color="white" />
+            </UserIcondiv>
+          </div>
+          <div style= {{ fontSize: '15px', fontWeight: '800', marginTop: '5px', textAlign: 'center' }}>로그인/회원가입</div>
+        </Link>
+      )
     }
   }
 

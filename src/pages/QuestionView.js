@@ -8,13 +8,13 @@ const PostViewdiv = styled.div`
     margin: 0 auto;
 `
 
-function QuestionView() {
+function QuestionView( {LoginEmail} ) {
 
     return (
         <div>
             <Topbar />
             <PostViewdiv>
-                <QueView />
+                <QueView LoginEmail={LoginEmail} />
             </PostViewdiv>
         </div>
     );
