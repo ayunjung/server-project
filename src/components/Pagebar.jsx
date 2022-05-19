@@ -1,41 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// const SPagebar = styled.div`
-//     width: 400px;
-//     display : flex;
-//     margin: 0 auto;
-// `
-
-// const SNumberkey= styled.div`
-//     padding : 5px;
-//     border : 1px solid gray;
-//     border-radius : 5px;
-//     margin : 4px;
-//     font-size : 20px;
-//     width : 40px;
-//     text-align : center;
-// `
-
-// const SArrowkey= styled.div`
-//     padding : 5px;
-//     border : 1px solid gray;
-//     border-radius : 5px;
-//     margin : 4px;
-//     font-size : 20px;
-//     width : 40px;
-//     text-align : center;
-// `
-
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
-  margin: 16px;
+  margin: 10px 16px;
 `;
 
 const Button = styled.button`
+  width : 35px;
   border: none;
   border-radius: 8px;
   padding: 8px;
@@ -69,28 +44,13 @@ const Pagebar = ({ total, page, setPage }) => {
   const numPages = Math.ceil(total / 7);
 
   return (
-    // <SPagebar>
-    //     <SArrowkey>{'<'}</SArrowkey>
-    //     <SNumberkey>1</SNumberkey>
-    //     <SNumberkey>2</SNumberkey>
-    //     <SNumberkey>3</SNumberkey>
-    //     <SNumberkey>4</SNumberkey>
-    //     <SNumberkey>5</SNumberkey>
-    //     <SArrowkey>{'>'}</SArrowkey>
-    // </SPagebar>
     <>
       <Nav>
         <Button onClick={() => setPage(page - 1)} disabled={page === 1}>
           &lt;
         </Button>
-        {Array(numPages)
-          .fill()
-          .map((_, i) => (
-            <Button
-              key={i + 1}
-              onClick={() => setPage(i + 1)}
-              aria-current={page === i + 1 ? "page" : null}
-            >
+          {Array(numPages).fill().map((_, i) => (
+            <Button key={i + 1} onClick={() => setPage(i + 1)} aria-current={page === i + 1 ? "page" : null}>
               {i + 1}
             </Button>
           ))}

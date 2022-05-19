@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 
 const SLecInfoTime = styled.div`
@@ -32,17 +32,38 @@ const Persqr = styled.div`
 
 const LecInfoTime = () => {
 
-  return (
-    <SLecInfoTime>
-        <LecNum>총 강좌수 : 6강</LecNum>
-        <LecTime>강의 시간 : 151시간</LecTime>
-        <LecRunPerDiv>
-            <div>강의 진행율</div>
-            <Persqr></Persqr>
-            <div>100%</div>
-        </LecRunPerDiv>
-    </SLecInfoTime>
-  )
+    useEffect(()=>{
+        fetch('http://localhost:3001/lelisten', {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                title: "1",
+                content : 'gd',
+                views: 'gd',
+                data : 'gd'
+            }),
+        }).then((res)=>
+            res.json()
+        ).then(data=>{console.log(data.success);
+        if((data.success) === '1'){
+            alert('수강한 강좌 .');
+        }})
+    }, []);
+
+
+    return (
+        <SLecInfoTime>
+            <LecNum>총 강좌수 : 6강</LecNum>
+            <LecTime>강의 시간 : 151시간</LecTime>
+            <LecRunPerDiv>
+                <div>강의 진행율</div>
+                <Persqr></Persqr>
+                <div>100%</div>
+            </LecRunPerDiv>
+        </SLecInfoTime>
+    )
 }
 
 export default LecInfoTime

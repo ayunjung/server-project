@@ -24,7 +24,6 @@ const CommunityMain = styled.ul`
     height: 370px;
     margin: 0;
     padding: 0;
-    // overflow: auto;
 `
 const CommunityList = styled.li`
     display: flex;

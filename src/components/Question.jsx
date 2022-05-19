@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -24,7 +24,6 @@ const QuestionMain = styled.ul`
     height: 370px;
     margin: 0;
     padding: 0;
-    overflow: auto;
 `
 const QuestionList = styled.li`
     display: flex;

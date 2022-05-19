@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 
 const SLecVidio = styled.div`
@@ -17,6 +17,26 @@ const SPTitle = styled.p`
 `
 
 const LecVidio = () => {
+
+  useEffect(()=>{
+    fetch('http://localhost:3001/showlevidio', {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+       
+          sort : '12',
+          techer : 'ayun',
+          lecpic : '강좌'
+        }),
+    }).then((res)=>
+        res.json()
+    ).then(data=>{console.log(data.success);
+    if((data.success) === '1'){
+        alert('영상 재생 실패.');
+    }})
+  }, []);
 
   return (
     <SLecVidio>
