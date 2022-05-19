@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CommunityPage from './pages/CommunityPage';
 import CommunityView from './pages/CommunityView';
@@ -15,24 +15,16 @@ import QuestionPage from './pages/QuestionPage';
 import QuestionView from './pages/QuestionView';
 import QuestionWrite from './pages/QuestionWrite';
 import RegisterPage from './pages/RegisterPage';
-import axios from 'axios'
+import LoginPopupPage from './pages/LoginPopupPage';
 
 function App() {
-
-    const [LoginEmail,setLoginEmail] = useState("");
-
-    axios.defaults.withCredentials = true;
-
-    axios.post('http://localhost:3001/login', {
-        }).then(response => {
-            setLoginEmail(response.data.session.sid)
-    })
 
     return (
         <Router>
             <Switch>
+                <Route exact path="/LoginPopupPage"><LoginPopupPage/></Route>
                 <Route exact path="/CommunityPage"><CommunityPage/></Route>
-                <Route exact path="/CommunityView/:communum"><CommunityView LoginEmail={LoginEmail} /></Route>
+                <Route exact path="/CommunityView/:communum"><CommunityView/></Route>
                 <Route exact path="/CommunityWrite"><CommunityWrite/></Route>
                 <Route exact path="/LectureList"><LectureList/></Route>
                 <Route exact path="/LectureMain"><LectureMain/></Route>
@@ -41,9 +33,9 @@ function App() {
                 <Route exact path="/LoginPage"><LoginPage/></Route>
                 <Route exact path="/MainPage"><MainPage/></Route>
                 <Route exact path="/ModifyInfoPage"><ModifyInfoPage/></Route>
-                <Route exact path="/Mypage"><Mypage LoginEmail={LoginEmail} /></Route>
+                <Route exact path="/Mypage"><Mypage/></Route>
                 <Route exact path="/QuestionPage"><QuestionPage/></Route>
-                <Route exact path="/QuestionView/:quesnum"><QuestionView LoginEmail={LoginEmail} /></Route>
+                <Route exact path="/QuestionView/:quesnum"><QuestionView/></Route>
                 <Route exact path="/QuestionWrite"><QuestionWrite/></Route>
                 <Route exact path="/RegisterPage"><RegisterPage/></Route>
                 <Route path="/"><LoginPage/></Route>

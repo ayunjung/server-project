@@ -85,10 +85,17 @@ const CommuWriting = () => {
 
     let history = useHistory();
 
-    const [Email, setEmail] = useState("");
+    const [Email,setEmail] = useState("");
     const [Title, setTitle] = useState("");
     const [Sort, setSort] = useState("");
     const [Content, setContent] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setEmail(response.data.session.sid)
+    })
 
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
@@ -99,15 +106,6 @@ const CommuWriting = () => {
     const onContentHandler = (e) => {
         setContent(e.target.value)
     }
-
-    axios.defaults.withCredentials = true
-
-    axios.post('http://localhost:3001/login', {
-        withCredentials: true
-      })
-      .then(response => {
-        setEmail(response.data.session.sid);
-    })
 
   return (
     <Write>

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
 import { BsPersonFill } from "react-icons/bs";
 import { GiQueenCrown } from "react-icons/gi";
+import axios from 'axios';
 
 const Userdiv = styled.div`
     width: 1000px;
@@ -119,11 +120,19 @@ const LogoutBtn = styled.button`
     font-size: 20px;
 `
 
-const UserInfo = ( {LoginEmail} ) => {
+const UserInfo = () => {
 
     let history = useHistory();
 
     const [Userinfo, setUserinfo] = useState({});
+    const [Email,setEmail] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setEmail(response.data.session.sid)
+    })
 
     // useEffect(() => {
     //     axios.post('http://localhost:3001/readmyinfo', {
@@ -141,12 +150,12 @@ const UserInfo = ( {LoginEmail} ) => {
             "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                email:  LoginEmail,
+                email:  Email,
             })
         }).then((res)=>
             res.json(),
         ).then(data=>{setUserinfo(data.info)})
-    },[LoginEmail])
+    },[Email])
     
     return (
         <Userdiv>

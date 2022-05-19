@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -65,13 +66,21 @@ const Gobackbtn = styled.div `
     text-align: center;
 `
 
-const CommunityView = ({LoginEmail}) => {
+const CommunityView = () => {
 
     let History = useHistory();
 
     const { communum } = useParams();
 
     const [CommuData, setCommuData] = useState([]);
+    const [LoginEmail,setLoginEmail] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setLoginEmail(response.data.session.sid)
+    })
 
     useEffect(() => {
         fetch('http://localhost:3001/readcommudocinfo', {

@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import styled from 'styled-components'
 import { Link, useHistory, useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Maindiv = styled.div`
     width: 1000px;
@@ -65,13 +66,21 @@ const Gobackbtn = styled.div `
     text-align: center;
 `
 
-const QuestionView = ( {LoginEmail} ) => {
+const QuestionView = () => {
 
     let History = useHistory();
 
     const { quesnum } = useParams();
 
     const [QueData, setQueData] = useState([]);
+    const [Email,setEmail] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setEmail(response.data.session.sid)
+    })
 
     useEffect(() => {
         fetch('http://localhost:3001/readreqinfo', {
@@ -88,7 +97,7 @@ const QuestionView = ( {LoginEmail} ) => {
     },[quesnum])
 
     const UserBtnBox = () => {
-        if (LoginEmail === QueData.writer) {
+        if (Email === QueData.writer) {
             return (
                 <>
                     <RePostBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>

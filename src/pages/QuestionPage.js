@@ -4,7 +4,8 @@ import Topbar from '../components/Topbar'
 import Searchbar from '../components/Searchbar'
 import Question from '../components/Question'
 import Pagebar from '../components/Pagebar'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 const QuestionMain = styled.div`
     width: 1000px;
@@ -32,8 +33,18 @@ const QuestionList = styled.div`
 
 function QuestionPage() {
 
+    let history = useHistory();
+
     const [QueList, setQueList] = useState([]);
     const [page, setPage] = useState(1);
+    const [LoginState,setLoginState] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setLoginState(response.data.session.logined)
+    })
 
     useEffect(()=>{
         fetch('http://localhost:3001/readreqlist', {
@@ -52,7 +63,12 @@ function QuestionPage() {
             <QuestionMain>
                 <QuestionHead>
                     <h1>Q{'&'}A</h1>
-                    <WriteBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
+                    <WriteBtn onClick={()=>{
+                        if(LoginState === 'true') {
+                            return(history.push("/QuestionWrite"))
+                        } else {
+                            return(history.push("/LoginPopupPage"))
+                        }}}>글쓰기</WriteBtn>
                 </QuestionHead>
                 <Searchbar />
                 <QuestionList><Question QueList={QueList} page={page}/></QuestionList>

@@ -14,7 +14,7 @@ function Writepage() {
         <div>
             <Topbar />
             <Writeform>
-                <QueWriting />
+                <QueWriting/>
             </Writeform>
         </div>
     );

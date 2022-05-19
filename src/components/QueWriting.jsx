@@ -85,10 +85,17 @@ const QueWriting = () => {
 
     let history = useHistory();
 
-    const [Email, setEmail] = useState("");
+    const [Email,setEmail] = useState("");
     const [Title, setTitle] = useState("");
     const [Sort, setSort] = useState("");
     const [Content, setContent] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setEmail(response.data.session.sid)
+    })
 
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
@@ -100,54 +107,45 @@ const QueWriting = () => {
         setContent(e.target.value)
     }
 
-    axios.defaults.withCredentials = true
-
-    axios.post('http://localhost:3001/login', {
-        withCredentials: true
-      })
-      .then(response => {
-        setEmail(response.data.session.sid);
-    })
-
-  return (
-    <Write>
-        <WriteMain>
-            <WriteTitle>
-                <dl style={{display: 'flex'}}>
-                    <Writedt>제목</Writedt>
-                    <Writedd><WriteTitleInput type="text" value={Title} onChange={onTitleHandler} placeholder="제목" /></Writedd>
-                    <Select name="array" value={Sort} onChange={onSortHandler}>
-                        <option value="미해결">미해결</option>
-                        <option value="해결">해결</option>
-                    </Select>
-                </dl>
-            </WriteTitle>
-            <WriteContent>
-                <WriteTextarea value={Content} onChange={onContentHandler} placeholder="본문" />
-            </WriteContent>
-        </WriteMain>
-        <WriteBtnBox>
-            <WriteBtn type="submit" onClick={(e)=>{
-                e.preventDefault();
-                fetch('http://localhost:3001/makereq', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: Email,
-                    title: Title,
-                    sort : Sort,
-                    content : Content,
-                }),
-                }).then((res)=>
-                    res.json()
-                ).then(()=>history.push("/QuestionPage"))
-            }}>등록</WriteBtn>
-            <CancelBtn onClick={()=>{ history.goBack() }}>취소</CancelBtn>
-        </WriteBtnBox>
-    </Write>
-  )
+    return (
+        <Write>
+            <WriteMain>
+                <WriteTitle>
+                    <dl style={{display: 'flex'}}>
+                        <Writedt>제목</Writedt>
+                        <Writedd><WriteTitleInput type="text" value={Title} onChange={onTitleHandler} placeholder="제목" /></Writedd>
+                        <Select name="array" value={Sort} onChange={onSortHandler}>
+                            <option value="미해결">미해결</option>
+                            <option value="해결">해결</option>
+                        </Select>
+                    </dl>
+                </WriteTitle>
+                <WriteContent>
+                    <WriteTextarea value={Content} onChange={onContentHandler} placeholder="본문" />
+                </WriteContent>
+            </WriteMain>
+            <WriteBtnBox>
+                <WriteBtn type="submit" onClick={(e)=>{
+                    e.preventDefault();
+                    fetch('http://localhost:3001/makereq', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email:  Email,
+                        title: Title,
+                        sort : Sort,
+                        content : Content,
+                    }),
+                    }).then((res)=>
+                        res.json()
+                    ).then(()=>history.push("/QuestionPage"))
+                }}>등록</WriteBtn>
+                <CancelBtn onClick={()=>{ history.goBack() }}>취소</CancelBtn>
+            </WriteBtnBox>
+        </Write>
+    )
 }
 
 export default QueWriting

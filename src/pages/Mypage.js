@@ -4,12 +4,12 @@ import UserInfo from '../components/UserInfo';
 
 
 
-function Mypage( {LoginEmail} ) {
+function Mypage() {
 
     return (
         <div>
             <Topbar />
-            <UserInfo LoginEmail={LoginEmail} />
+            <UserInfo/>
         </div>
     );
 }

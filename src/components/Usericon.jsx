@@ -21,6 +21,7 @@ const Usericon = () => {
   if (window.location.pathname === '/') return null;
   if (window.location.pathname === '/LoginPage') return null;
   if (window.location.pathname === '/JoinPage') return null;
+  if (window.location.pathname === '/LoginPopupPage') return null;
 
   axios.defaults.withCredentials = true;
 

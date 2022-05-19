@@ -4,7 +4,8 @@ import Topbar from '../components/Topbar'
 import Searchbar from '../components/Searchbar'
 import Community from '../components/Community'
 import Pagebar from '../components/Pagebar'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 
 const CommunityMain = styled.div`
     width: 1000px;
@@ -31,9 +32,18 @@ const CommunityList = styled.div`
 `
 
 function CommunityPage() {
+    let history = useHistory();
 
     const [CommuList, setCommuList] = useState([]);
     const [page, setPage] = useState(1);
+    const [LoginState,setLoginState] = useState("");
+
+    axios.defaults.withCredentials = true;
+
+    axios.post('http://localhost:3001/login', {
+        }).then(response => {
+            setLoginState(response.data.session.logined)
+    })
 
     useEffect(()=>{
         fetch('http://localhost:3001/readcommulist', {
@@ -53,7 +63,12 @@ function CommunityPage() {
             <CommunityMain>
                 <CommunityHead>
                     <h1>커뮤니티</h1>
-                    <WriteBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'black', display:'block' }}>글쓰기</Link></WriteBtn>
+                    <WriteBtn onClick={()=>{
+                        if(LoginState === 'true') {
+                            history.push("/CommunityWrite")
+                        } else {
+                            history.push("/LoginPopupPage")
+                        }}}>글쓰기</WriteBtn>
                 </CommunityHead>
                 <Searchbar />
                 <CommunityList><Community CommuList={CommuList} page={page}/></CommunityList>
