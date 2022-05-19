@@ -64,15 +64,15 @@ function QuestionPage() {
                 <QuestionHead>
                     <h1>Q{'&'}A</h1>
                     <WriteBtn onClick={()=>{
-                        if(LoginState === 'true') {
-                            return(history.push("/QuestionWrite"))
+                        if(LoginState === true) {
+                            history.push("/QuestionWrite")
                         } else {
-                            return(history.push("/LoginPopupPage"))
+                            history.push("/LoginPopupPage")
                         }}}>글쓰기</WriteBtn>
                 </QuestionHead>
                 <Searchbar />
-                <QuestionList><Question QueList={QueList} page={page}/></QuestionList>
-                <Pagebar total={QueList.length} page={page} setPage={setPage}/>
+                <QuestionList><Question QueList={QueList} page={page} limit={7}/></QuestionList>
+                <Pagebar total={QueList.length} page={page} setPage={setPage} limit={7}/>
             </QuestionMain>
         </div>
     );

@@ -64,15 +64,15 @@ function CommunityPage() {
                 <CommunityHead>
                     <h1>커뮤니티</h1>
                     <WriteBtn onClick={()=>{
-                        if(LoginState === 'true') {
+                        if(LoginState === true) {
                             history.push("/CommunityWrite")
                         } else {
                             history.push("/LoginPopupPage")
                         }}}>글쓰기</WriteBtn>
                 </CommunityHead>
                 <Searchbar />
-                <CommunityList><Community CommuList={CommuList} page={page}/></CommunityList>
-                <Pagebar total={CommuList.length} page={page} setPage={setPage}/>
+                <CommunityList><Community CommuList={CommuList} page={page} limit={7}/></CommunityList>
+                <Pagebar total={CommuList.length} page={page} setPage={setPage} limit={7}/>
             </CommunityMain>
         </div>
     );

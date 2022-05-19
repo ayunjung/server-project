@@ -8,7 +8,7 @@ const Searchbar = styled.div `
   border : 1px solid #999;
   border-radius : 5px;
   display : flex;
-  margin-left: 25px;
+  margin-left: 80px;
 `
 
 const Icondiv = styled.button `

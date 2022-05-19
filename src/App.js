@@ -29,7 +29,7 @@ function App() {
                 <Route exact path="/LectureList"><LectureList/></Route>
                 <Route exact path="/LectureMain"><LectureMain/></Route>
                 <Route exact path="/LectureVidio"><LectureVidio/></Route>
-                <Route exact path="/LectureView"><LectureView/></Route>
+                <Route exact path="/LectureView/:lecnum"><LectureView/></Route>
                 <Route exact path="/LoginPage"><LoginPage/></Route>
                 <Route exact path="/MainPage"><MainPage/></Route>
                 <Route exact path="/ModifyInfoPage"><ModifyInfoPage/></Route>

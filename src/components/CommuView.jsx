@@ -73,13 +73,13 @@ const CommunityView = () => {
     const { communum } = useParams();
 
     const [CommuData, setCommuData] = useState([]);
-    const [LoginEmail,setLoginEmail] = useState("");
+    const [Email,setEmail] = useState("");
 
     axios.defaults.withCredentials = true;
 
     axios.post('http://localhost:3001/login', {
         }).then(response => {
-            setLoginEmail(response.data.session.sid)
+            setEmail(response.data.session.sid)
     })
 
     useEffect(() => {
@@ -95,32 +95,6 @@ const CommunityView = () => {
             res.json(),
         ).then(data=>{setCommuData(data.data)})
     },[communum])
-
-    const UserBtnBox = () => {
-        if (LoginEmail === CommuData.writer) {
-            return (
-                <>
-                    <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                    <DeleteBtn onClick={(e)=>{
-                        e.preventDefault();
-                        fetch('http://localhost:3001/deldoc', {
-                        method: "post",
-                        headers: {
-                        "Content-Type": "application/json",
-                        },
-                        body : JSON.stringify({
-                            docnum: communum,
-                        })
-                        }).then((res)=>
-                        res.json(),
-                        ).then(()=>{ History.push("/CommunityPage") }
-                    )}}>삭제</DeleteBtn>
-                </>
-            )
-        } else {
-                return (null)
-        }
-    }
 
     return (
         <Maindiv>
@@ -143,7 +117,24 @@ const CommunityView = () => {
                 <PostContent>{CommuData.content}</PostContent>
             </Post>
             <div style={{display: 'flex'}}>
-                <UserBtnBox />
+                {Email === CommuData.writer &&                 
+                <>
+                    <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
+                    <DeleteBtn onClick={(e)=>{
+                        e.preventDefault();
+                        fetch('http://localhost:3001/deldoc', {
+                        method: "post",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body : JSON.stringify({
+                            docnum: communum,
+                        })
+                        }).then((res)=>
+                            res.json(),
+                        ).then(()=>{ History.push("/CommunityPage") }
+                    )}}>삭제</DeleteBtn>
+                </>}
                 <Gobackbtn onClick={()=>{ History.goBack() }}>목록</Gobackbtn>
             </div>
         </Maindiv>

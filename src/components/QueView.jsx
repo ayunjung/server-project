@@ -96,32 +96,6 @@ const QuestionView = () => {
         ).then(data=>{setQueData(data.data)})
     },[quesnum])
 
-    const UserBtnBox = () => {
-        if (Email === QueData.writer) {
-            return (
-                <>
-                    <RePostBtn><Link to="/QuestionWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
-                    <DeleteBtn onClick={(e)=>{
-                        e.preventDefault();
-                        fetch('http://localhost:3001/delreq', {
-                        method: "post",
-                        headers: {
-                        "Content-Type": "application/json",
-                        },
-                        body : JSON.stringify({
-                            quesnum: quesnum,
-                        })
-                        }).then((res)=>
-                        res.json(),
-                        ).then(()=>{ History.push("/QuestionPage") }
-                    )}}>삭제</DeleteBtn>
-                </>
-            )
-        } else {
-            return (null)
-        }
-    }
-
     return (
         <Maindiv>
             <Post>
@@ -143,7 +117,24 @@ const QuestionView = () => {
                 <PostContent>{QueData.content}</PostContent>
             </Post>
             <div style={{display: 'flex'}}>
-                <UserBtnBox />
+                {Email === QueData.writer &&                 
+                    <>
+                        <RePostBtn><Link to="/CommunityWrite" style={{ textDecoration: 'none', color: 'white', display:'block' }}>수정</Link></RePostBtn>
+                        <DeleteBtn onClick={(e)=>{
+                            e.preventDefault();
+                            fetch('http://localhost:3001/delreq', {
+                            method: "post",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body : JSON.stringify({
+                                quesnum: quesnum,
+                            })
+                            }).then((res)=>
+                                res.json(),
+                            ).then(()=>{ History.push("/QuestionPage") }
+                        )}}>삭제</DeleteBtn>
+                    </>}
                 <Gobackbtn onClick={()=>{ History.goBack() }}>목록</Gobackbtn>
             </div>
         </Maindiv>

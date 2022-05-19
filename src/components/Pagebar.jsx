@@ -39,9 +39,9 @@ const Button = styled.button`
   }
 `;
 
-const Pagebar = ({ total, page, setPage }) => {
+const Pagebar = ({ total, page, setPage, limit }) => {
 
-  const numPages = Math.ceil(total / 7);
+  const numPages = Math.ceil(total / limit);
 
   return (
     <>
