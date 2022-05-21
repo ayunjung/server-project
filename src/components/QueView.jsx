@@ -85,6 +85,7 @@ const QuestionView = () => {
     useEffect(() => {
         fetch('http://localhost:3001/readreqinfo', {
             method: "post",
+            credentials: 'include',
             headers: {
             "Content-Type": "application/json",
             },
@@ -124,6 +125,7 @@ const QuestionView = () => {
                             e.preventDefault();
                             fetch('http://localhost:3001/delreq', {
                             method: "post",
+                            credentials: 'include',
                             headers: {
                                 "Content-Type": "application/json",
                             },

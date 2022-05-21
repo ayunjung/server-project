@@ -2,16 +2,22 @@ const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
-exports.delreq = (obj, res) => {
+exports.delreq = (req, res) => {
     
-    let data = 0;
-    if(obj.quesnum == null){
-        data = 1;
-        res.send({success : data});
-    }
-    con.query('update question set del = 1 where quesnum = ?', [obj.quesnum], (error, rows, fields) => {
+    con.query('select writer from question where quesnum = ?', [req.body.quesnum], (error, rows, fields) => {
         if (error) throw error;
-        if(data!=1){res.send({success : data})};
+        if(rows.length){
+            if(rows[0].writer==req.session.sid){
+                con.query('update question set del = 1 where quesnum = ?', [req.body.quesnum], (error, rows, fields) => {
+                    if (error) throw error;
+                    res.send({success : 0});
+                  })
+            } else {
+                res.send({success : 1});
+            }
+        } else {
+            res.send({success : 2});
+        }
       })
 }
 /*

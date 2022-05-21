@@ -58,19 +58,21 @@ const LName = styled.div `
     font-weight: 700;
 `
 
-const MainLecField = (props) => {
+const MainLecField = ({name}) => {
 
     return (
         <LecFieldMain>
-            <LecFieldTitle>
-                <Linediv><AiOutlineMenu size="30" color="gray" /></Linediv>
-                <Textdiv>{props.name}</Textdiv>
-            </LecFieldTitle>
-            <LecFieldContents>
+            <Link to={`/LectureList/${name}`} style={{ textDecoration: 'none', color: 'white', display: 'block', margin: 'auto' }}>
+                <LecFieldTitle>
+                    <Linediv><AiOutlineMenu size="30" color="gray" /></Linediv>
+                    <Textdiv>{name}</Textdiv>
+                </LecFieldTitle>
+            </Link>
+            {/* <LecFieldContents>
                 <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub1}</Lecimage><LName>{props.sub1}</LName></LecDiv></Link>
                 <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub2}</Lecimage><LName>{props.sub2}</LName></LecDiv></Link>
                 <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub3}</Lecimage><LName>{props.sub3}</LName></LecDiv></Link>
-            </LecFieldContents>
+            </LecFieldContents> */}
         </LecFieldMain>
     )
 }

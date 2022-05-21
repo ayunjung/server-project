@@ -11,7 +11,7 @@ exports.readrevlist = (obj, res) => {
         res.send({success : data, data : []});
     }
     
-        con.query('select * from review where ulecnum = ?', [obj.ulecnum], (error, rows, fields) => {
+        con.query('select * from review where ulecnum = ? and del = 0', [obj.ulecnum], (error, rows, fields) => {
             if (error)  throw error;
             if(data!=1){
                 res.send({success : data, data : rows});

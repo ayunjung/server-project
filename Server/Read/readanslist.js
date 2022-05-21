@@ -10,7 +10,7 @@ exports.readanslist = (obj, res) => {
         res.send({success : data, data : []});
     }
 
-    con.query('select * from answer where quesnum = ?', [obj.quesnum], (error, rows, fields) => {
+    con.query('select * from answer where quesnum = ? and del = 0', [obj.quesnum], (error, rows, fields) => {
         if (error)  throw error;
         if(data!=1){
             res.send({success : data, data : rows});

@@ -2,7 +2,7 @@ const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
-exports.readleclist = (obj, res) => {
+exports.readleclist = (req, res) => {
     
     let data = 0;
     /*
@@ -11,12 +11,21 @@ exports.readleclist = (obj, res) => {
         res.send({success : data, data : []});
     }
     */
-    con.query('select * from ulecture', /*[obj.email], */(error, rows, fields) => {
-        if (error)  throw error;
-        if(data!=1){
-            res.send({success : data, data : rows});
-        }   
-    })   
+   if(req.body.sort !== '전체보기'){
+        con.query('select * from ulecture where sort = ?', [req.body.sort], (error, rows, fields) => {
+            if (error)  throw error;
+            if(data!=1){
+                res.send({success : data, data : rows});
+            }   
+        })   
+    } else {
+        con.query('select * from ulecture', [req.body.sort], (error, rows, fields) => {
+            if (error)  throw error;
+            if(data!=1){
+                res.send({success : data, data : rows});
+            }   
+        }) 
+    }
 }
 /*
     'http://localhost:3001/readleclist'

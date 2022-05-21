@@ -85,6 +85,7 @@ const CommunityView = () => {
     useEffect(() => {
         fetch('http://localhost:3001/readcommudocinfo', {
             method: "post",
+            credentials: 'include',
             headers: {
             "Content-Type": "application/json",
             },
@@ -124,6 +125,7 @@ const CommunityView = () => {
                         e.preventDefault();
                         fetch('http://localhost:3001/deldoc', {
                         method: "post",
+                        credentials: 'include',
                         headers: {
                             "Content-Type": "application/json",
                         },

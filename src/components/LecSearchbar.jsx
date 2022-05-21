@@ -40,26 +40,26 @@ const SLecSearchbarMain = styled.div `
 
 const LecSearchbar = () => {
 
-  useEffect(()=>{
-    fetch('http://localhost:3001/showlevidio', {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+  // useEffect(()=>{
+  //   fetch('http://localhost:3001/showlevidio', {
+  //       method: "POST",
+  //       headers: {
+  //       "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
        
-        title: "1",
-        content : 'gd',
-        views: 'gd',
-        data : 'gd'
-        }),
-    }).then((res)=>
-        res.json()
-    ).then(data=>{console.log(data.success);
-    if((data.success) === '1'){
-        alert('영상 재생 실패.');
-    }})
-  }, []);
+  //       title: "1",
+  //       content : 'gd',
+  //       views: 'gd',
+  //       data : 'gd'
+  //       }),
+  //   }).then((res)=>
+  //       res.json()
+  //   ).then(data=>{console.log(data.success);
+  //   if((data.success) === '1'){
+  //       alert('영상 재생 실패.');
+  //   }})
+  // }, []);
 
   return (
     <SLecSearchbarMain>

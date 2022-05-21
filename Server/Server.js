@@ -118,11 +118,11 @@ app.post('/readuserinfo', (req, res) => {
 })
 
 app.post('/readlistenlec', (req, res) => {
-  readlistenlec.readlistenlec(req.body,res);
+  readlistenlec.readlistenlec(req, res);
 })
 
 app.post('/readleclist', (req, res) => {
-  readleclist.readleclist(req.body,res);
+  readleclist.readleclist(req, res);
 })
 
 app.post('/readlecinfo', (req, res) => {
@@ -171,25 +171,29 @@ app.post('/readmyinfo', (req, res)=> {
 
 
 /*U*/
+
+
+/*D*/
 app.post('/delans', (req, res) => {
-  delans.delans(req.body,res);
+  delans.delans(req, res);
 })
 
 app.post('/delreq', (req, res) => {
-  delreq.delreq(req.body,res);
+  delreq.delreq(req, res);
 })
 
 app.post('/delrev', (req, res) => {
-  delrev.delrev(req.body,res);
+  delrev.delrev(req, res);
 })
 
 app.post('/deldoc', (req, res) => {
-  deldoc.deldoc(req.body,res);
+  deldoc.deldoc(req, res);
 })
 
 app.post('/delrep', (req, res) => {
-  delrep.delrep(req.body,res);
+  delrep.delrep(req, res);
 })
 
 
 //session
+

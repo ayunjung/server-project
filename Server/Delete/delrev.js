@@ -2,16 +2,22 @@ const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
-exports.delrev = (obj, res) => {
+exports.delrev = (req, res) => {
     
-    let data = 0;
-    if(obj.revnum == null){
-        data = 1;
-        res.send({success : data});
-    }
-    con.query('update review set del = 1 where revnum = ?', [obj.revnum], (error, rows, fields) => {
+    con.query('select writer from review where revnum = ?', [req.body.revnum], (error, rows, fields) => {
         if (error) throw error;
-        if(data!=1){res.send({success : data})};
+        if(rows.length){
+            if(rows[0].writer==req.session.sid){
+                con.query('update review set del = 1 where revnum = ?', [req.body.revnum], (error, rows, fields) => {
+                    if (error) throw error;
+                    res.send({success : 0});
+                  })
+            } else {
+                res.send({success : 1});
+            }
+        } else {
+            res.send({success : 2});
+        }
       })
 }
 /*

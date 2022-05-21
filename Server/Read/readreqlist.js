@@ -11,7 +11,7 @@ exports.readreqlist = (obj, res) => {
         res.send({success : data, data : []});
     }
     */
-        con.query('select * from question', /*[obj.docnum], */(error, rows, fields) => {
+        con.query('select * from question where del = 0', /*[obj.docnum], */(error, rows, fields) => {
             if (error)  throw error;
             if(data!=1){
                 res.send({success : data, data : rows});

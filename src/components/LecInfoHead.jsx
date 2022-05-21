@@ -60,14 +60,14 @@ const SImg = styled.img`
     height : 100%;
 `
 
-const LecInfoHead = () => {
+const LecInfoHead = ({LecData}) => {
 
   return (
     <SLecInfoHead>
         <LeftDiv><SImg src="" alt="강의사진" /></LeftDiv>
         <RightDiv>
-            <LecTitle>강의명 : 초보자를 위한 HTML{'&'}CSS 동작과 원리</LecTitle>
-            <LecMaker>강사명 : 윤지수</LecMaker>
+            <LecTitle>강의명 : {LecData.title}</LecTitle>
+            <LecMaker>강사명 : {LecData.teacher}</LecMaker>
             <LecListener>수강생 : 10706</LecListener>
             <LecMore><ListenerReview>수강생 후기</ListenerReview><Link to="/LectureVidio" style={{ textDecoration: 'none', color: 'black', display:'block' }}><SubButton>수강하기</SubButton></Link></LecMore>
         </RightDiv>

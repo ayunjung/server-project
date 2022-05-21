@@ -14,7 +14,9 @@ exports.readmyinfo = (req, res) => {
         })
     } else {
         console.log('qd');
+        res.send({success : 1, info : rows[0]});
     }
+    
 }
 
 

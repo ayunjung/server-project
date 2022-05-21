@@ -1,12 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import Pagebar from '../components/Pagebar'
+import Pagebar from './Pagebar'
 import { Link } from 'react-router-dom'
 
 const LecSmallMain = styled.div`
     display: flex;
     flex-wrap: wrap;
     width: 70%;
+    height: 480px;
     margin: 20px auto 0;
 `
 const SBicLecture = styled.div`
@@ -51,7 +52,7 @@ const Lec = ({ lec }) => {
 }
 
 
-const LecFront = ({page, setPage, limit}) => {
+const LecSortList = ({Lecsort, page, setPage, limit}) => {
 
     const offset = (page - 1) * limit;
 
@@ -64,12 +65,12 @@ const LecFront = ({page, setPage, limit}) => {
             "Content-Type": "application/json",
             },
             body : JSON.stringify({
-              sort : 'front',
+              sort : Lecsort,
             })
         }).then((res)=>
             res.json(),
         ).then(data=>{setLectureList(data.data)})
-    },[])
+    },[Lecsort])
 
     return (
         <>
@@ -85,4 +86,4 @@ const LecFront = ({page, setPage, limit}) => {
     )
 }
 
-export default LecFront
+export default LecSortList

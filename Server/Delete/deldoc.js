@@ -2,16 +2,22 @@ const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
-exports.deldoc = (obj, res) => {
+exports.deldoc = (req, res) => {
     
-    let data = 0;
-    if(obj.docnum == null){
-        data = 1;
-        res.send({success : data});
-    }
-    con.query('update doc set del = 1 where docnum = ?', [obj.docnum], (error, rows, fields) => {
+    con.query('select writer from doc where docnum = ?', [req.body.docnum], (error, rows, fields) => {
         if (error) throw error;
-        if(data!=1){res.send({success : data})};
+        if(rows.length){
+            if(rows[0].writer==req.session.sid){
+                con.query('update doc set del = 1 where docnum = ?', [req.body.docnum], (error, rows, fields) => {
+                    if (error) throw error;
+                    res.send({success : 0});
+                  })
+            } else {
+                res.send({success : 1});
+            }
+        } else {
+            res.send({success : 2});
+        }
       })
 }
 /*

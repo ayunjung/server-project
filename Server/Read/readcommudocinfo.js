@@ -12,7 +12,7 @@ exports.readcommudocinfo = (obj, res) => {
                 if (error)  throw error;
             })
             res.send({success : data, data : rows[0]});
-        }  
+        }
     })
     return 0;
 }

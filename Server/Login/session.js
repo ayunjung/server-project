@@ -6,11 +6,9 @@ exports.login = (req, res) => {
     let email = req.body.email;
     let password = req.body.password
     con.query('select * from user where email = ?', [email], (error, rows, fields) => {
-        if (error) throw error;
         if(rows.length){
             if(rows[0].email == email) {
                 con.query('select password from user where email = ?', [email], (error, rows, fields) => {
-                    if (error) throw error;
                     if(rows[0].password == password) {
                         req.session.logined=true;
                         req.session.sid=email;
@@ -34,10 +32,11 @@ exports.logout = (req, res) => {
         req.session.destroy((err) => {
             console.log('정상 로그아웃!');
             res.clearCookie('connect.sid');
-            res.send({'success' : 0})
+            res.send({'success' : 0});
         })
     } else {
-        console.log('로그아웃 실패!')
-        res.send({'success' : 1})
+        console.log('정상 로그아웃 실패!');
+        res.clearCookie('connect.sid');
+        res.send({'success' : 1});
     }
 }

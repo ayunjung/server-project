@@ -11,12 +11,12 @@ exports.readcommulist = (obj, res) => {
         res.send({success : data, data : []});
     }*/
     
-        con.query('select * from doc',/* [obj.ulecnum, obj.slecnum], */ (error, rows, fields) => {
+        con.query('select * from doc where del = 0',/* [obj.ulecnum, obj.slecnum], */ (error, rows, fields) => {
             if (error)  throw error;
             if(data!=1){
                 res.send({success : data, data : rows});
-            }  
-        })   
+            } 
+        })
     return 0;
 }
 

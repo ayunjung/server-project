@@ -26,7 +26,7 @@ function App() {
                 <Route exact path="/CommunityPage"><CommunityPage/></Route>
                 <Route exact path="/CommunityView/:communum"><CommunityView/></Route>
                 <Route exact path="/CommunityWrite"><CommunityWrite/></Route>
-                <Route exact path="/LectureList"><LectureList/></Route>
+                <Route exact path="/LectureList/:sort"><LectureList/></Route>
                 <Route exact path="/LectureMain"><LectureMain/></Route>
                 <Route exact path="/LectureVidio"><LectureVidio/></Route>
                 <Route exact path="/LectureView/:lecnum"><LectureView/></Route>

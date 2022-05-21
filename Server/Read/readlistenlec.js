@@ -2,19 +2,19 @@ const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
-exports.readlistenlec = (obj, res) => {
+exports.readlistenlec = (req, res) => {
     
     let data = 0;
-    if(obj.email == null){
+    if(req.session.logined !== true ){
         data = 1;
         res.send({success : data, data : []});
     }
     
-    con.query('select * from ulecture where ulecnum in (select ulecnum from listen where email = ?)', [obj.email], (error, rows, fields) => {
+    con.query('select * from ulecture where ulecnum in (select ulecnum from listen where email = ?)', [req.session.sid], (error, rows, fields) => {
         if (error) throw error;
         if(data!=1){
             res.send({success : data, data : rows});
-        }   
+        }
       })
 
       

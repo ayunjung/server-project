@@ -10,11 +10,10 @@ exports.readreply = (obj, res) => {
         data = 1;
         res.send({success : data, data : []});
     }
-    
-        con.query('select * from reply where docnum = ?', [obj.docnum], (error, rows, fields) => {
+        con.query('select * from reply where docnum = ? and del = 0', [obj.docnum], (error, rows, fields) => {
             if (error)  throw error;
             if(data!=1){
-                res.send({su1ccess : data, data : rows});
+                res.send({success : data, data : rows});
             }  
         })   
     return 0;
