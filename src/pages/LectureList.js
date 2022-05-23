@@ -36,7 +36,7 @@ function LectureList() {
             <Topbar />
             <LectureMain>
                 <LecPageleft>
-                    <LectureField Lecsort={Lecsort} LecsortHandler={onLecsortHandler}/>
+                    <LectureField sort={sort} Lecsort={Lecsort} LecsortHandler={onLecsortHandler}/>
                 </LecPageleft>
                 <LecPageright>
                     <LecSearchbar />

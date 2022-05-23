@@ -1,5 +1,4 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Select = styled.select `
@@ -8,12 +7,10 @@ const Select = styled.select `
     border-radius : 5px;
 `
 
-const LectureField = ({Lecsort, LecsortHandler}) => {
-
-    const { sort } = useParams();
+const LectureField = ({sort, Lecsort, LecsortHandler}) => {
 
     return (
-        <Select name="array" value={Lecsort} onChange={LecsortHandler} defaultValue={sort}>
+        <Select value={Lecsort} onChange={LecsortHandler} key={sort} defaultValue={sort}>
             <option value="웹개발">웹개발</option>
             <option value="프론트엔드">프론트엔드</option>
             <option value="백엔드">백엔드</option>

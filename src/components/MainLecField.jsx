@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const LecFieldMain = styled.div `
     width: 400px;
-    height: 200px;
+    height: 50px;
 `
 const LecFieldTitle = styled.div `
     width: 400px;
@@ -28,35 +28,35 @@ const Textdiv = styled.div`
     font-size: 20px;
     font-weight: 500;
 `
-const LecFieldContents = styled.div `
-    width: 400px;
-    height: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px 0;
-`
-const LecDiv = styled.div `
-    width: 100px;
-    height: 120px;
-    margin: 10px auto;
-`
-const Lecimage = styled.div `
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 800;
-    color: white;
-`
-const LName = styled.div `
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-`
+// const LecFieldContents = styled.div `
+//     width: 400px;
+//     height: 100px;
+//     display: flex;
+//     flex-wrap: wrap;
+//     margin: 10px 0;
+// `
+// const LecDiv = styled.div `
+//     width: 100px;
+//     height: 120px;
+//     margin: 10px auto;
+// `
+// const Lecimage = styled.div `
+//     width: 100px;
+//     height: 100px;
+//     line-height: 100px;
+//     text-align: center;
+//     font-size: 18px;
+//     font-weight: 800;
+//     color: white;
+// `
+// const LName = styled.div `
+//     width: 100px;
+//     height: 30px;
+//     line-height: 30px;
+//     text-align: center;
+//     font-size: 20px;
+//     font-weight: 700;
+// `
 
 const MainLecField = ({name}) => {
 
