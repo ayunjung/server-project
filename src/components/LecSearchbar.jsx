@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import { BsSearch } from "react-icons/bs";
 
@@ -11,7 +11,7 @@ const Searchbar = styled.div `
   margin-left: 80px;
 `
 
-const Icondiv = styled.button `
+const Icondiv = styled.div `
   background : #cacaca;
   height : 100%;
   width : 50px;
@@ -38,36 +38,13 @@ const SLecSearchbarMain = styled.div `
   display : flex;
 `
 
-const LecSearchbar = () => {
-
-  // useEffect(()=>{
-  //   fetch('http://localhost:3001/showlevidio', {
-  //       method: "POST",
-  //       headers: {
-  //       "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-       
-  //       title: "1",
-  //       content : 'gd',
-  //       views: 'gd',
-  //       data : 'gd'
-  //       }),
-  //   }).then((res)=>
-  //       res.json()
-  //   ).then(data=>{console.log(data.success);
-  //   if((data.success) === '1'){
-  //       alert('영상 재생 실패.');
-  //   }})
-  // }, []);
+const LecSearchbar = ({handleSearch}) => {
 
   return (
     <SLecSearchbarMain>
       <Searchbar>
-        <Icondiv type='submit'>
-          <BsSearch size="30"/>
-        </Icondiv>
-        <Input type="Search" />
+        <Icondiv><BsSearch size="30"/></Icondiv>
+        <Input type="search" onChange={(e) => handleSearch(e)}/>
       </Searchbar>
       <Select name="array">
         <option value="">조회순</option>

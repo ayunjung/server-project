@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsSearch } from "react-icons/bs";
 
-const SearchDiv = styled.form`
+const SearchDiv = styled.div`
     width : 400px;
     height : 50px;
     border : 1px solid #999;
