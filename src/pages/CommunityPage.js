@@ -32,9 +32,11 @@ const CommunityList = styled.div`
 `
 
 function CommunityPage() {
+
     let history = useHistory();
 
     const [CommuList, setCommuList] = useState([]);
+    const [filteredData,setFilteredData] = useState(CommuList);
     const [page, setPage] = useState(1);
     const [LoginState,setLoginState] = useState("");
 
@@ -45,6 +47,15 @@ function CommunityPage() {
             setLoginState(response.data.session.logined)
     })
 
+    const handleSearch = (e) => {
+        let val = e.target.value.toLowerCase();
+        let result = [];
+        result = CommuList.filter((data) => {
+            return data.title.toLowerCase().search(val) !== -1;
+        });
+        setFilteredData(result);
+    }
+
     useEffect(()=>{
         fetch('http://localhost:3001/readcommulist', {
             method: "post",
@@ -53,7 +64,9 @@ function CommunityPage() {
             },
         }).then((res)=>
             res.json(),
-        ).then(data=>{setCommuList(data.data)})
+        ).then(data=>{
+            setCommuList(data.data)
+            setFilteredData(data.data)})
     },[])
 
 
@@ -70,9 +83,9 @@ function CommunityPage() {
                             history.push("/LoginPopupPage")
                         }}}>글쓰기</WriteBtn>
                 </CommunityHead>
-                <Searchbar />
-                <CommunityList><Community CommuList={CommuList} page={page} limit={7}/></CommunityList>
-                <Pagebar total={CommuList.length} page={page} setPage={setPage} limit={7}/>
+                <Searchbar handleSearch={handleSearch}/>
+                <CommunityList><Community filteredData={filteredData} page={page} limit={7}/></CommunityList>
+                <Pagebar total={filteredData.length} page={page} setPage={setPage} limit={7}/>
             </CommunityMain>
         </div>
     );

@@ -36,6 +36,7 @@ function QuestionPage() {
     let history = useHistory();
 
     const [QueList, setQueList] = useState([]);
+    const [filteredData,setFilteredData] = useState(QueList);
     const [page, setPage] = useState(1);
     const [LoginState,setLoginState] = useState("");
 
@@ -46,6 +47,15 @@ function QuestionPage() {
             setLoginState(response.data.session.logined)
     })
 
+    const handleSearch = (e) => {
+        let val = e.target.value.toLowerCase();
+        let result = [];
+        result = QueList.filter((data) => {
+            return data.title.toLowerCase().search(val) !== -1;
+        });
+        setFilteredData(result);
+    }
+
     useEffect(()=>{
         fetch('http://localhost:3001/readreqlist', {
             method: "post",
@@ -54,7 +64,9 @@ function QuestionPage() {
             },
         }).then((res)=>
             res.json(),
-        ).then(data=>{setQueList(data.data)})
+        ).then(data=>{
+            setQueList(data.data)
+            setFilteredData(data.data)})
     },[])
 
     return (
@@ -70,9 +82,9 @@ function QuestionPage() {
                             history.push("/LoginPopupPage")
                         }}}>글쓰기</WriteBtn>
                 </QuestionHead>
-                <Searchbar />
-                <QuestionList><Question QueList={QueList} page={page} limit={7}/></QuestionList>
-                <Pagebar total={QueList.length} page={page} setPage={setPage} limit={7}/>
+                <Searchbar handleSearch={handleSearch}/>
+                <QuestionList><Question filteredData={filteredData} page={page} limit={7}/></QuestionList>
+                <Pagebar total={filteredData.length} page={page} setPage={setPage} limit={7}/>
             </QuestionMain>
         </div>
     );
