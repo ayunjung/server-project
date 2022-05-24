@@ -28,35 +28,6 @@ const Textdiv = styled.div`
     font-size: 20px;
     font-weight: 500;
 `
-// const LecFieldContents = styled.div `
-//     width: 400px;
-//     height: 100px;
-//     display: flex;
-//     flex-wrap: wrap;
-//     margin: 10px 0;
-// `
-// const LecDiv = styled.div `
-//     width: 100px;
-//     height: 120px;
-//     margin: 10px auto;
-// `
-// const Lecimage = styled.div `
-//     width: 100px;
-//     height: 100px;
-//     line-height: 100px;
-//     text-align: center;
-//     font-size: 18px;
-//     font-weight: 800;
-//     color: white;
-// `
-// const LName = styled.div `
-//     width: 100px;
-//     height: 30px;
-//     line-height: 30px;
-//     text-align: center;
-//     font-size: 20px;
-//     font-weight: 700;
-// `
 
 const MainLecField = ({name}) => {
 
@@ -68,11 +39,6 @@ const MainLecField = ({name}) => {
                     <Textdiv>{name}</Textdiv>
                 </LecFieldTitle>
             </Link>
-            {/* <LecFieldContents>
-                <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub1}</Lecimage><LName>{props.sub1}</LName></LecDiv></Link>
-                <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub2}</Lecimage><LName>{props.sub2}</LName></LecDiv></Link>
-                <Link to="/LectureList" style={{ textDecoration: 'none', color: 'black', display: 'block', margin: 'auto' }}><LecDiv><Lecimage style = {{backgroundColor: props.color}}>{props.sub3}</Lecimage><LName>{props.sub3}</LName></LecDiv></Link>
-            </LecFieldContents> */}
         </LecFieldMain>
     )
 }
