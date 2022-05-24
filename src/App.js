@@ -38,7 +38,7 @@ function App() {
                 <Route exact path="/QuestionView/:quesnum"><QuestionView/></Route>
                 <Route exact path="/QuestionWrite"><QuestionWrite/></Route>
                 <Route exact path="/RegisterPage"><RegisterPage/></Route>
-                <Route path="/"><LoginPage/></Route>
+                <Route path="/"><MainPage/></Route>
             </Switch>
         </Router>
     );

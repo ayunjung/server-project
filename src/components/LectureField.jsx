@@ -11,6 +11,7 @@ const LectureField = ({sort, Lecsort, LecsortHandler}) => {
 
     return (
         <Select value={Lecsort} onChange={LecsortHandler} key={sort} defaultValue={sort}>
+            <option value="전체보기">전체보기</option>
             <option value="웹개발">웹개발</option>
             <option value="프론트엔드">프론트엔드</option>
             <option value="백엔드">백엔드</option>

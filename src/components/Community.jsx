@@ -51,7 +51,7 @@ const Commu = ({ commu }) => {
 }
 
 
-const Community = ({CommuList, page, limit}) => {
+const Community = ({filteredData, page, limit}) => {
 
     const offset = (page - 1) * limit;
 
@@ -66,7 +66,7 @@ const Community = ({CommuList, page, limit}) => {
                 <CommunityElement>조회수</CommunityElement>
             </Communitytop>
             <CommunityMain>
-                {Array.from(CommuList.slice(offset, offset + limit)).map(commu => {
+                {Array.from(filteredData.slice(offset, offset + limit)).map(commu => {
                     return (
                         <Commu commu={commu} key={commu.docnum}/>
                     )

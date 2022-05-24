@@ -50,7 +50,7 @@ const Que = ({ que }) => {
     )
 }
 
-const Question = ({QueList, page, limit}) => {
+const Question = ({filteredData, page, limit}) => {
 
     const offset = (page - 1) * limit;
 
@@ -65,7 +65,7 @@ const Question = ({QueList, page, limit}) => {
                 <QuestionElement>조회수</QuestionElement>
             </Questiontop>
             <QuestionMain>
-                {Array.from(QueList.slice(offset, offset + limit)).map(que => {
+                {Array.from(filteredData.slice(offset, offset + limit)).map(que => {
                     return (
                         <Que que={que} key={que.quesnum}/>
                     )
