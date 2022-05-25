@@ -69,6 +69,7 @@ const readreqinfo = require('./Read/readreqinfo');
 const readanslist = require('./Read/readanslist');
 const readrevlist = require('./Read/readrevlist');
 const readmyinfo = require('./Read/readmyinfo');
+const readusercertifi = require('./Read/readusercertifi')
 
 //D
 const delans = require('./Delete/delans');
@@ -167,6 +168,10 @@ app.post('/readrevlist', (req, res) => {
 
 app.post('/readmyinfo', (req, res)=> {
   readmyinfo.readmyinfo(req, res);
+})
+
+app.post('/readusercertifi', (req, res) => {
+  readusercertifi.readusercertifi(req, res);
 })
 
 

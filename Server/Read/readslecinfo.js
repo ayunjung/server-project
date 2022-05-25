@@ -2,20 +2,13 @@ const MysqlInfo  = require('../mysqlConnect');
 const mysql = require('mysql');
 const con = mysql.createConnection(MysqlInfo.MysqlInfo);
 
-exports.readslecinfo = (obj, res) => {
-    
-    let data = 0;
-    
-    if(obj.slecnum == null){
-        data = 1;
-        res.send({success : data, data : []});
-    }
-    
+exports.readslecinfo = (obj, res) => {    
         con.query('select * from slecture where slecnum = ?', [obj.slecnum], (error, rows, fields) => {
             if (error)  throw error;
-            if(data!=1){
-                res.send({success : data, data : rows[0]});
-            }  
+            let lastviews = rows[0].views;
+            con.query('UPDATE slecture SET views = ? where slecnum = ?;', [lastviews+1, obj.slecnum], (error, rows, fields) => {
+                    res.send({success : 0, data : rows[0]});
+            })
         })   
     return 0;
 }
