@@ -53,6 +53,7 @@ const makerep = require('./Create/makerep');
 const makereq = require('./Create/makereq');
 const makeans = require('./Create/makeans');
 const makerev = require('./Create/makerev');
+const addCertifi = require('./Create/addCertifi')
 
 //R
 const readuserinfo = require('./Read/userinfo');
@@ -69,7 +70,15 @@ const readreqinfo = require('./Read/readreqinfo');
 const readanslist = require('./Read/readanslist');
 const readrevlist = require('./Read/readrevlist');
 const readmyinfo = require('./Read/readmyinfo');
-const readusercertifi = require('./Read/readusercertifi')
+const readusercertifi = require('./Read/readusercertifi');
+
+//U
+const updatedoc = require('./Update/updatedoc');
+const updaterep = require('./Update/updaterep');
+const updatereq = require('./Update/updatereq');
+const updateans = require('./Update/updateans');
+const updaterev = require('./Update/updaterev');
+const updateuserinfo = require('./Update/updateuserinfo');
 
 //D
 const delans = require('./Delete/delans');
@@ -77,6 +86,7 @@ const deldoc = require('./Delete/deldoc');
 const delrep = require('./Delete/delrep');
 const delreq = require('./Delete/delreq');
 const delrev = require('./Delete/delrev');
+const delcert = require('./Delete/delcert')
 
 app.get('/', (req, res)=>{
   console.log(req.session);
@@ -111,6 +121,10 @@ app.post('/makeans', (req, res) => {
 
 app.post('/makerev', (req, res) => {
   makerev.makerev(req.body,res);
+})
+
+app.post('/addCertifi', (req, res) => {
+  addCertifi.addCertifi(req.body, res);
 })
 
 /*R*/
@@ -176,7 +190,29 @@ app.post('/readusercertifi', (req, res) => {
 
 
 /*U*/
+app.post('/updatedoc', (req, res) =>{
+  updatedoc.updatedoc(req, res);
+})
 
+app.post('/updaterep', (req, res) =>{
+  updaterep.updaterep(req, res);
+})
+
+app.post('/updatereq', (req, res) =>{
+  updatereq.updatereq(req, res);
+})
+
+app.post('/updateans', (req, res) =>{
+  updateans.updateans(req, res);
+})
+
+app.post('/updaterev', (req, res) =>{
+  updaterev.updaterev(req, res);
+})
+
+app.post('/updateuserinfo', (req, res) =>{
+  updateuserinfo.updateuserinfo(req, res);
+})
 
 /*D*/
 app.post('/delans', (req, res) => {
@@ -199,6 +235,9 @@ app.post('/delrep', (req, res) => {
   delrep.delrep(req, res);
 })
 
+app.post('/delcert', (req, res) => {
+  delcert.delCertifi(req.body, res);
+})
 
 //session
 

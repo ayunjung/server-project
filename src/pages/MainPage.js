@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Topbar from '../components/Topbar';
-import Searchbar from '../components/Searchbar';
 import BestUser from '../components/BestUser';
 import BestLecturer from '../components/BestLecturer';
 import MainLecField from '../components/MainLecField';
@@ -26,7 +25,6 @@ function MainPage() {
         <div>
             <Topbar />
             <LecMaindiv>
-                <Searchbar />
                 <LecMain>
                     <LecMainleft>
                         <MainLecField name="웹개발" />

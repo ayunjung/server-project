@@ -276,35 +276,28 @@ const Addinfo = styled.div`
     line-height: 70px;
 `
 const License = styled.div`
-    width: 600px;
+    width: 400px;
     height: 180px;
     border: 1px solid #999;
     margin: 20px 0 10px;
 `
 const Licensetop = styled.div`
-    display: flex;
-    overflow: auto;
     width: 100%;
     height: 30px;
     border-bottom: 2px solid #999;
-`
-const LicenseNum = styled.div`
-    width: 20%;
+    font-size: 20px;
     text-align: center;
-`
-const LicenseElement = styled.div`
-    width: 40%;
-    text-align: center;
-    font-size: 18px;
 `
 const LicenseMain = styled.ul`
     width: 600px;
     height: 150px; 
     padding: 0;
     margin: 0;
+    font-size: 18px;
+    text-align: center;
     overflow: auto;
 `
-const LicenseList = styled.li`
+const LicenseLi = styled.li`
     display: flex;
     height : 40px;
     border-bottom : 1px solid #999;
@@ -351,6 +344,7 @@ const UserInfo = () => {
 
     const [Userinfo, setUserinfo] = useState({});
     const [Email,setEmail] = useState("");
+    const [Certificate, setCertificate] = useState("");
 
     axios.defaults.withCredentials = true;
 
@@ -362,10 +356,10 @@ const UserInfo = () => {
     // useEffect(() => {
     //     axios.post('http://localhost:3001/readmyinfo', {
     //         params: {
-    //             email: LoginCookie,
+    //             email: Email,
     //         }
     //     }).then(res=>{setUserinfo(res.data.info)})
-    // },[LoginCookie])
+    // },[Email])
 
     useEffect(() => {
         fetch('http://localhost:3001/readmyinfo', {
@@ -382,6 +376,23 @@ const UserInfo = () => {
         ).then(data=>{setUserinfo(data.info)})
     },[Email])
     
+    useEffect(() => {
+        fetch('http://localhost:3001/readusercertifi', {
+            method: "post",
+            credentials: 'include',
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email:  Email,
+            })
+        }).then((res)=>
+            res.json(),
+        ).then(data=>{
+            setCertificate(data.data)
+            console.log(Certificate)})
+    },[Email])
+    
     return (
         <Userdiv>
             <Maindiv>
@@ -391,37 +402,13 @@ const UserInfo = () => {
                     <Basicinfo>생년월일 : {Userinfo.birth}</Basicinfo>
                     <Basicinfo>직업 : {Userinfo.job}</Basicinfo>
                     <License>
-                        <Licensetop>
-                            <LicenseNum>No.</LicenseNum>
-                            <LicenseElement>자격증</LicenseElement>
-                            <LicenseElement>관련 수강 강의</LicenseElement>
-                        </Licensetop>
+                        <Licensetop>자격증</Licensetop>
                         <LicenseMain>
-                            <LicenseList>
-                                <LicenseNum>1</LicenseNum>
-                                <LicenseElement>정보처리기사</LicenseElement>
-                                <LicenseElement></LicenseElement>                               
-                            </LicenseList>
-                            <LicenseList>
-                                <LicenseNum>2</LicenseNum>
-                                <LicenseElement>전기기사</LicenseElement>
-                                <LicenseElement></LicenseElement>                               
-                            </LicenseList>
-                            <LicenseList>
-                                <LicenseNum>3</LicenseNum>
-                                <LicenseElement>포토샵 기능사</LicenseElement>
-                                <LicenseElement></LicenseElement>                               
-                            </LicenseList>
-                            <LicenseList>
-                                <LicenseNum>4</LicenseNum>
-                                <LicenseElement>AWS certified Cloud Practitioner</LicenseElement>
-                                <LicenseElement>AWS 끝내기</LicenseElement>                               
-                            </LicenseList>
-                            <LicenseList>
-                                <LicenseNum>5</LicenseNum>
-                                <LicenseElement>컴퓨터 활용 능력 1급</LicenseElement>
-                                <LicenseElement>엑셀/엑세스 정리</LicenseElement>                               
-                            </LicenseList>
+                            {/* {Array.from(Certificate).map(license => {
+                                return (
+                                    <LicenseLi>{license.certificate}</LicenseLi>
+                                )
+                            })} */}
                         </LicenseMain>
                     </License>
                     <Addinfo>
